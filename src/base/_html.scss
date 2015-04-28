@@ -1,0 +1,17 @@
+// Global CSS goes here
+
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 16px;
+	line-height: 1.6;
+}
+
+@for $i from 1 through 6 {
+	h#{$i} {
+		margin: 0;
+		line-height: 1.1;
+	}
+}
