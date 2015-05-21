@@ -10,11 +10,17 @@ var gulp = require('gulp'),
   minifycss = require('gulp-minify-css'),
   uglify = require('gulp-uglify');
 
+// gulp.task('browser-sync', function() {
+//   browserSync({
+//     server: {
+//        baseDir: "./"
+//     }
+//   });
+// });
+
 gulp.task('browser-sync', function() {
   browserSync({
-      server: {
-          baseDir: "./"
-      }
+    proxy: "localhost"
   });
 });
 
@@ -52,7 +58,7 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('default', ['browser-sync'], function () {
-  gulp.watch("src/**/*.scss", ['styles']);
-  gulp.watch("src/**/*.js", ['scripts']);
-  gulp.watch("*.html", ['bs-reload']);
+  gulp.watch("src/**/*.scss", ['styles','bs-reload']);
+  gulp.watch("src/**/*.js", ['scripts','bs-reload']);
+  gulp.watch("*.php", ['bs-reload']);
 });
