@@ -1,3 +1,5 @@
+<?php
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -25,33 +27,43 @@
 	</nav>
 </header>
 <section class="cols contained">
-	<div class="col md6 xl4"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<div class="col md6 xl4">
+		<h2>Headline One</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-	<div class="col md6 xl4"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<div class="col md6 xl4">
+		<h2>Headline Two</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-	<div class="col md6 xl4"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<div class="col md6 xl4">
+		<h2>Headline Three</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
-	<div class="col md6 xl12"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+	<div class="col md6 xl12">
+		<h2>Headline Four</h2>
+		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
 	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
 	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
 	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p></div>
 </section>
-<footer class="site-footer">
-	&copy;2015
+<footer class="site-footer cols contained">
+	<div class="col xl12">
+		&copy;2015
+	</div>
 </footer>
 	<script src="js/main.min.js"></script>
 </body>
