@@ -2,8 +2,9 @@
 
 1. git clone https://github.com/geoffyuen/hotplate-edge.github
 2. npm install
-3. gulp
-4. Profit!
+3. edit gulpfile.js browsersync proxy
+4. gulp
+5. Profit!
 
 ## Gulp Includes:
 

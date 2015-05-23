@@ -1,20 +1,20 @@
 var 
-  autoprefixer = require('gulp-autoprefixer'),
-  browserSync  = require('browser-sync'),
-  cache        = require('gulp-cache'),
-  concat       = require('gulp-concat'),
-  gulp         = require('gulp'),
-  gutil        = require('gulp-util'),
-  imagemin     = require('gulp-imagemin'),
-  minifycss    = require('gulp-minify-css'),
-  notify       = require("gulp-notify"),
-  pixrem       = require("gulp-pixrem"),
-  plumber      = require('gulp-plumber'),
-  rename       = require('gulp-rename'),
-  sass         = require('gulp-sass'),
-  sourcemaps   = require('gulp-sourcemaps'),
-  uglify       = require('gulp-uglify')
-  ;
+autoprefixer = require('gulp-autoprefixer'),
+browserSync  = require('browser-sync'),
+cache        = require('gulp-cache'),
+concat       = require('gulp-concat'),
+gulp         = require('gulp'),
+gutil        = require('gulp-util'),
+imagemin     = require('gulp-imagemin'),
+minifycss    = require('gulp-minify-css'),
+notify       = require("gulp-notify"),
+pixrem       = require("gulp-pixrem"),
+plumber      = require('gulp-plumber'),
+rename       = require('gulp-rename'),
+sass         = require('gulp-sass'),
+sourcemaps   = require('gulp-sourcemaps'),
+uglify       = require('gulp-uglify')
+;
 
 // gulp.task('browser-sync', function() {
 //   browserSync({
@@ -26,48 +26,51 @@ var
 
 gulp.task('browser-sync', function() {
   browserSync({
-    proxy: "localhost"
+    proxy: "localhost/cc"
   });
 });
 
 gulp.task('styles', function(){
   gulp.src(['src/**/*.scss'])
-    .pipe(plumber({
-      errorHandler: function (error) {
-        console.log(error.message);
-        this.emit('end');
+  .pipe(plumber({
+    errorHandler: function (error) {
+      console.log(error.message);
+      this.emit('end');
     }}))
-    .pipe(sourcemaps.init())
-    .pipe(sass())
-    .on('error', gutil.log)
-    .pipe(pixrem())
-    .on('error', gutil.log)
-    .pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
-    .on('error', gutil.log)
-    //.pipe(gulp.dest('./'))
-    //.pipe(rename({suffix: '.min'}))
-    // .pipe(minifycss())
-    .pipe(sourcemaps.write())
-    .pipe(gulp.dest('./'))
-    .pipe(browserSync.reload({stream:true}))
+  .pipe(sourcemaps.init())
+  .pipe(sass())
+  .on('error', gutil.log)
+  .pipe(pixrem())
+  .on('error', gutil.log)
+  .pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
+  .on('error', gutil.log)
+  //.pipe(gulp.dest('./'))
+  //.pipe(rename({suffix: '.min'}))
+  //.pipe(minifycss())
+  .pipe(sourcemaps.write())
+  .pipe(gulp.dest('./'))
+  .pipe(browserSync.reload({stream:true}))
+  .pipe(notify("Styles done."))
 });
 
 gulp.task('img', function(){
   gulp.src('src/img/**/*')
-    .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('img/'))
+  .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+  .pipe(gulp.dest('img/'))
+  .pipe(notify("Images optimized."))
 });
 
 gulp.task('scripts', function(){
   return gulp.src('src/**/*.js')
-    .pipe(concat('main.js'))
-    .on('error', gutil.log)
-    .pipe(gulp.dest('js/'))
-    .pipe(rename({suffix: '.min'}))
-    .pipe(uglify())
-    .on('error', gutil.log)
-    .pipe(gulp.dest('js/'))
-    .pipe(browserSync.reload({stream:true}))
+  .pipe(concat('main.js'))
+  .on('error', gutil.log)
+  .pipe(gulp.dest('js/'))
+  .pipe(rename({suffix: '.min'}))
+  .pipe(uglify())
+  .on('error', gutil.log)
+  .pipe(gulp.dest('js/'))
+  .pipe(browserSync.reload({stream:true}))
+  .pipe(notify("js squished."))
 });
 
 gulp.task('bs-reload', function () {

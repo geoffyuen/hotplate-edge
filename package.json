@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Matt Modrowski",
+  "author": "Geoff Yuen",
   "license": "ISC",
   "devDependencies": {
     "browser-sync": "^2.6.4",
@@ -16,8 +16,12 @@
     "gulp-concat": "^2.5.2",
     "gulp-imagemin": "^2.2.1",
     "gulp-minify-css": "^1.0.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-pixrem": "^0.2.3",
+    "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^1.3.3",
+    "gulp-sourcemaps": "^1.5.2",
     "gulp-uglify": "^1.2.0",
     "gulp-util": "^3.0.4"
   }
