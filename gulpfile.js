@@ -39,7 +39,7 @@ gulp.task('styles', function(){
 gulp.task('img', function(){
   gulp.src('src/img/**/*')
     .pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-    .pipe(gulp.dest('img/'));
+    .pipe(gulp.dest('img/'))
 });
 
 gulp.task('scripts', function(){
@@ -59,7 +59,8 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('default', ['browser-sync'], function () {
-  gulp.watch("src/**/*.scss", ['styles','bs-reload']);
+  gulp.watch("src/**/*.scss", ['styles']);
   gulp.watch("src/**/*.js", ['scripts','bs-reload']);
-  gulp.watch("*.php", ['bs-reload']);
+  gulp.watch("src/img/**/*", ['img','bs-reload']);
+  gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
 });

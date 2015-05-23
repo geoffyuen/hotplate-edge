@@ -28,7 +28,7 @@
 </header>
 <section class="cols contained">
 	<div class="col md6 xl4">
-		<h2>Headline One</h2>
+		<h2>Browsersync is wicked awesome</h2>
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
 	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
