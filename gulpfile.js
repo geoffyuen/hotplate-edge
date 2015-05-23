@@ -7,9 +7,14 @@ var
   gutil        = require('gulp-util'),
   imagemin     = require('gulp-imagemin'),
   minifycss    = require('gulp-minify-css'),
+  notify       = require("gulp-notify"),
+  pixrem       = require("gulp-pixrem"),
+  plumber      = require('gulp-plumber'),
   rename       = require('gulp-rename'),
   sass         = require('gulp-sass'),
-  uglify       = require('gulp-uglify');
+  sourcemaps   = require('gulp-sourcemaps'),
+  uglify       = require('gulp-uglify')
+  ;
 
 // gulp.task('browser-sync', function() {
 //   browserSync({
@@ -27,11 +32,22 @@ gulp.task('browser-sync', function() {
 
 gulp.task('styles', function(){
   gulp.src(['src/**/*.scss'])
+    .pipe(plumber({
+      errorHandler: function (error) {
+        console.log(error.message);
+        this.emit('end');
+    }}))
+    .pipe(sourcemaps.init())
     .pipe(sass())
     .on('error', gutil.log)
-    .pipe(autoprefixer('last 2 versions'))
+    .pipe(pixrem())
     .on('error', gutil.log)
+    .pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
+    .on('error', gutil.log)
+    //.pipe(gulp.dest('./'))
+    //.pipe(rename({suffix: '.min'}))
     // .pipe(minifycss())
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('./'))
     .pipe(browserSync.reload({stream:true}))
 });
