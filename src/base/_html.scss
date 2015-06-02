@@ -7,6 +7,22 @@
 html {
 	font-size: 16px;
 	line-height: 1.6;
+	color: #888;
+	background: #000;
+	a {
+		&:link {
+			color: #ddd;
+		}
+		&:visited {
+			color: #777;
+		}
+		&:hover {
+			color: #eee;
+		}
+		&:active {
+			color: #fff;
+		}
+	}
 }
 
 @for $i from 1 through 6 {

@@ -1,4 +1,4 @@
-var 
+var
 autoprefixer = require('gulp-autoprefixer'),
 browserSync  = require('browser-sync'),
 cache        = require('gulp-cache'),
@@ -13,20 +13,25 @@ plumber      = require('gulp-plumber'),
 rename       = require('gulp-rename'),
 sass         = require('gulp-sass'),
 sourcemaps   = require('gulp-sourcemaps'),
+shell        = require('gulp-shell'),
 uglify       = require('gulp-uglify')
 ;
 
-// gulp.task('browser-sync', function() {
-//   browserSync({
-//     server: {
-//        baseDir: "./"
-//     }
-//   });
-// });
+//gulp.task('sublime', shell.task([
+//  'subl .'
+//]))
 
 gulp.task('browser-sync', function() {
 	browserSync({
-		proxy: "localhost/cc"
+		server: {
+			baseDir: "./"
+		}
+	});
+});
+
+gulp.task('browser-sync', function() {
+	browserSync({
+		proxy: "localhost/project-starter"
 	});
 });
 
@@ -46,8 +51,8 @@ gulp.task('styles', function(){
 	.on('error', gutil.log)
 	//.pipe(gulp.dest('./'))
 	//.pipe(rename({suffix: '.min'}))
-	//.pipe(minifycss())
-	.pipe(sourcemaps.write())
+	.pipe(minifycss())
+	.pipe(sourcemaps.write('./src'))
 	.pipe(gulp.dest('./'))
 	.pipe(browserSync.reload({stream:true}))
 	.pipe(notify("Styles done."))
@@ -78,6 +83,13 @@ gulp.task('bs-reload', function () {
 });
 
 gulp.task('default', ['browser-sync'], function () {
+	gulp.watch("src/**/*.scss", ['styles']);
+	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
+	gulp.watch("src/img/**/*", ['img','bs-reload']);
+	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
+});
+
+gulp.task('s', ['sublime', 'browser-sync'], function () {
 	gulp.watch("src/**/*.scss", ['styles']);
 	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
 	gulp.watch("src/img/**/*", ['img','bs-reload']);
