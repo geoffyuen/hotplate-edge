@@ -7,8 +7,7 @@
 html {
 	@extend %lighttheme;
 	background: #fff;
-	font-size: $hp-basefontsize;
-	line-height: 1.6;
+	font: 200 #{$hp-basefontsize}/1.6 "helvetica neue", sans-serif;
 }
 
 
