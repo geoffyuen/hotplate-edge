@@ -13,5 +13,9 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "modernizr": "~2.8.3",
+    "respondJS": "~1.4.2"
+  }
 }

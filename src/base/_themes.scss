@@ -1,0 +1,45 @@
+%lighttheme {
+	color: #444;
+	a {
+		&:link, &:visited {
+			color: #006;
+		}
+		&:hover {
+			color: #00f;
+		}
+		&:active {
+			color: #00f;
+		}
+	}
+
+	input {
+		color: currentColor;
+	}
+
+	* {
+		border-color: #eee;
+	}
+}
+
+%darktheme {
+	color: #fff;
+	a {
+		&:link, &:visited {
+			color: #ff6;
+		}
+		&:hover {
+			color: #fff;
+		}
+		&:active {
+			color: #fff;
+		}
+	}
+
+	input {
+		color: currentColor;
+	}
+
+	* {
+		border-color: #444;
+	}
+}

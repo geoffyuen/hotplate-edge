@@ -1,0 +1,17 @@
+.site-header, .site-footer {
+	@extend %darktheme;
+	background: #333;
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
+
+.site-footer {
+	[class^="col-"] {
+		font-size: .8rem;
+	}
+}
+
+.page-content {
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
