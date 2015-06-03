@@ -1,0 +1,17 @@
+{
+  "name": "project-starter",
+  "version": "0.0.0",
+  "authors": [
+    "Geoff Yuen <geoffyuen@gmail.com>"
+  ],
+  "main": "index.html",
+  "license": "MIT",
+  "homepage": "geoffyuen.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

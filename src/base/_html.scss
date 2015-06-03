@@ -9,6 +9,7 @@ html {
 	line-height: 1.6;
 	color: #888;
 	background: #000;
+
 	a {
 		&:link {
 			color: #ddd;
@@ -23,6 +24,7 @@ html {
 			color: #fff;
 		}
 	}
+
 }
 
 @for $i from 1 through 6 {
@@ -30,4 +32,13 @@ html {
 		margin: 0;
 		line-height: 1.1;
 	}
+}
+
+table {
+	border-collapse: collapse;
+}
+
+th, td {
+	border: 1px solid currentColor;
+	padding: .5em 1em;
 }
