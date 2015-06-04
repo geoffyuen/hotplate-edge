@@ -77,9 +77,4 @@ gulp.task('default', ['browser-sync'], function () {
 	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
 });
 
-gulp.task('s', ['sublime', 'browser-sync'], function () {
-	gulp.watch("src/**/*.scss", ['styles']);
-	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
-	gulp.watch("src/img/**/*", ['img','bs-reload']);
-	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
-});
+gulp.task('s', ['sublime', 'default'] );
