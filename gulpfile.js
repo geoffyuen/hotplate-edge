@@ -23,25 +23,14 @@ gulp.task('sublime', shell.task([
 
 gulp.task('browser-sync', function() {
 	browserSync({
-		server: {
-			baseDir: "./"
-		}
-	});
-});
-
-gulp.task('browser-sync', function() {
-	browserSync({
-		proxy: "localhost/project-starter"
+		server: { baseDir: "./" }
+// 		proxy: "localhost/project-starter"
 	});
 });
 
 gulp.task('styles', function(){
 	gulp.src(['src/**/*.scss'])
-	.pipe(plumber({
-		errorHandler: function (error) {
-			console.log(error.message);
-			this.emit('end');
-		}}))
+	.pipe(plumber({errorHandler: notify.onError("Sass error: <%= error.message %>")}))
 	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.on('error', gutil.log)
