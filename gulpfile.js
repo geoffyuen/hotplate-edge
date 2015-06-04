@@ -23,8 +23,8 @@ gulp.task('sublime', shell.task([
 
 gulp.task('browser-sync', function() {
 	browserSync({
-		server: { baseDir: "./" }
-// 		proxy: "localhost/project-starter"
+		server: { baseDir: "./" } // use this to server static pages
+// 		proxy: "localhost/project-starter" // use this if your running a server like MAMP
 	});
 });
 
