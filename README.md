@@ -1,6 +1,6 @@
 # flexgrid + gulp starter
 
-1. git clone https://github.com/geoffyuen/hotplate-edge.github
+1. git clone https://github.com/geoffyuen/hotplate-edge.git
 2. npm install
 3. edit gulpfile.js browsersync proxy
 4. gulp
