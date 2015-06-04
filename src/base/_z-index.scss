@@ -1,0 +1,10 @@
+@mixin lay-z-index($layers, $z: 0) {
+    $len: length($layers);
+
+    @each $layer in $layers {
+      $idx: index($layers, $layer);
+      #{$layer} {
+        z-index: $z + $len - $idx;
+      }
+    }
+}

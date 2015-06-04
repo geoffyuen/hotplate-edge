@@ -17,9 +17,9 @@ shell        = require('gulp-shell'),
 uglify       = require('gulp-uglify')
 ;
 
-//gulp.task('sublime', shell.task([
-//  'subl .'
-//]))
+gulp.task('sublime', shell.task([
+  'subl .'
+]))
 
 gulp.task('browser-sync', function() {
 	browserSync({
@@ -45,13 +45,12 @@ gulp.task('styles', function(){
 	.pipe(sourcemaps.init())
 	.pipe(sass())
 	.on('error', gutil.log)
-	.pipe(pixrem())
-	.on('error', gutil.log)
 	.pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
 	.on('error', gutil.log)
 	//.pipe(gulp.dest('./'))
 	//.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
+	.pipe(pixrem())
 	.pipe(sourcemaps.write('./src'))
 	.pipe(gulp.dest('./'))
 	.pipe(browserSync.reload({stream:true}))
