@@ -11,4 +11,3 @@ $.get("img/sprites.svg", function(data) {
 })
   .success(function(){ svg_debug('#svg-inject') })
 ;
-console.log('hello');

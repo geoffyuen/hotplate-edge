@@ -14,7 +14,10 @@ rename       = require('gulp-rename'),
 sass         = require('gulp-sass'),
 sourcemaps   = require('gulp-sourcemaps'),
 shell        = require('gulp-shell'),
-uglify       = require('gulp-uglify')
+uglify       = require('gulp-uglify'),
+svgstore     = require('gulp-svgstore'),
+svgmin       = require('gulp-svgmin'),
+svg2png      = require('gulp-svg2png')
 ;
 
 gulp.task('sublime', shell.task([
@@ -53,6 +56,24 @@ gulp.task('img', function(){
 	.pipe(gulp.dest('img/'))
 	.pipe(notify("Images optimized."))
 });
+gulp.task('svgstore', function () {
+    return gulp
+    .src('src/sprites/**/*.svg')
+	.pipe(plumber({errorHandler: notify.onError("svgstore error: <%= error.message %>")}))
+	.pipe(svgmin())
+	.pipe(svgstore())
+	.pipe(gulp.dest('./img'))
+	.pipe(notify("SVG'ed"))
+});
+gulp.task('svg2png', function () {
+	return gulp
+	.src('src/sprites/**/*.svg')
+	.pipe(plumber({errorHandler: notify.onError("svg2png error: <%= error.message %>")}))
+	.pipe(svg2png())
+	.pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+	.pipe(gulp.dest('./img'))
+	.pipe(notify("SVGs 2 PNG"))
+});
 
 gulp.task('scripts', function(){
 	return gulp.src('src/**/*.js')
@@ -70,6 +91,7 @@ gulp.task('default', ['browser-sync'], function () {
 	gulp.watch("src/**/*.scss", ['styles']);
 	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
 	gulp.watch("src/img/**/*", ['img','bs-reload']);
+	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'svg2png','bs-reload']);
 	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
 });
 
