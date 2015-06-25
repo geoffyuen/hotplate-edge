@@ -28,18 +28,18 @@ gulp.task('browser-sync', function() {
 	});
 });
 
+gulp.task('bs-reload', function () {
+	browserSync.reload();
+});
+
 gulp.task('styles', function(){
 	gulp.src(['src/**/*.scss'])
 	.pipe(plumber({errorHandler: notify.onError("Sass error: <%= error.message %>")}))
 	.pipe(sourcemaps.init())
 	.pipe(sass())
-	.on('error', gutil.log)
 	.pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
-	.on('error', gutil.log)
-	//.pipe(gulp.dest('./'))
-	//.pipe(rename({suffix: '.min'}))
 	.pipe(minifycss())
-	.pipe(pixrem())
+	.pipe(pixrem()) // remove this if you don't need to support IE8 or you don't use rems
 	.pipe(sourcemaps.write('./src'))
 	.pipe(gulp.dest('./'))
 	.pipe(browserSync.reload({stream:true}))
@@ -48,6 +48,7 @@ gulp.task('styles', function(){
 
 gulp.task('img', function(){
 	gulp.src('src/img/**/*')
+	.pipe(plumber({errorHandler: notify.onError("Img error: <%= error.message %>")}))
 	.pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
 	.pipe(gulp.dest('img/'))
 	.pipe(notify("Images optimized."))
@@ -55,19 +56,14 @@ gulp.task('img', function(){
 
 gulp.task('scripts', function(){
 	return gulp.src('src/**/*.js')
+	.pipe(plumber({errorHandler: notify.onError("JS error: <%= error.message %>")}))
 	.pipe(concat('main.js'))
-	.on('error', gutil.log)
 	.pipe(gulp.dest('js/'))
 	.pipe(rename({suffix: '.min'}))
 	.pipe(uglify())
-	.on('error', gutil.log)
 	.pipe(gulp.dest('js/'))
 	.pipe(browserSync.reload({stream:true}))
 	.pipe(notify("js squished."))
-});
-
-gulp.task('bs-reload', function () {
-	browserSync.reload();
 });
 
 gulp.task('default', ['browser-sync'], function () {
