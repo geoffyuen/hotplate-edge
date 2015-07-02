@@ -1,4 +1,4 @@
-# flexgrid + gulp starter
+# flexgrid/inline-block grid + gulp starter
 
 1. git clone https://github.com/geoffyuen/hotplate-edge.git
 2. git init
