@@ -7,6 +7,16 @@ $hp-fontsize: 1rem;
 $hp-bp--desktopb: 1140px;
 $hp-bp--desktop: 960px;
 $hp-bp--tablet: 768px;
-$hp-bp--phablet: 480px;
+$hp-bp--phablet: 620px;
 $hp-bp--phoneh: 480px;
 $hp-bp--phone: 320px;
+
+// easier to remember aliases
+$xl: $hp-bp--desktopb;
+$lg: $hp-bp--desktop;
+$md: $hp-bp--tablet;
+$sm: $hp-bp--phablet;
+$xs: $hp-bp--phoneh;
+$xxs: $hp-bp--phone;
+
+

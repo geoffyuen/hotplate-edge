@@ -39,7 +39,7 @@ gulp.task('styles', function(){
 	gulp.src(['src/**/*.scss'])
 	.pipe(plumber({errorHandler: notify.onError("Sass error: <%= error.message %>")}))
 	.pipe(sourcemaps.init())
-	.pipe(sass())
+	.pipe(sass( {outputStyle: 'nested'} ))
 	.pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
 	.pipe(minifycss())
 	.pipe(pixrem()) // remove this if you don't need to support IE8 or you don't use rems

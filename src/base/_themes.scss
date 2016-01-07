@@ -5,7 +5,7 @@
 			color: #8bcfad;
 		}
 		&:hover {
-			color: #8bcfad;
+			color: darken(#8bcfad, 10%);
 		}
 		&:active {
 			color: #8bcfad;
@@ -28,7 +28,7 @@
 			color: #d8cf76;
 		}
 		&:hover {
-			color: #d8cf76;
+			color: darken(#d8cf76, 10%);
 		}
 		&:active {
 			color: #d8cf76;

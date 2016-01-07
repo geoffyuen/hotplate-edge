@@ -1,41 +1,77 @@
-.wrapper {
+// %nestedcolumn {
+// 	font-size: $hp-fontsize;
+// 	text-align: left;
+
+// 	img {
+// 		max-width: 100%;
+// 		height: auto;
+// 	}
+// }
+.container {
 	@include has-column;
 	max-width: $hp-bp--desktopb;
-	padding-left: $hp-gutter;
-	padding-right: $hp-gutter;
 	text-align: center; // center your columns
 	margin-left: auto;
 	margin-right: auto;
 }
+.wrapper {
+	@extend .container;
+	padding-left: $hp-gutter;
+	padding-right: $hp-gutter;
+}
+
+%column {
+	font-size: $hp-fontsize;
+	text-align: left;
+	padding-left: $hp-gutter;
+	padding-right: $hp-gutter;
+	vertical-align: top;
+	// display: inline-block;
+	// width: 100%;
+}
+
+
+
+
 
 
 // preset column classes ala bootstrap, 960gs
 @for $i from 1 through 12 {
 	.col-#{$i} {
-		font-size: $hp-fontsize;
-		text-align: left;
-		padding-left: $hp-gutter;
-		padding-right: $hp-gutter;
-
-		@include media {
+		@extend %column;
+	}
+}
+@include media {
+	@for $i from 1 through 11 {
+		.col-#{$i} {
 			@include column(12,$i);
 		}
 	}
 }
-@for $i from 1 through 12 {
-	.col-#{$i}__push {
-		@include media {
-			margin-left: 100% / 12 * $i;
+
+$bp: (
+	xxs :$xxs,
+	xs :$xs,
+	sm :$sm,
+	md :$md,
+	lg :$lg,
+	xl :$xl,
+);
+
+
+@each $name, $mq in $bp {
+
+	@for $i from 1 through 12 {
+		.col-#{$name} {
+			@extend %column;
 		}
 	}
-	.padding-top-#{$i} {
-		padding-top: $i * 1rem;
+	@include media(#{$mq}) {
+		@for $i from 1 through 11 {
+			.col-#{$name}-#{$i} {
+				@include column(12,$i);
+			}
+		}
 	}
-	.padding-bottom-#{$i} {
-		padding-bottom: $i * 1rem;
-	}
-}
 
-.col__last {
-	margin-right: 100%;
 }
