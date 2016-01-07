@@ -34,8 +34,8 @@
 
 
 
+// preset column classes ala skeleton - < tablet = 1 col
 
-// preset column classes ala bootstrap, 960gs
 @for $i from 1 through 12 {
 	.col-#{$i} {
 		@extend %column;
@@ -48,6 +48,10 @@
 		}
 	}
 }
+
+
+
+// preset column classes ala bootstrap - granular control of columns
 
 $bp: (
 	xxs :$xxs,
