@@ -20,21 +20,21 @@ svgmin       = require('gulp-svgmin'),
 svg2png      = require('gulp-svg2png')
 ;
 
-gulp.task('sublime', shell.task([
-  'subl .'
-]))
 
+// start bs
 gulp.task('browser-sync', function() {
 	browserSync({
-		server: { baseDir: "./" } // use this to server static pages
+		server: { baseDir: "./" } // use this to serve static pages
 // 		proxy: "localhost/project-starter" // use this if your running a server like MAMP
 	});
 });
 
-gulp.task('bs-reload', function () {
+// trigger reload
+gulp.task('bs-reload', function() {
 	browserSync.reload();
 });
 
+// process ./src/styles.scss
 gulp.task('styles', function(){
 	gulp.src(['src/**/*.scss'])
 	.pipe(plumber({errorHandler: notify.onError("Sass error: <%= error.message %>")}))
@@ -49,14 +49,22 @@ gulp.task('styles', function(){
 	.pipe(notify("Styles done."))
 });
 
+// optimize images (jpg, png, gif, svg)
 gulp.task('img', function(){
 	gulp.src('src/img/**/*')
 	.pipe(plumber({errorHandler: notify.onError("Img error: <%= error.message %>")}))
 	.pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
 	.pipe(gulp.dest('img/'))
+
+	gulp.src('src/img/**/*.svg')
+	.pipe(plumber({errorHandler: notify.onError("Img error: <%= error.message %>")}))
+	.pipe(svgmin())
+	.pipe(gulp.dest('img/'))
 	.pipe(notify("Images optimized."))
 });
-gulp.task('svgstore', function () {
+
+// create svg spritesheet
+gulp.task('svgstore', function() {
     return gulp
     .src('src/sprites/**/*.svg')
 	.pipe(plumber({errorHandler: notify.onError("svgstore error: <%= error.message %>")}))
@@ -65,7 +73,9 @@ gulp.task('svgstore', function () {
 	.pipe(gulp.dest('./img'))
 	.pipe(notify("SVG'ed"))
 });
-gulp.task('svg2png', function () {
+
+// create png fallbacks for ie8
+gulp.task('svg2png', function() {
 	return gulp
 	.src('src/sprites/**/*.svg')
 	.pipe(plumber({errorHandler: notify.onError("svg2png error: <%= error.message %>")}))
@@ -75,7 +85,8 @@ gulp.task('svg2png', function () {
 	.pipe(notify("SVGs 2 PNG"))
 });
 
-gulp.task('scripts', function(){
+// compress js into ./js/main.js
+gulp.task('scripts', function() {
 	return gulp.src('src/**/*.js')
 	.pipe(plumber({errorHandler: notify.onError("JS error: <%= error.message %>")}))
 	.pipe(concat('main.js'))
@@ -87,12 +98,33 @@ gulp.task('scripts', function(){
 	.pipe(notify("js squished."))
 });
 
-gulp.task('default', ['browser-sync'], function () {
+// serve, open and watch
+gulp.task('default', ['browser-sync'], function() {
 	gulp.watch("src/**/*.scss", ['styles']);
 	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
 	gulp.watch("src/img/**/*", ['img','bs-reload']);
 	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'svg2png','bs-reload']);
 	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
 });
+
+// serve and watch
+gulp.task('cont', ['browser-sync0'], function() {
+	gulp.watch("src/**/*.scss", ['styles']);
+	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
+	gulp.watch("src/img/**/*", ['img','bs-reload']);
+	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'svg2png','bs-reload']);
+	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
+});
+
+// open current folder in subblime
+gulp.task('sublime', shell.task([
+  'subl .'
+]))
+
+// fix permissions - do not run yet
+gulp.task('chmod', shell.task([
+  'sudo find . -type f -exec chmod 644 {} +; sudo find . -type d -exec chmod 755 {} +'
+]))
+
 
 gulp.task('s', ['sublime', 'default'] );

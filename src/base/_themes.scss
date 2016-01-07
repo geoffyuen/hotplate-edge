@@ -2,13 +2,13 @@
 	color: #444;
 	a {
 		&:link, &:visited {
-			color: #006;
+			color: #8bcfad;
 		}
 		&:hover {
-			color: #00f;
+			color: #8bcfad;
 		}
 		&:active {
-			color: #00f;
+			color: #8bcfad;
 		}
 	}
 
@@ -17,7 +17,7 @@
 	}
 
 	* {
-		border-color: #eee;
+		border-color: #fff;
 	}
 }
 
@@ -25,13 +25,13 @@
 	color: #fff;
 	a {
 		&:link, &:visited {
-			color: #ff6;
+			color: #d8cf76;
 		}
 		&:hover {
-			color: #fff;
+			color: #d8cf76;
 		}
 		&:active {
-			color: #fff;
+			color: #d8cf76;
 		}
 	}
 
