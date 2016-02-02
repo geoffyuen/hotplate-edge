@@ -7,7 +7,7 @@ function svg_debug(thenode){
 }
 
 $.get("img/sprites.svg", function(data) {
-  $("body").append("<div id='svg-inject' style='display: none'>" + new XMLSerializer().serializeToString(data.documentElement) + "</div>")
+  $("body").prepend("<div id='svg-inject' style='display: none'>" + new XMLSerializer().serializeToString(data.documentElement) + "</div>")
 })
   .success(function(){ svg_debug('#svg-inject') })
 ;
