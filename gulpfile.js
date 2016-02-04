@@ -8,7 +8,7 @@ concat       = require('gulp-concat'),
 gulp         = require('gulp'),
 gutil        = require('gulp-util'),
 imagemin     = require('gulp-imagemin'),
-minifycss    = require('gulp-minify-css'),
+cssnano      = require('gulp-cssnano'),
 notify       = require("gulp-notify"),
 pixrem       = require("gulp-pixrem"),
 plumber      = require('gulp-plumber'),
@@ -42,8 +42,13 @@ gulp.task('styles', function(){
 	.pipe(plumber({errorHandler: notify.onError("Sass error: <%= error.message %>")}))
 	.pipe(sourcemaps.init())
 	.pipe(sass( {outputStyle: 'nested'} ))
-	.pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9', 'ie 10'))
-	.pipe(minifycss())
+	.pipe(autoprefixer({
+			browsers: ['last 2 versions','ie 8','ie 9','ie 10'],
+			remove: false,
+			flexbox: true,
+			add: true
+		}))
+	.pipe(cssnano())
 	.pipe(pixrem()) // remove this if you don't need to support IE8 or you don't use rems
 	.pipe(sourcemaps.write('./src'))
 	.pipe(gulp.dest('./'))
@@ -67,8 +72,8 @@ gulp.task('img', function(){
 
 // create svg spritesheet
 gulp.task('svgstore', function() {
-    return gulp
-    .src('src/sprites/**/*.svg')
+	return gulp
+	.src('src/sprites/**/*.svg')
 	.pipe(plumber({errorHandler: notify.onError("svgstore error: <%= error.message %>")}))
 	.pipe(svgmin())
 	.pipe(svgstore())
