@@ -27,7 +27,8 @@ svg2png      = require('gulp-svg2png')
 gulp.task('browser-sync', function() {
 	browserSync({
 		server: { baseDir: "./" } // use this to serve static pages
-// 		proxy: "localhost/project-starter" // use this if your running a server like MAMP
+// 		proxy: "localhost:8888/project-starter" // use this if you're running a server like MAMP witht the default port
+// 		proxy: "localhost/project-starter" // use this if your running a server
 	});
 });
 
