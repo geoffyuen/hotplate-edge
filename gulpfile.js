@@ -1,4 +1,4 @@
-require('es6-promise').polyfill();
+// require('es6-promise').polyfill();
 
 var
 autoprefixer = require('gulp-autoprefixer'),
