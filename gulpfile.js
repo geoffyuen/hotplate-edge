@@ -1,3 +1,5 @@
+require('es6-promise').polyfill();
+
 var
 autoprefixer = require('gulp-autoprefixer'),
 browserSync  = require('browser-sync'),
@@ -40,7 +42,7 @@ gulp.task('styles', function(){
 	.pipe(plumber({errorHandler: notify.onError("Sass error: <%= error.message %>")}))
 	.pipe(sourcemaps.init())
 	.pipe(sass( {outputStyle: 'nested'} ))
-	.pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9'))
+	.pipe(autoprefixer('last 2 versions', 'ie 8', 'ie 9', 'ie 10'))
 	.pipe(minifycss())
 	.pipe(pixrem()) // remove this if you don't need to support IE8 or you don't use rems
 	.pipe(sourcemaps.write('./src'))

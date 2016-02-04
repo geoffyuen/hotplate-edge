@@ -11,12 +11,7 @@ html {
 }
 
 
-// @for $i from 1 through 6 {
-// 	h#{$i} {
-// 		margin: 0;
-// 		line-height: 1.1;
-// 	}
-// }
+
 
 table {
 	border-collapse: collapse;
@@ -28,6 +23,19 @@ th, td {
 	padding: .5em 1em;
 }
 
+// @for $i from 1 through 6 {
+// 	h#{$i} {
+// 		margin: 0;
+// 		line-height: 1.1;
+// 	}
+// }
+
+// headline scale
+// @for $i from 1 through 6 {
+// 	h#{$i} {
+// 		font-size: #{(7 - $i)*.1 * (7 - $i)*.6 + 1}em;
+// 	}
+// }
 
 // remove white-space on top, add on bottom:
 h1,h2,h3,h4,h5,h6 {
@@ -43,12 +51,7 @@ h1,h2,h3,h4,h5,h6 {
 	}
 }
 
-// headline scale
-@for $i from 1 through 6 {
-	h#{$i} {
-		font-size: #{(7 - $i)*.1 * (7 - $i)*.6 + 1}em;
-	}
-}
+
 
 // add white-space on top when following content:
 p,ol,ul,dl,table,img,code,pre,blockquote {
