@@ -48,7 +48,7 @@ gulp.task('styles', function(){
 			flexbox: true,
 			add: true
 		}))
-	.pipe(cssnano())
+	.pipe(cssnano({autoprefixer: false}))
 	.pipe(pixrem()) // remove this if you don't need to support IE8 or you don't use rems
 	.pipe(sourcemaps.write('./src'))
 	.pipe(gulp.dest('./'))

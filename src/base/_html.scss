@@ -8,7 +8,7 @@ html {
 	@extend %lighttheme;
 	background: #fff;
 	font: 200 #{$hp-basefontsize}/1.6 "helvetica neue", sans-serif;
-	display: flex;
+	transform: translateX(600px);
 }
 
 
