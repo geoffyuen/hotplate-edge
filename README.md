@@ -1,4 +1,13 @@
-# flexgrid/inline-block grid + gulp starter
+# A website project boillerplate
+
+Features:
+
+- fork of html5boilerplacte index.html support fir IE 8+
+- Gulp for watching, compiling Sass, javascript, svg spritesheet and imageoptimizatio
+- Browsersync for refreshing on save
+- css grid framework and organization
+
+## Get Started
 
 1. git clone https://github.com/geoffyuen/hotplate-edge.git
 2. git init

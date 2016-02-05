@@ -1,4 +1,4 @@
-// require('es6-promise').polyfill();
+// require('es6-promise').polyfill(); // Uncomment if old Node/npm
 
 var
 autoprefixer = require('gulp-autoprefixer'),
@@ -27,8 +27,8 @@ svg2png      = require('gulp-svg2png')
 gulp.task('browser-sync', function() {
 	browserSync({
 		server: { baseDir: "./" } // use this to serve static pages
-// 		proxy: "localhost:8888/project-starter" // use this if you're running a server like MAMP witht the default port
-// 		proxy: "localhost/project-starter" // use this if your running a server
+		// proxy: "localhost:8888/project-starter" // use this if you're running a server like MAMP witht the default port
+		// proxy: "localhost/project-starter" // use this if your running a server
 	});
 });
 
