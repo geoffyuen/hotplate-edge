@@ -4,7 +4,7 @@
 
 Features:
 
-- modified html5boilerplate index.html support for IE 8+, removed of compatibily mode button
+- modified html5boilerplate index.html support for IE 8+, removed of compatibility mode button
 - Gulp for watching, compiling Sass, javascript, svg spritesheet and imageoptimization
 - Browsersync for refreshing on save
 - css grid framework and organization
@@ -53,3 +53,4 @@ This file should just contain @imports.
 - homebrew
 - git
 - npm
+- bower
