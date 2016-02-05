@@ -1,4 +1,4 @@
-# A website project boillerplate
+# A website project boilerplate
 
 Features:
 
