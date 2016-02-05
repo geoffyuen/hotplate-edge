@@ -1,16 +1,16 @@
-// @import 'base/wordpress-header';
-@import 'base/hotplate-variables';
-@import 'base/mixins';
-@import 'base/hotplate-mixins';
-@import 'base/themes';
-@import 'base/helper';
+// @import 'sass/wordpress-header';
+@import 'sass/hotplate-variables';
+@import 'sass/mixins';
+@import 'sass/hotplate-mixins';
+@import 'sass/themes';
+@import 'sass/helper';
 
-@import 'base/normalize';
-@import 'base/html';
-@import 'base/forms';
+@import 'sass/normalize';
+@import 'sass/html';
+@import 'sass/forms';
 
-@import 'base/hotplate';
+@import 'sass/hotplate';
 
-@import 'base/header-footer';
+@import 'sass/header-footer';
 
-@import 'base/z-index';
+@import 'sass/z-index';
