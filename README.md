@@ -15,6 +15,12 @@ Features:
 4. `gulp`
 5. Profit!
 
+- `gulp` starts watching and opens a browser window/tab
+- `gulp phps &` starts the built-in php server when you can then follow with another `gulp` command
+- `gulp sublime` opens the current folder in Sublime Text
+- `gulp s` opens the current folder in Sublime Text and runs `gulp`
+
+
 ## Gulp Includes:
 
 - Sass

@@ -106,6 +106,10 @@ gulp.task('scripts', function() {
 	.pipe(notify("js squished."))
 });
 
+gulp.task('phps', shell.task([
+  'php -S localhost:8000'
+]))
+
 // serve, open and watch
 gulp.task('default', ['browser-sync'], function() {
 	gulp.watch("src/**/*.scss", ['styles']);
