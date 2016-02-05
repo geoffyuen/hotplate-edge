@@ -20,3 +20,15 @@ $xs: $hp-bp--phoneh;
 $xxs: $hp-bp--phone;
 
 
+// mobile-first media query
+@mixin media($mediawidth: $hp-bp--tablet) {
+	@media (min-width: $mediawidth) {
+	@content;
+	}
+}
+
+// use this to define non-first mobile first columns
+@mixin column($numberofcolumns: 3, $howmanycolumns: 1) {
+	width: 100% / $numberofcolumns * $howmanycolumns;
+}
+

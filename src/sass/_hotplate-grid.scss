@@ -1,19 +1,21 @@
-// %nestedcolumn {
-// 	font-size: $hp-fontsize;
-// 	text-align: left;
+%has-column {
+	// @include this on the parent of @column
+	// Effectively acts like a .row in other frameworks
+	font-size: 0.001px; // can't use 0 because of Ice Cream Sandwich
+	img {
+		max-width: 100%;
+		height: auto;
+	}
+}
 
-// 	img {
-// 		max-width: 100%;
-// 		height: auto;
-// 	}
-// }
 .container {
-	@include has-column;
+	@extend %has-column;
 	max-width: $hp-bp--desktopb;
 	text-align: center; // center your columns
 	margin-left: auto;
 	margin-right: auto;
 }
+
 .wrapper {
 	@extend .container;
 	padding-left: $hp-gutter;
@@ -22,31 +24,12 @@
 
 %column {
 	font-size: $hp-fontsize;
-	text-align: left;
 	padding-left: $hp-gutter;
 	padding-right: $hp-gutter;
+	display: inline-block;
 	vertical-align: top;
-	// display: inline-block;
-	// width: 100%;
-}
-
-
-
-
-
-// preset column classes ala skeleton - < tablet = 1 col
-
-@for $i from 1 through 12 {
-	.col-#{$i} {
-		@extend %column;
-	}
-}
-@include media {
-	@for $i from 1 through 11 {
-		.col-#{$i} {
-			@include column(12,$i);
-		}
-	}
+	text-align: left;
+	width: 100%;
 }
 
 
@@ -62,11 +45,10 @@ $bp: (
 	xl :$xl,
 );
 
-
 @each $name, $mq in $bp {
 
 	@for $i from 1 through 12 {
-		.col-#{$name} {
+		.col-#{$name}-#{$i} {
 			@extend %column;
 		}
 	}
@@ -78,4 +60,13 @@ $bp: (
 		}
 	}
 
+}
+
+// preset column classes ala skeleton - < tablet = 1 col
+// this is just the same thing as .col-md-*
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		@extend %column;
+		@extend .col-md-#{$i};
+	}
 }

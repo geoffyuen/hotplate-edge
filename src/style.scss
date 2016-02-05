@@ -1,7 +1,6 @@
 // @import 'sass/wordpress-header';
-@import 'sass/hotplate-variables';
+@import 'sass/hotplate-definitions';
 @import 'sass/mixins';
-@import 'sass/hotplate-mixins';
 @import 'sass/themes';
 @import 'sass/helper';
 
@@ -9,7 +8,7 @@
 @import 'sass/html';
 @import 'sass/forms';
 
-@import 'sass/hotplate';
+@import 'sass/hotplate-grid';
 
 @import 'sass/header-footer';
 
