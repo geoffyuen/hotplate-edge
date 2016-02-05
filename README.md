@@ -1,4 +1,6 @@
-# A website project boilerplate
+# Hotplate
+
+## A boilerplate for websites and WordPress themes
 
 Features:
 
