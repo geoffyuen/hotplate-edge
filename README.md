@@ -9,7 +9,7 @@ Features:
 
 ## Get Started
 
-1. git clone https://github.com/geoffyuen/hotplate-edge.git
+1. bower install https://github.com/geoffyuen/hotplate-edge.git && mv bower_components/hotplate-edge/* .
 2. git init
 2. npm install
 3. edit gulpfile.js browsersync proxy line for your local server
