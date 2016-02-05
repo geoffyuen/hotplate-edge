@@ -2,7 +2,7 @@
 
 ## A boilerplate for websites and WordPress themes
 
-Features:
+Features Gulp, Sass, tiny CSS grid, HTML5BP, SVG spritesheets, IE8+:
 
 - modified html5boilerplate index.html support for IE 8+, removed of compatibility mode button
 - Gulp for watching, compiling Sass, javascript, svg spritesheet and imageoptimization
