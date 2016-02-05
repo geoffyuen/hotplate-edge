@@ -2,8 +2,8 @@
 
 Features:
 
-- fork of html5boilerplacte index.html support fir IE 8+
-- Gulp for watching, compiling Sass, javascript, svg spritesheet and imageoptimizatio
+- modified html5boilerplate index.html support for IE 8+, removed of compatibily mode button
+- Gulp for watching, compiling Sass, javascript, svg spritesheet and imageoptimization
 - Browsersync for refreshing on save
 - css grid framework and organization
 
