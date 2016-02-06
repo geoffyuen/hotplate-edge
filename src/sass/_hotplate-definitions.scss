@@ -23,12 +23,31 @@ $xxs: $hp-bp--phone;
 // mobile-first media query
 @mixin media($mediawidth: $hp-bp--tablet) {
 	@media (min-width: $mediawidth) {
-	@content;
+		@content;
 	}
 }
 
 // use this to define non-first mobile first columns
-@mixin column($numberofcolumns: 3, $howmanycolumns: 1) {
+@mixin col($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
 	width: 100% / $numberofcolumns * $howmanycolumns;
+	@if $font-size {
+		font-size: $font-size;
+	}
 }
 
+@mixin hpad($lpad, $rpad: $lpad) {
+	padding-left: $lpad;
+	padding-right: $rpad;
+}
+@mixin vpad($tpad, $bpad: $tpad) {
+	padding-top: $tpad;
+	padding-bottom: $bpad;
+}
+@mixin hmargin($lpad, $rpad: $lpad) {
+	margin-left: $lpad;
+	margin-right: $rpad;
+}
+@mixin vmargin($tpad, $bpad: $tpad) {
+	margin-top: $tpad;
+	margin-bottom: $bpad;
+}

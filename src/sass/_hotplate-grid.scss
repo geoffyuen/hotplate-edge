@@ -1,31 +1,12 @@
-%has-column {
-	// @include this on the parent of @column
-	// Effectively acts like a .row in other frameworks
-	font-size: 0.001px; // can't use 0 because of Ice Cream Sandwich
-	img {
-		max-width: 100%;
-		height: auto;
-	}
+img {
+	max-width: 100%;
+	height: auto;
 }
 
-.container {
-	@extend %has-column;
-	max-width: $hp-bp--desktopb;
-	text-align: center; // center your columns
-	margin-left: auto;
-	margin-right: auto;
-}
-
-.wrapper {
-	@extend .container;
-	padding-left: $hp-gutter;
-	padding-right: $hp-gutter;
-}
 
 %column {
+	@include hpad($hp-gutter);
 	font-size: $hp-fontsize;
-	padding-left: $hp-gutter;
-	padding-right: $hp-gutter;
 	display: inline-block;
 	vertical-align: top;
 	text-align: left;
@@ -55,7 +36,7 @@ $bp: (
 	@include media(#{$mq}) {
 		@for $i from 1 through 12 {
 			.col-#{$name}-#{$i} {
-				@include column(12,$i);
+				@include col(12,$i);
 			}
 		}
 	}
@@ -69,3 +50,31 @@ $bp: (
 		@extend .col-md-#{$i};
 	}
 }
+
+// Nested columns: use this class on a column that contains columns
+// @extend this on the parent of @column
+// Effectively acts like a .row in other frameworks
+// This removes inline-block whitespace.
+// We can't use 0 because of Ice Cream Sandwich
+%has-col {
+	font-size: 0.001px;
+}
+
+.has-col {
+	@extend %has-col;
+	@include hpad(0);
+}
+
+.wrapper {
+	@extend %has-col;
+	@include hmargin(auto);
+	@include hpad($hp-gutter);
+	max-width: $hp-bp--desktopb;
+	text-align: center; // center your columns
+
+	hr {
+		@include hmargin($hp-gutter);
+	}
+}
+
+
