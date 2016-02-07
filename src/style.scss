@@ -8,7 +8,8 @@
 @import 'sass/html';
 @import 'sass/forms';
 
-@import 'sass/hotplate-grid';
+// @import 'sass/hotplate-grid'; // ie8+ compatible grid
+@import 'sass/hotplate-flex'; // ie10+ grid
 
 @import 'sass/header-footer';
 

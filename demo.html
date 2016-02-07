@@ -11,12 +11,22 @@
     <script src="bower_components/respondJS/dest/respond.min.js"></script>
     <script src="bower_components/modernizr/modernizr.js"></script>
     <style>
-		.demo {
+    	[class^="col-"] {
+			display: flex;
+    	}
+		.text, .demo {
 			background: #2980b9;
 			color: #fff;
 			border-radius: 3px;
-			text-align: center;
+			width: 100%;
+		}
+		.text {
+			margin: 1.5em 0;
+			padding: .75em 1em;
+		}
+		.demo {
 			margin: .5em 0;
+			text-align: center;
 		}
     </style>
 </head>
@@ -30,8 +40,8 @@
 
 	<section class="page-content">
 		<div class="wrapper">
-			<div class="col-12">
-				<h1>Bootstrap can't do this.</h1>
+			<div class="col-xxs-12">
+				<h1>No rows required. Columns wrap around on new "lines"</h1>
 			</div>
 
 			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-1">
@@ -109,6 +119,54 @@
 			<div class="col-12 has-col">
 				<div class="col-4"><p class="demo">nested-4</p></div>
 				<div class="col-8"><p class="demo">nested-8</p></div>
+			</div>
+
+			<hr>
+
+			<h2 class="col-12">Equal height columns with flexbox, ragged columns fallback</h2>
+
+			<!--.col-xs-6.col-sm-4.col-3*7>.text>h4>lorem5^p>lorem13-->
+			<div class="col-xs-6 col-sm-4 col-3">
+				<div class="text">
+					<h4>Lorem ipsum dolor sit amet.</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam distinctio animi voluptatibus, odit.</p>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-3">
+				<div class="text">
+					<h4>Culpa quia animi incidunt magnam.</h4>
+					<p>Sit architecto cumque, consequuntur quo, ipsum autem doloremque atque facilis sapiente, debitis quam.</p>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-3">
+				<div class="text">
+					<h4>Eligendi, perferendis consequatur reprehenderit. Quos?</h4>
+					<p>Perspiciatis nihil, error accusantium. Veniam eos nostrum nesciunt aliquam, facilis mollitia, dolore voluptas.</p>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-3">
+				<div class="text">
+					<h4>Necessitatibus ex aut laudantium saepe.</h4>
+					<p>Aliquam officiis ex impedit saepe necessitatibus ad. Omnis ratione earum nesciunt, voluptatibus deleniti.</p>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-3">
+				<div class="text">
+					<h4>Ullam accusamus repudiandae ab nobis.</h4>
+					<p>Neque laboriosam repellendus reiciendis perspiciatis, eius odio fuga temporibus voluptatibus accusantium enim consequuntur?</p>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-3">
+				<div class="text">
+					<h4>Eum aspernatur obcaecati saepe dicta.</h4>
+					<p>Illo veritatis, quo? Quos voluptatum quo quis illo iusto accusantium praesentium tempora doloribus?</p>
+				</div>
+			</div>
+			<div class="col-xs-6 col-sm-4 col-3">
+				<div class="text">
+					<h4>Libero accusamus nulla, sapiente? Temporibus.</h4>
+					<p>Vel quae quos eos, impedit, enim pariatur minus eligendi, eveniet magni dignissimos dolore.</p>
+				</div>
 			</div>
 
 		</div><!--wrapper-->
