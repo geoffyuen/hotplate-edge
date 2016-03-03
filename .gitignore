@@ -1,4 +1,5 @@
 .DS_Store
+terminal.glue
 .sublime-gulp.cache
 sublime-gulp.log
 node_modules

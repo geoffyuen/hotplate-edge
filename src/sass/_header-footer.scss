@@ -1,17 +1,42 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
 .site-header, .site-footer {
 	@extend %darktheme;
-	background: #2b3940;
+	background: #2980b9;
 	padding-top: 2em;
 	padding-bottom: 2em;
 }
 
 .site-footer {
-	[class^="col-"] {
-		font-size: .8rem;
+	font-size: 1.2rem;
+	.wrapper {
+		align-items: center;
+		justify-content: center;
+	}
+}
+
+.site-header {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.site-links {
+	display: flex;
+	list-style-type: none;
+	font-weight: bold;
+
+	a {
+		padding-right: 1em;
 	}
 }
 
 .page-content {
+	flex: 1;
 	padding-top: 3em;
 	padding-bottom: 3em;
 }
