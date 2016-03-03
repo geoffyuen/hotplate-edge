@@ -1,23 +1,21 @@
-// hotplate variables
-$hp-gutter: 1.25rem;
-$hp-basefontsize: 16px;
-$hp-fontsize: 1rem;
+// Hotplate variables
 
-// breakpoints
-$hp-bp--desktopb: 1140px;
-$hp-bp--desktop: 960px;
-$hp-bp--tablet: 768px;
-$hp-bp--phablet: 620px;
-$hp-bp--phoneh: 480px;
-$hp-bp--phone: 320px;
+// Typography - applied in _html.scss
+$hp-basefontsize: 10px; // Base root size - 10 makes it easier to use em/rems;
+$hp-mobilefontsize: 1.4rem; // font size for mobile
+$hp-fontsize: 1.6rem; // Used for the inline-block columns. Ignore when flexing
+$hp-fonts: "Fira Sans", "Helvetica Neue", sans-serif;
 
-// easier to remember aliases
-$xl: $hp-bp--desktopb;
-$lg: $hp-bp--desktop;
-$md: $hp-bp--tablet;
-$sm: $hp-bp--phablet;
-$xs: $hp-bp--phoneh;
-$xxs: $hp-bp--phone;
+// Hotplate grid
+$hp-gutter: 1.6rem; // Gutter will be double this value!
+
+// Breakpoints
+$xl: 1140px;
+$lg: 960px;
+$md: 768px;
+$sm: 620px;
+$xs: 480px;
+$xxs:320px;
 
 
 // mobile-first media query
@@ -34,7 +32,12 @@ $xxs: $hp-bp--phone;
 		font-size: $font-size;
 	}
 }
-
+@mixin fcol($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
+	width: calc(#{100% / $numberofcolumns * $howmanycolumns} - #{$hp-gutter * 2};
+	@if $font-size {
+		font-size: $font-size;
+	}
+}
 
 @mixin hpad($lpad, $rpad: $lpad) {
 	padding-left: $lpad;

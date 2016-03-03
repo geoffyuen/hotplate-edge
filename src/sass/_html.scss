@@ -1,17 +1,23 @@
-// Global CSS goes here
-
-* {
-	box-sizing: border-box;
-}
+// html element styling
+// & base typograpy
 
 html {
 	@extend %lighttheme;
+	box-sizing: border-box;
 	background: #fff;
-	font: 200 #{$hp-basefontsize}/1.6 "helvetica neue", sans-serif;
+	font: 200 #{$hp-basefontsize}/1.6 $hp-fonts;
 }
 
+*, *:before, *:after {
+  box-sizing: inherit;
+}
 
-
+body {
+	font-size: $hp-mobilefontsize;
+	@include media($lg) {
+		font-size: $hp-fontsize;
+	}
+}
 
 table {
 	border-collapse: collapse;
@@ -23,12 +29,6 @@ th, td {
 	padding: .5em 1em;
 }
 
-// @for $i from 1 through 6 {
-// 	h#{$i} {
-// 		margin: 0;
-// 		line-height: 1.1;
-// 	}
-// }
 
 // headline scale
 // @for $i from 1 through 6 {
@@ -38,8 +38,8 @@ th, td {
 // }
 
 // remove white-space on top, add on bottom:
-h1,h2,h3,h4,h5,h6 {
-	line-height: 1.1;
+@include headlines {
+	// line-height: 1.1;
 	margin: 0 0 .5rem 0;
 	letter-spacing: -.01em;
 
@@ -54,10 +54,10 @@ h1,h2,h3,h4,h5,h6 {
 
 
 // add white-space on top when following content:
-p,ol,ul,dl,table,img,code,pre,blockquote {
-	margin: .5rem 0;
+p,ol,ul,dl,table,img,code,pre,blockquote,hr {
+	margin: $hp-fontsize 0;
 	&+h1,&+h2,&+h3,&+h4,&+h5,&+h6 {
-		margin-top: 2.5rem;
+		margin-top: $hp-fontsize;
 	}
 }
 

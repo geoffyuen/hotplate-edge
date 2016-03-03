@@ -67,7 +67,7 @@ $bp: (
 	@extend %has-col;
 	@include hmargin(auto);
 	@include hpad($hp-gutter);
-	max-width: $hp-bp--desktopb;
+	max-width: $lg;
 
 	hr {
 		@include hmargin($hp-gutter);
