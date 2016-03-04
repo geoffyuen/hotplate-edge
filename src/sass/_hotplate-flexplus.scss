@@ -40,6 +40,9 @@ $bp: (
 		@for $i from 1 through 12 {
 			.col-#{$name}-#{$i} {
 				@include fcol(12,$i);
+				&.has-col {
+					@include col(12,$i);
+				}
 			}
 		}
 	}
@@ -69,24 +72,6 @@ $bp: (
 .has-col {
 	@extend %has-col;
 	@include hmargin(0);
-
-	@each $name, $mq in $bp {
-
-		@for $i from 1 through 12 {
-			&.col-#{$name}-#{$i} {
-				width: 100%;
-			}
-		}
-		@include media(#{$mq}) {
-			@for $i from 1 through 12 {
-				&.col-#{$name}-#{$i} {
-					@include col(12,$i);
-				}
-			}
-		}
-
-	}
-
 }
 
 .wrapper {

@@ -41,6 +41,15 @@
 			flex-direction: column;
 			align-items: stretch;
 		}
+		.flexboxplus [class^="col-"] {
+			background: #2980b9;
+			color: #fff;
+			border-radius: 3px;
+			text-align: center;
+			margin-bottom: 2rem;
+			padding: .5rem 1rem;
+			box-shadow: .5rem .5rem rgba(0,0,0,.2);
+		}
 
     </style>
 </head>
@@ -254,7 +263,83 @@
 				<p>Fugiat atque error debitis? Tenetur, cumque. Quisquam porro ducimus fuga iure neque. Quaerat.</p>
 			</div>
 
+			<header class="col-12">
+				<h1>Flexboxplus Grid</h1>
+				<p>If enabled, this grid should allow the use of less markup when using styles like background-colors, box-shadows and padding. There's nothing but text inside these columns:</p>
+			</header>
 		</div><!--wrapper-->
+
+		<section class="flexboxplus wrapper">
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+			<div class="col-1">1</div>
+
+			<div class="col-2">
+				two
+			</div>
+			<div class="col-2">
+				two
+			</div>
+			<div class="col-2">
+				two
+			</div>
+			<div class="col-2">
+				two
+			</div>
+			<div class="col-2">
+				two
+			</div>
+			<div class="col-2">
+				two
+			</div>
+
+			<div class="col-3">
+				three
+			</div>
+			<div class="col-3">
+				three
+			</div>
+			<div class="col-3">
+				three
+			</div>
+			<div class="col-3">
+				three
+			</div>
+
+			<div class="col-4">
+				four
+			</div>
+			<div class="col-4">
+				four
+			</div>
+			<div class="col-4">
+				four
+			</div>
+
+			<div class="col-6">
+				six
+			</div>
+			<div class="col-6">
+				six
+			</div>
+
+			<div class="col-12">
+				twelve
+			</div>
+		</section>
+
+
+
+
 	</section>
 
 

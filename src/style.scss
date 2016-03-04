@@ -9,8 +9,8 @@
 @import 'sass/forms';
 
 // @import 'sass/hotplate-grid'; // ie8+ compatible grid
-// @import 'sass/hotplate-flex'; // ie10+ grid
-@import 'sass/hotplate-flexplus'; // ie10+ grid using margins and calc
+// @import 'sass/hotplate-flex'; // ie10+ grid using flexbox, padding, nestable
+@import 'sass/hotplate-flexplus'; // ie10+ grid using flexbox, margins and calc and is nestable
 
 @import 'sass/header-footer';
 
