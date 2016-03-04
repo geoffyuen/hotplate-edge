@@ -1,0 +1,104 @@
+// This is a flexbox system that uses margins for gutters instead of padding.
+// It uses calc() to compensate for the margins and you can nest the grid.
+// With this grid you can set custom padding, box-shadow and background-colors
+// on the columns and it'll work as expected unlike the other two grids
+// (_hotplate-grid.scss and _hotplate-flex).
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+
+%column {
+	@include hmargin($hp-gutter);
+	width: calc(100% - #{$hp-gutter * 2});
+	flex: 0 0 auto;
+}
+
+
+
+// preset column classes ala bootstrap - granular control of columns
+
+$bp: (
+	xxs :$xxs,
+	xs :$xs,
+	sm :$sm,
+	md :$md,
+	lg :$lg,
+	xl :$xl,
+);
+
+@each $name, $mq in $bp {
+
+	@for $i from 1 through 12 {
+		.col-#{$name}-#{$i} {
+			@extend %column;
+		}
+	}
+	@include media(#{$mq}) {
+		@for $i from 1 through 12 {
+			.col-#{$name}-#{$i} {
+				@include fcol(12,$i);
+			}
+		}
+	}
+
+}
+
+// preset column classes ala skeleton - < tablet = 1 col
+// this is just the same thing as .col-md-*
+@for $i from 1 through 12 {
+	.col-#{$i} {
+		@extend .col-md-#{$i};
+	}
+}
+
+// Nested columns: use this class on a column that contains columns
+// @extend this on the parent of @column
+// Effectively acts like a .row in other frameworks
+// This removes inline-block whitespace.
+// We can't use 0 because of Ice Cream Sandwich
+%has-col {
+	display: flex;
+	flex-wrap: wrap;
+}
+
+
+// remove margins and set widths without calc
+.has-col {
+	@extend %has-col;
+	@include hmargin(0);
+
+	@each $name, $mq in $bp {
+
+		@for $i from 1 through 12 {
+			&.col-#{$name}-#{$i} {
+				width: 100%;
+			}
+		}
+		@include media(#{$mq}) {
+			@for $i from 1 through 12 {
+				&.col-#{$name}-#{$i} {
+					@include col(12,$i);
+				}
+			}
+		}
+
+	}
+
+}
+
+.wrapper {
+	@extend %has-col;
+	@include hmargin(auto);
+	@include hpad($hp-gutter);
+	max-width: $lg;
+
+	hr {
+		@include hmargin($hp-gutter);
+		width: 100%;
+	}
+}
+
+
