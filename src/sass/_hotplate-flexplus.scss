@@ -14,6 +14,9 @@ img {
 	@include hmargin($hp-gutter);
 	width: calc(100% - #{$hp-gutter * 2});
 	flex: 0 0 auto;
+	&.has-col {
+		width: 100%;
+	}
 }
 
 
@@ -30,6 +33,19 @@ $bp: (
 );
 
 @each $name, $mq in $bp {
+
+	.#{$name}-only {
+		display: none;
+		@include media(#{$mq}) {
+			display: initial;
+		}
+	}
+	.#{$name}-hide {
+		display: block;
+		@include media(#{$mq}) {
+			display: none;
+		}
+	}
 
 	@for $i from 1 through 12 {
 		.col-#{$name}-#{$i} {
@@ -55,6 +71,12 @@ $bp: (
 	.col-#{$i} {
 		@extend .col-md-#{$i};
 	}
+}
+
+// column that fills remain horz space
+.col-fill {
+	@include hmargin($hp-gutter);
+	flex: 1;
 }
 
 // Nested columns: use this class on a column that contains columns

@@ -7,49 +7,36 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title></title>
 	<meta name="description" content="">
-	<link href='https://fonts.googleapis.com/css?family=Fira+Sans:300' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="style.css">
     <script src="bower_components/respondJS/dest/respond.min.js"></script>
     <script src="bower_components/modernizr/modernizr.js"></script>
     <style>
-    	[class^="col-"] {
-			display: flex;
-			flex-direction: column;
-    	}
-    	.has-col {
-    		flex-direction: row;
-    	}
-		.text, .demo {
-			background: #2980b9;
+		.bg {
+			background: #c0392b;
 			color: #fff;
 			border-radius: 3px;
-			width: 100%;
+			margin-top: 1rem;
+			margin-bottom: 1rem;
+			padding: 1rem;
 		}
-		.text {
-			display: flex;
-			flex-direction: column;
-			flex: 1;
-			margin: 1.5em 0;
-			padding: .75em 1em;
+
+		.section {
+			margin-top: 5rem;
+			margin-bottom: 5rem;
 		}
-		.demo {
-			margin: .5em 0;
-			text-align: center;
+
+		.page-content:nth-child(2n+1) {
+			background: #eee;
 		}
-		.test {
-			/*display: flex;*/
-			flex-direction: column;
-			align-items: stretch;
+
+		.page-content>*:first-child {
+			margin-top: 0;
 		}
-		.flexboxplus [class^="col-"] {
-			background: #2980b9;
-			color: #fff;
-			border-radius: 3px;
-			text-align: center;
-			margin-bottom: 2rem;
-			padding: .5rem 1rem;
-			box-shadow: .5rem .5rem rgba(0,0,0,.2);
+		.page-content>*:last-child {
+			margin-bottom: 0;
 		}
+
 
     </style>
 </head>
@@ -62,283 +49,97 @@
 
 
 	<section class="page-content">
-		<div class="wrapper">
-			<div class="col-xxs-12">
-				<h1>No rows required. Columns wrap around on new "lines"</h1>
-			</div>
 
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-1">
-				<p class="demo">1</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-2">
-				<p class="demo">2</p>
-			</div>
-
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-3">
-				<p class="demo">3</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-4">
-				<p class="demo">4</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-2">
-				<p class="demo">2</p>
-			</div>
-
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-5">
-				<p class="demo">5</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-6">
-				<p class="demo">6</p>
-			</div>
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-1">
-				<p class="demo">1</p>
-			</div>
-
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-7">
-				<p class="demo">7</p>
-			</div>
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-5">
-				<p class="demo">5</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-8">
-				<p class="demo">8</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-4">
-				<p class="demo">4</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-9">
-				<p class="demo">9</p>
-			</div>
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-3">
-				<p class="demo">3</p>
-			</div>
-
-			<div class="col-xs-6 col-sm-4 col-md-3 col-lg-10">
-				<p class="demo">10</p>
-			</div>
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-2">
-				<p class="demo">2</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-11">
-				<p class="demo">11</p>
-			</div>
-			<div class="col-xxs-6 col-xs-6 col-sm-4 col-md-3 col-lg-1">
-				<p class="demo">1</p>
-			</div>
-
-			<div class="col-xxs-6 col-xs-12 col-md-6 col-lg-12">
-				<p class="demo">12</p>
-			</div>
-
-			<hr>
-
-			<div class="wrapper">
-				<div class="col-3 has-col" style="background: #ddd; padding: 1.6rem">
-					<h3>
-						Lorem ipsum dolor sit.
-					</h3>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae excepturi quas aliquam ullam sint. Facilis assumenda explicabo optio minima, nemo alias asperiores. Molestias ratione veniam, voluptatem deleniti nesciunt, animi optio.</p>
-				</div>
-				<div class="col-9 has-col" style="background: #eee; padding-top: 1.6rem;">
-					<div class="col-12 fill">
-						<h2>Nested Columns</h2>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minus laborum aperiam vero sed eos reiciendis iste aliquid aspernatur quas necessitatibus, porro ad, repellendus, accusamus nesciunt odio hic. Ullam, cum atque!</p>
-					</div>
-					<div class="col-4">
-						<h3>Lorem ipsum dolor sit amet, consectetur adipisicing.</h3>
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi omnis esse asperiores excepturi sint, ab beatae dolorum optio rem, hic nobis quas nihil. Eum expedita nemo, accusamus cum sunt ad.</p>
-					</div>
-					<div class="col-4">
-						<h3>Aspernatur aut sit error fugiat ab voluptatum!</h3>
-						<p>Nesciunt numquam aperiam tenetur, commodi accusamus, quibusdam pariatur eligendi neque necessitatibus nulla quis perferendis quod libero ab magni eum velit quas odio, accusantium saepe quae reprehenderit quisquam at illo. Ex.</p>
-					</div>
-					<div class="col-4">
-						<h3>Consequuntur recusandae vel velit aspernatur, repellat pariatur.</h3>
-						<p>Eligendi dolorum porro laudantium facere voluptatem tempore mollitia earum quaerat. Soluta iste mollitia eveniet voluptas debitis id pariatur, libero, perferendis est, et harum minus provident sint repellat beatae nemo iure.</p>
-					</div>
-				</div>
-			</div>
-
-			<hr>
-
-			<h2 class="col-12">Equal height columns with flexbox, ragged columns fallback</h2>
-
-			<p class="col-12">This is not working in Safari...</p>
-
-			<!--.col-xs-6.col-sm-4.col-3*7>.text>h4>lorem5^p>lorem13-->
-			<div class="col-xs-6 col-sm-4 col-3">
-				<div class="text">
-					<h4>Lorem ipsum dolor sit amet.</h4>
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ullam distinctio animi voluptatibus, odit.</p>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3">
-				<div class="text">
-					<h4>Culpa quia animi incidunt magnam.</h4>
-					<p>Sit architecto cumque, consequuntur quo, ipsum autem doloremque atque facilis sapiente, debitis quam.</p>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3">
-				<div class="text">
-					<h4>Eligendi, perferendis consequatur reprehenderit. Quos?</h4>
-					<p>Perspiciatis nihil, error accusantium. Veniam eos nostrum nesciunt aliquam, facilis mollitia, dolore voluptas.</p>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3">
-				<div class="text">
-					<h4>Necessitatibus ex aut laudantium saepe.</h4>
-					<p>Aliquam officiis ex impedit saepe necessitatibus ad. Omnis ratione earum nesciunt, voluptatibus deleniti.</p>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3">
-				<div class="text">
-					<h4>Ullam accusamus repudiandae ab nobis.</h4>
-					<p>Neque laboriosam repellendus reiciendis perspiciatis, eius odio fuga temporibus voluptatibus accusantium enim consequuntur?</p>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3">
-				<div class="text">
-					<h4>Eum aspernatur obcaecati saepe dicta.</h4>
-					<p>Illo veritatis, quo? Quos voluptatum quo quis illo iusto accusantium praesentium tempora doloribus?</p>
-				</div>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3">
-				<div class="text">
-					<h4>Libero accusamus nulla, sapiente? Temporibus.</h4>
-					<p>Vel quae quos eos, impedit, enim pariatur minus eligendi, eveniet magni dignissimos dolore.</p>
-				</div>
-			</div>
-
-			<hr>
-
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Lorem ipsum dolor sit amet.</h4>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet beatae laudantium eius ex.</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Vero, quae impedit eius adipisci?</h4>
-				<p>Omnis nobis quas soluta tenetur porro, labore quod accusantium incidunt eligendi, doloribus fugit.</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>In saepe voluptate, est aliquid?</h4>
-				<p>Nulla similique veniam reiciendis quod. Odio mollitia in asperiores architecto, accusantium dicta! Id!</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Porro animi excepturi deserunt dolores!</h4>
-				<p>Asperiores necessitatibus fugiat quo repellendus ducimus dolorum quas quia perspiciatis hic. Non, ullam.</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Vel ipsam illo esse nisi.</h4>
-				<p>Laborum voluptate accusamus, porro nobis facilis ab, maxime, sit excepturi rem nesciunt voluptas!</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Mollitia ab, reiciendis deleniti eligendi.</h4>
-				<p>Dolorum et, labore fuga repudiandae ad voluptate inventore modi numquam, consequatur ut minima.</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Libero voluptate neque nesciunt vitae!</h4>
-				<p>Ea numquam dolor explicabo enim rem magnam nobis, asperiores natus placeat accusamus quos!</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Nostrum recusandae repudiandae quia impedit!</h4>
-				<p>Ducimus alias repellendus eligendi animi, quaerat eveniet, qui ipsa corporis exercitationem, quam non!</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Adipisci necessitatibus, animi dolores labore.</h4>
-				<p>Ipsa quidem, odio necessitatibus, sint similique mollitia minus obcaecati numquam iure nostrum quo?</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Corporis magnam hic, dicta cumque.</h4>
-				<p>Porro quo accusantium, quae vero, animi nulla voluptatem illum numquam quam quaerat praesentium.</p>
-			</div>
-			<div class="col-xs-6 col-sm-4 col-3 test">
-				<h4>Aperiam omnis consectetur ducimus, quia!</h4>
-				<p>Fugiat atque error debitis? Tenetur, cumque. Quisquam porro ducimus fuga iure neque. Quaerat.</p>
-			</div>
-
+		<article class="wrapper">
 			<header class="col-12">
-				<h1>Flexboxplus Grid</h1>
-				<p>If enabled, this grid should allow the use of less markup when using styles like background-colors, box-shadows and padding. There's nothing but text inside these columns:</p>
+				<h1>12 Column Grid</h1>
+				<p>This grid system does not require .row classes to allow greater flexibility with layouts.</p>
 			</header>
-		</div><!--wrapper-->
 
-		<section class="flexboxplus wrapper">
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
-			<div class="col-1">1</div>
+			<div class="col-xs-6 col-sm-4 col-1 bg">1</div>
+			<div class="col-xs-6 col-sm-4 col-10 bg">ten</div>
+			<div class="col-xs-6 col-sm-4 col-1 bg">1</div>
 
-			<div class="col-2">
-				two
-			</div>
-			<div class="col-2">
-				two
-			</div>
-			<div class="col-2">
-				two
-			</div>
-			<div class="col-2">
-				two
-			</div>
-			<div class="col-2">
-				two
-			</div>
-			<div class="col-2">
-				two
-			</div>
+			<div class="col-xs-6 col-sm-4 col-2 bg">two</div>
+			<div class="col-xs-6 col-sm-4 col-8 bg">eight</div>
+			<div class="col-xs-6 col-sm-4 col-2 bg">two</div>
 
-			<div class="col-3">
-				three
-			</div>
-			<div class="col-3">
-				three
-			</div>
-			<div class="col-3">
-				three
-			</div>
-			<div class="col-3">
-				three
-			</div>
+			<div class="col-xs-6 col-sm-4 col-3 bg">three</div>
+			<div class="col-xs-6 col-sm-4 col-3 bg">three</div>
+			<div class="col-xs-6 col-sm-4 col-3 bg">three</div>
+			<div class="col-xs-6 col-sm-4 col-3 bg">three</div>
+			<div class="col-xs-6 col-sm-4 col-4 bg">four</div>
+			<div class="col-xs-6 col-sm-4 col-4 bg">four</div>
+			<div class="col-xs-6 col-sm-4 col-4 bg">four</div>
 
-			<div class="col-4">
-				four
-			</div>
-			<div class="col-4">
-				four
-			</div>
-			<div class="col-4">
-				four
-			</div>
+			<div class="col-5 bg">five</div>
+			<div class="col-fill bg">fill remaining space with <strong>.col-fill</strong></div>
 
-			<div class="col-6">
-				six
-			</div>
-			<div class="col-6">
-				six
-			</div>
+		</article>
 
+	</section>
+	<section class="page-content">
+
+
+		<article class="wrapper section">
 			<div class="col-12">
-				twelve
+				<h1>Using flexbox means equal height columns</h1>
+				<p>Typical dashboard</p>
 			</div>
-		</section>
+
+			<div class="has-col col-12">
+				<header class="col-xxs-10 col-12 bg">
+					Header
+				</header>
 
 
+				<aside class="col-xxs-2 col-3 bg">
+					<button class="md-hide col-fill">=</button>
+					<div class="md-only">
+						<p>Sidebar</p>
+						<ul class="col-12 has-col">
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Lorem ipsum.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Quas, veritatis.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Minima, debitis.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Officiis, quibusdam.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Delectus, illum.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Deleniti, obcaecati.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Expedita, voluptatibus?</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Beatae, necessitatibus.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Aliquid, ipsum.</a></li>
+							<li class="col-xs-6 col-sm-4 col-12"><a href="#">Totam, explicabo.</a></li>
+						</ul>
+						<p>The list items above are using these classes to change layout depending on screensize: col-xs-6 col-sm-4 col-12</p>
+					</div>
+				</aside>
 
+
+				<section class="col-9 bg">
+					<h2>Headline</h2>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis doloremque, deleniti, eveniet ullam dignissimos voluptatum atque dolorum consequuntur alias a! Quidem facilis nobis rem id doloribus, quasi nemo saepe, ratione.</p>
+					<p>Adipisci voluptatibus fugiat dicta inventore similique facilis quo ad iste nam minus iure qui, ea eum? Velit fuga eius, accusamus iusto, non cupiditate praesentium tempore nihil veniam. Tempore, reiciendis ratione.</p>
+					<p>Quia, neque minima omnis deserunt. Quo natus eaque accusantium placeat eius aliquid, esse, eos impedit earum quaerat cumque quod. Fugiat adipisci neque omnis praesentium cumque perspiciatis aliquam aliquid doloribus provident!</p>
+
+					<div class="wrapper">
+						<div class="col-12">
+							<h3>Nested columns</h3>
+						</div>
+						<div class="col-4">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores repudiandae tenetur ad temporibus sequi in, odit doloremque corporis. Incidunt illum, accusantium assumenda quis, ducimus modi adipisci cumque nisi quibusdam laudantium.</p>
+						</div>
+						<div class="col-4">
+							<p>Ratione consequatur velit non, numquam quis earum, perspiciatis nisi reprehenderit distinctio asperiores maxime? Consectetur magni pariatur possimus cupiditate, distinctio dolore voluptate, velit ipsa deleniti exercitationem consequatur, nam ad atque culpa.</p>
+						</div>
+						<div class="col-4">
+							<p>Corporis sequi sed, nulla temporibus consequatur, aperiam. Debitis maiores earum omnis esse quibusdam. Quae similique debitis aliquid laudantium facere, quos? Nemo repellat, tempore quia nihil vel temporibus magnam ut quae.</p>
+						</div>
+					</div>
+				</section>
+				<footer class="col-12 bg">
+					footer
+				</footer>
+			</div>
+		</article>
 
 	</section>
 
