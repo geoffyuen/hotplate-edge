@@ -19,7 +19,7 @@ $xxs:320px;
 
 
 // mobile-first media query
-@mixin media($mediawidth: $hp-bp--tablet) {
+@mixin media($mediawidth: $md) {
 	@media (min-width: $mediawidth) {
 		@content;
 	}
