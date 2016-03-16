@@ -100,7 +100,7 @@ $bp: (
 	@extend %has-col;
 	@include hmargin(auto);
 	@include hpad($hp-gutter);
-	max-width: $lg;
+	max-width: $xl;
 
 	hr {
 		@include hmargin($hp-gutter);

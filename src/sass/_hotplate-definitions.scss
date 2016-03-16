@@ -25,6 +25,12 @@ $xxs:320px;
 	}
 }
 
+@mixin undermedia($mediawidth: $md) {
+	@media (max-width: $mediawidth - 1) {
+		@content;
+	}
+}
+
 // use this to define non-first mobile first columns
 @mixin col($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
 	width: 100% / $numberofcolumns * $howmanycolumns;
