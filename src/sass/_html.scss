@@ -39,8 +39,8 @@ th, td {
 
 // remove white-space on top, add on bottom:
 @include headlines {
-	// line-height: 1.1;
-	margin: 0 0 .5rem 0;
+	line-height: 1.2;
+	margin: 0 0 .5em 0;
 	letter-spacing: -.01em;
 
 	a {

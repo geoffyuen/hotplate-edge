@@ -24,7 +24,7 @@ img {
 // preset column classes ala bootstrap - granular control of columns
 
 $bp: (
-	xxs :$xxs,
+	xxs :1px,
 	xs :$xs,
 	sm :$sm,
 	md :$md,
@@ -82,6 +82,8 @@ $bp: (
 // Nested columns: use this class on a column that contains columns...
 .has-col {
 	display: block;
+	// display: flex;
+	// flex-wrap: wrap;
 	@include hmargin(0);
 
 	//... then then use a wrapper again
@@ -100,6 +102,8 @@ $bp: (
 	@include hpad($hp-gutter); // add the same gutter space to the left and right sides of the browser. Optional.
 	width: 100%;
 	max-width: $xl;
+	// justify-content: center;
+	// align-items: center;
 
 	hr {
 		@include hmargin($hp-gutter);

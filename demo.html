@@ -12,12 +12,20 @@
     <script src="bower_components/respondJS/dest/respond.min.js"></script>
     <script src="bower_components/modernizr/modernizr.js"></script>
     <style>
+		@import url(http://weloveiconfonts.com/api/?family=fontawesome);
+		/* fontawesome */
+		[class*="fontawesome-"]:before {
+			font-family: 'FontAwesome', sans-serif;
+		}
+
 		.bg, .bg2 {
 			background: #c0392b;
 			color: #fff;
 			border-radius: 3px;
 			margin-top: 1rem;
 			margin-bottom: 1rem;
+			padding-top: 1rem;
+			padding-bottom: 1rem;
 			/*padding: 1rem;*/
 		}
 
@@ -57,9 +65,25 @@
 			outline: 5px solid green;
 			top: 0;
 			display: flex;
+			z-index: 1;
 		}
 		#overlay .wrapper {
 			outline: 1px solid rgba(0,0,0,.1);
+		}
+
+		#toggle-overlay {
+			position: fixed;
+			top: 0;
+			right: 0;
+			z-index: 100;
+		}
+
+		.site-header {
+			position: relative;
+		}
+		.site-header > * {
+			position: relative;
+			z-index: 2;
 		}
 
 
@@ -74,25 +98,48 @@
 		<div class="wrapper">
 
 			<h1 class="col-12">
-				Another CSS 12-column grid system
+				Another CSS 12-column grid system for modern browsers
 			</h1>
 
-				<div class="col-4">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sed quaerat facere atque excepturi libero voluptas accusamus incidunt, modi architecto doloribus, minima reprehenderit a. Unde corrupti obcaecati fugit culpa quos?</p>
-				</div>
-				<div class="col-4">
-					<p>Nihil voluptatum assumenda nesciunt, reprehenderit nostrum eius, tempora atque dolor, ea aperiam fugit pariatur soluta laborum velit cupiditate consequuntur expedita error. Nihil odit accusamus totam ad, dolores dignissimos a dolorem.</p>
-				</div>
-				<div class="col-4">
-					<p>Voluptatem molestias nam architecto delectus quae iusto velit rem aut eaque maiores accusantium quo voluptates repudiandae sed error autem, dolore possimus est sit, porro beatae minima, facilis cumque deserunt temporibus.</p>
-				</div>
+			<div class="col-sm-6 col-4">
+				<h2>Real gutters and real source&nbsp;ordering</h2>
+				<p>
+					We use flexbox, calc and margins to build the gird. Pad and use background colours without breaking your layouts. Use flexbox order rules instead of sloppy push and pull hackery.
+				</p>
+			</div>
+			<div class="col-sm-6 col-4">
+				<h2>No rows and no floats</h2>
+				<p>
+					No more extra markup to clear columns with clearfix classes or rules taking up your precious pseudo elements. Columns wrap automatically to the next line if they don't fit. This means cleaner markup.
+				</p>
+			</div>
+			<div class="col-sm-6 col-4">
+				<h2>Nesting!</h2>
+				<p>
+					Use columns for general layout like headers, content, sidebars and footers. User columns inside those sections to build sub-layouts.
+				</p>
+			</div>
+			<div class="col-sm-6 col-4">
+				<h2>Using flexbox means equal height columns</h2>
+				<p>
+					Finally you can implement your designer's layouts without any javascript for specifying heights with <em>magic numbers</em>.
+				</p>
+			</div>
+
+		</div>
+	</div>
 
 
+	<section class="page-content">
 
-			<div class="col-8 bg has-col"><div class="wrapper">
+		<article class="wrapper">
 
-				<h1 class="col-12">Nested Columns</h1>
-				<h2 class="col-12">Red: 2/3 width, Gray: 1/3 sidebar</h2>
+			<h1 class="col-12">Nested Columns</h1>
+			<h2 class="col-12">Red: 2/3 width, Gray: 1/3 sidebar</h2>
+
+
+			<div class="wrapper"><div class="col-8 bg has-col"><div class="wrapper">
+
 
 				<div class="col-sm-6">
 					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sed quaerat facere atque excepturi libero voluptas accusamus incidunt, modi architecto doloribus, minima reprehenderit a. Unde corrupti obcaecati fugit culpa quos?</p>
@@ -130,9 +177,9 @@
 					<p>Magni, facilis, dolor? Dolorem deleniti sequi vel, ipsam repudiandae error fuga molestias amet harum similique ducimus impedit tempore alias sint culpa illo neque odit nemo assumenda ut molestiae iusto laudantium.</p>
 				</div>
 
-			</div></div>
+			</div></div></div>
 		</div>
-	</div>
+	</section>
 
 
 	<section class="page-content">
@@ -220,32 +267,33 @@
 						<div class="col-4">
 							<p>Corporis sequi sed, nulla temporibus consequatur, aperiam. Debitis maiores earum omnis esse quibusdam. Quae similique debitis aliquid laudantium facere, quos? Nemo repellat, tempore quia nihil vel temporibus magnam ut quae.</p>
 						</div>
-					</div></div>
+					</div>
 				</section>
 				<footer class="col-12 bg">
 					footer
 				</footer>
-			</div>
+			</div></div>
 		</article>
 
 	</section>
 
 <div id="overlay">
 	<div class="wrapper">
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
-		<div class="col-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
+		<div class="col-xxs-1"></div>
 	</div>
 </div>
+<button id="toggle-overlay">Grid</button>
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="js/main.js"></script>
@@ -256,6 +304,10 @@
 		e.src='//www.google-analytics.com/analytics.js';
 		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
 		ga('create','UA-XXXXX-X');ga('send','pageview');
+
+		$("#toggle-overlay").click(function(){
+			$("#overlay").slideToggle();
+		});
 	</script>
 </body>
 </html>
