@@ -12,13 +12,26 @@
     <script src="bower_components/respondJS/dest/respond.min.js"></script>
     <script src="bower_components/modernizr/modernizr.js"></script>
     <style>
-		.bg {
+		.bg, .bg2 {
 			background: #c0392b;
 			color: #fff;
 			border-radius: 3px;
 			margin-top: 1rem;
 			margin-bottom: 1rem;
-			padding: 1rem;
+			/*padding: 1rem;*/
+		}
+
+		.bg2 {
+			background: #2c3e50;
+		}
+
+		.bg3 {
+			background: #8e44ad;
+		}
+
+		.bg [class^="col-"], #overlay [class^="col-"] {
+				/*flex: 1 0;*/
+				outline: 1px solid rgba(0,0,0,.1);
 		}
 
 		.section {
@@ -37,6 +50,18 @@
 			margin-bottom: 0;
 		}
 
+		#overlay {
+			position: fixed;
+			width: 100%;
+			height: 100vh;
+			outline: 5px solid green;
+			top: 0;
+			display: flex;
+		}
+		#overlay .wrapper {
+			outline: 1px solid rgba(0,0,0,.1);
+		}
+
 
     </style>
 </head>
@@ -45,7 +70,69 @@
 		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
 	<![endif]-->
 
+	<div class="page-content">
+		<div class="wrapper">
 
+			<h1 class="col-12">
+				Another CSS 12-column grid system
+			</h1>
+
+				<div class="col-4">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sed quaerat facere atque excepturi libero voluptas accusamus incidunt, modi architecto doloribus, minima reprehenderit a. Unde corrupti obcaecati fugit culpa quos?</p>
+				</div>
+				<div class="col-4">
+					<p>Nihil voluptatum assumenda nesciunt, reprehenderit nostrum eius, tempora atque dolor, ea aperiam fugit pariatur soluta laborum velit cupiditate consequuntur expedita error. Nihil odit accusamus totam ad, dolores dignissimos a dolorem.</p>
+				</div>
+				<div class="col-4">
+					<p>Voluptatem molestias nam architecto delectus quae iusto velit rem aut eaque maiores accusantium quo voluptates repudiandae sed error autem, dolore possimus est sit, porro beatae minima, facilis cumque deserunt temporibus.</p>
+				</div>
+
+
+
+			<div class="col-8 bg has-col"><div class="wrapper">
+
+				<h1 class="col-12">Nested Columns</h1>
+				<h2 class="col-12">Red: 2/3 width, Gray: 1/3 sidebar</h2>
+
+				<div class="col-sm-6">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores sed quaerat facere atque excepturi libero voluptas accusamus incidunt, modi architecto doloribus, minima reprehenderit a. Unde corrupti obcaecati fugit culpa quos?</p>
+				</div>
+				<div class="col-sm-6">
+					<p>Nihil voluptatum assumenda nesciunt, reprehenderit nostrum eius, tempora atque dolor, ea aperiam fugit pariatur soluta laborum velit cupiditate consequuntur expedita error. Nihil odit accusamus totam ad, dolores dignissimos a dolorem.</p>
+				</div>
+				<div class="col-sm-6">
+					<p>Voluptatem molestias nam architecto delectus quae iusto velit rem aut eaque maiores accusantium quo voluptates repudiandae sed error autem, dolore possimus est sit, porro beatae minima, facilis cumque deserunt temporibus.</p>
+				</div>
+				<div class="col-sm-6">
+					<p>Odit, minima labore cum ullam reiciendis natus esse ex, ab quidem dolorem ipsa quod voluptatum totam voluptatem voluptate suscipit beatae vel facilis eum odio doloremque quae aut? Repellendus, aliquam, voluptatem.</p>
+				</div>
+				<div class="col-sm-6">
+					<p>Illo labore aliquam ullam architecto ipsum quaerat soluta a. Qui exercitationem asperiores quibusdam blanditiis inventore eligendi nihil numquam soluta eos quos, veniam eveniet quae, sed dicta earum provident, minima rerum.</p>
+				</div>
+
+			</div></div>
+
+			<div class="col-4 has-col bg2"><div class="wrapper">
+				<h1 class="col-12">Aside</h2>
+				<div class="col-sm-6 col-12">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non adipisci ea, praesentium similique eos numquam eius. Nobis necessitatibus, modi repudiandae, quis enim aut at qui, neque sunt quia est optio!</p>
+				</div>
+				<div class="col-sm-6 col-12">
+					<p>Doloribus perspiciatis velit magni cumque doloremque rem quo placeat ullam repellat a nam tempore, hic voluptates error commodi eos harum esse reprehenderit, amet aliquid? Quis illum distinctio unde! Ad, numquam!</p>
+				</div>
+				<div class="col-sm-6 col-12">
+					<p>Dolorum nemo necessitatibus fugit. Natus illo cum, expedita soluta provident quisquam eum nobis quaerat cumque iure amet, consequatur repellendus odit voluptates voluptatum necessitatibus. Voluptatum eligendi repellendus tenetur harum autem quaerat!</p>
+				</div>
+				<div class="col-sm-6 col-12">
+					<p>Nam eius blanditiis officiis minus, corporis perspiciatis necessitatibus delectus nesciunt dolorum laudantium odio itaque voluptates impedit quasi vitae expedita inventore labore a, iste. Voluptate quod expedita ut atque culpa, deleniti.</p>
+				</div>
+				<div class="col-sm-6 col-12">
+					<p>Magni, facilis, dolor? Dolorem deleniti sequi vel, ipsam repudiandae error fuga molestias amet harum similique ducimus impedit tempore alias sint culpa illo neque odit nemo assumenda ut molestiae iusto laudantium.</p>
+				</div>
+
+			</div></div>
+		</div>
+	</div>
 
 
 	<section class="page-content">
@@ -87,7 +174,7 @@
 				<p>Typical dashboard</p>
 			</div>
 
-			<div class="has-col col-12">
+			<div class="has-col col-12"><div class="wrapper">
 				<header class="col-xxs-10 col-12 bg">
 					Header
 				</header>
@@ -133,7 +220,7 @@
 						<div class="col-4">
 							<p>Corporis sequi sed, nulla temporibus consequatur, aperiam. Debitis maiores earum omnis esse quibusdam. Quae similique debitis aliquid laudantium facere, quos? Nemo repellat, tempore quia nihil vel temporibus magnam ut quae.</p>
 						</div>
-					</div>
+					</div></div>
 				</section>
 				<footer class="col-12 bg">
 					footer
@@ -143,7 +230,22 @@
 
 	</section>
 
-
+<div id="overlay">
+	<div class="wrapper">
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+		<div class="col-1"></div>
+	</div>
+</div>
 
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 	<script src="js/main.js"></script>

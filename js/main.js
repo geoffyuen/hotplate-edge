@@ -1,8 +1,8 @@
 function svg_debug(thenode){
 	console.log('symbols:');
   	$(thenode).find("symbol").each(function(){
-  		console.log(this.id);
-  		$("#sprites").append('<svg class="icon"><use xlink:href="#' + this.id + '" /></svg>');
+  		console.log("<syg class='icon'><use xlink:href='#" + this.id + "'/></svg>");
+  		// $("#sprites").append('<svg class="icon"><use xlink:href="#' + this.id + '" /></svg>');
   	});
 }
 
@@ -11,4 +11,8 @@ $.get("img/sprites.svg", function(data) {
 })
   .success(function(){ svg_debug('#svg-inject') })
 ;
-console.log('hello');
+// Ajax the header/nav into the document
+$.get("nav.html", function(data) {
+	// console.log(data);
+	$("body").prepend(data);
+});

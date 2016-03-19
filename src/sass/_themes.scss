@@ -2,13 +2,13 @@
 	color: #444;
 	a {
 		&:link, &:visited {
-			color: #8bcfad;
+			color: $dkred;
 		}
 		&:hover {
-			color: darken(#8bcfad, 10%);
+			color: lighten($dkred, 10%);
 		}
 		&:active {
-			color: #8bcfad;
+			color: $dkred;
 		}
 	}
 
@@ -25,13 +25,13 @@
 	color: #fff;
 	a {
 		&:link, &:visited {
-			color: #d8cf76;
+			color: lighten($red, 50%);
 		}
 		&:hover {
-			color: darken(#d8cf76, 10%);
+			color: lighten($red, 50%);
 		}
 		&:active {
-			color: #d8cf76;
+			color: lighten($red, 50%);
 		}
 	}
 

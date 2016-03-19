@@ -1,12 +1,22 @@
+// Sticky footer via Solved By Flexbox
+
 body {
 	display: flex;
 	min-height: 100vh;
 	flex-direction: column;
 }
 
+.page-content {
+	flex: 1;
+	padding-top: 3em;
+	padding-bottom: 3em;
+}
+
+// end sticky footer
+
 .site-header, .site-footer {
 	@extend %darktheme;
-	background: #2980b9;
+	background: $dkred;
 	padding-top: 2em;
 	padding-bottom: 2em;
 }
@@ -19,10 +29,10 @@ body {
 	}
 }
 
-.site-header {
+.site-nav {
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: flex-end;
 }
 
 .site-links {
@@ -33,10 +43,4 @@ body {
 	a {
 		padding-right: 1em;
 	}
-}
-
-.page-content {
-	flex: 1;
-	padding-top: 3em;
-	padding-bottom: 3em;
 }

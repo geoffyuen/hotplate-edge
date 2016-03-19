@@ -79,27 +79,26 @@ $bp: (
 	flex: 1;
 }
 
-// Nested columns: use this class on a column that contains columns
-// @extend this on the parent of @column
-// Effectively acts like a .row in other frameworks
-// This removes inline-block whitespace.
-// We can't use 0 because of Ice Cream Sandwich
-%has-col {
+// Nested columns: use this class on a column that contains columns...
+.has-col {
+	display: block;
+	@include hmargin(0);
+
+	//... then then use a wrapper again
+	.wrapper {
+		@include hmargin(0);
+		@include hpad(0);
+		max-width: 100%;
+	}
+}
+
+// wrap your columns in this -- even when nesting
+.wrapper {
 	display: flex;
 	flex-wrap: wrap;
-}
-
-
-// remove margins and set widths without calc
-.has-col {
-	@extend %has-col;
-	@include hmargin(0);
-}
-
-.wrapper {
-	@extend %has-col;
-	@include hmargin(auto);
-	@include hpad($hp-gutter);
+	@include hmargin(auto); // horizontally center in browser
+	@include hpad($hp-gutter); // add the same gutter space to the left and right sides of the browser. Optional.
+	width: 100%;
 	max-width: $xl;
 
 	hr {

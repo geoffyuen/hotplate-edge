@@ -1,8 +1,8 @@
 function svg_debug(thenode){
 	console.log('symbols:');
   	$(thenode).find("symbol").each(function(){
-  		console.log(this.id);
-  		$("#sprites").append('<svg class="icon"><use xlink:href="#' + this.id + '" /></svg>');
+  		console.log("<syg class='icon'><use xlink:href='#" + this.id + "'/></svg>");
+  		// $("#sprites").append('<svg class="icon"><use xlink:href="#' + this.id + '" /></svg>');
   	});
 }
 
