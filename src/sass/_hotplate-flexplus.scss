@@ -87,17 +87,20 @@ $bp: (
 // Nested columns: use this class on a column that contains columns...
 .has-col {
 	// display: block;
+	@include hmargin(0);
 	display: flex;
 	flex-wrap: wrap;
 	align-content: flex-start;
-	@include hmargin(0);
 
+	.no-flexbox & {
+		font-size: 0;
+	}
 	//... then then use a wrapper again
-	// .wrapper {
-	// 	@include hmargin(0);
-	// 	@include hpad(0);
-	// 	max-width: 100%;
-	// }
+	.wrapper {
+		@include hmargin(0);
+		@include hpad(0);
+		max-width: 100%;
+	}
 }
 
 // wrap your columns in this -- even when nesting
