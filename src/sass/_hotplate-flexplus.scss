@@ -17,6 +17,11 @@ img {
 	&.has-col {
 		width: 100%;
 	}
+	.no-flexbox & {
+		display: inline-block;
+		vertical-align: top;
+		font-size: $hp-fontsize;
+	}
 }
 
 
@@ -81,17 +86,18 @@ $bp: (
 
 // Nested columns: use this class on a column that contains columns...
 .has-col {
-	display: block;
-	// display: flex;
-	// flex-wrap: wrap;
+	// display: block;
+	display: flex;
+	flex-wrap: wrap;
+	align-content: flex-start;
 	@include hmargin(0);
 
 	//... then then use a wrapper again
-	.wrapper {
-		@include hmargin(0);
-		@include hpad(0);
-		max-width: 100%;
-	}
+	// .wrapper {
+	// 	@include hmargin(0);
+	// 	@include hpad(0);
+	// 	max-width: 100%;
+	// }
 }
 
 // wrap your columns in this -- even when nesting
@@ -105,10 +111,15 @@ $bp: (
 	// justify-content: center;
 	// align-items: center;
 
+	.no-flexbox & {
+		font-size: 0;
+	}
+
 	hr {
 		@include hmargin($hp-gutter);
 		width: 100%;
 	}
+
 }
 
 
