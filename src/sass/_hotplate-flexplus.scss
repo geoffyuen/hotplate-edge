@@ -14,7 +14,7 @@ img {
 	@include hmargin($hp-gutter);
 	width: calc(100% - #{$hp-gutter * 2});
 	flex: 0 0 auto;
-	&.has-col {
+	&.wrapper {
 		width: 100%;
 	}
 	.no-flexbox & {
@@ -61,7 +61,7 @@ $bp: (
 		@for $i from 1 through 12 {
 			.col-#{$name}-#{$i} {
 				@include fcol(12,$i);
-				&.has-col {
+				&.wrapper {
 					@include col(12,$i);
 				}
 			}
@@ -84,9 +84,8 @@ $bp: (
 	flex: 1;
 }
 
-// Nested columns: use this class on a column that contains columns...
+// Nested columns: use this class on a column that contains columns
 .has-col {
-	// display: block;
 	@include hmargin(0);
 	display: flex;
 	flex-wrap: wrap;
@@ -95,34 +94,37 @@ $bp: (
 	.no-flexbox & {
 		font-size: 0;
 	}
-	//... then then use a wrapper again
-	.wrapper {
-		@include hmargin(0);
-		@include hpad(0);
-		max-width: 100%;
-	}
 }
 
-// wrap your columns in this -- even when nesting
 .wrapper {
+	// @include hpad($hp-gutter); // add the same gutter space to the left and right sides of the browser. Optional.
+	@include hmargin(auto); // horizontally center in browser
 	display: flex;
 	flex-wrap: wrap;
-	@include hmargin(auto); // horizontally center in browser
-	@include hpad($hp-gutter); // add the same gutter space to the left and right sides of the browser. Optional.
 	width: 100%;
-	max-width: $xl;
-	// justify-content: center;
-	// align-items: center;
-
-	.no-flexbox & {
-		font-size: 0;
-	}
+	max-width: $lg;
 
 	hr {
 		@include hmargin($hp-gutter);
 		width: 100%;
 	}
 
-}
+	.no-flexbox & {
+		font-size: 0;
+	}
 
+	.wrapper {
+		@include hmargin(0);
+		@include hpad(0);
+		max-width: 100%;
+		align-content: flex-start;
+		display: flex;
+		flex-wrap: wrap;
+
+		.no-flexbox & {
+			font-size: 0;
+		}
+
+	}
+}
 

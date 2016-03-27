@@ -76,8 +76,14 @@ gulp.task('svgstore', function() {
 	return gulp
 	.src('src/sprites/**/*.svg')
 	.pipe(plumber({errorHandler: notify.onError("svgstore error: <%= error.message %>")}))
-	.pipe(svgmin())
-	.pipe(svgstore())
+	.pipe(svgmin({
+		plugins: [
+			{ removeDoctype: false },
+			{ removeComments: false }
+		]
+	}))
+	.pipe(gulp.dest('src/sprites'))
+	.pipe(svgstore(  ))
 	.pipe(gulp.dest('./img'))
 	.pipe(notify("SVG'ed"))
 });
