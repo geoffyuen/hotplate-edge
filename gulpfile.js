@@ -1,4 +1,6 @@
 // require('es6-promise').polyfill(); // Uncomment if old Node/npm
+var
+ie8 = false;
 
 var
 browserSync  = require('browser-sync'),
@@ -9,7 +11,6 @@ gulp         = require('gulp'),
 imagemin     = require('gulp-imagemin'),
 cssnano      = require('gulp-cssnano'),
 notify       = require("gulp-notify"),
-// pixrem       = require("gulp-pixrem"),
 plumber      = require('gulp-plumber'),
 rename       = require('gulp-rename'),
 sass         = require('gulp-sass'),
@@ -18,8 +19,14 @@ shell        = require('gulp-shell'),
 uglify       = require('gulp-uglify'),
 svgstore     = require('gulp-svgstore'),
 svgmin       = require('gulp-svgmin')
-// svg2png      = require('gulp-svg2png')
 ;
+
+if (ie8) {
+	var
+	pixrem       = require("gulp-pixrem"),
+	svg2png      = require('gulp-svg2png')
+	;
+}
 
 
 // start bs
