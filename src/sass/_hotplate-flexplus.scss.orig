@@ -84,6 +84,10 @@ $bp: (
 	flex: 1;
 }
 
+<<<<<<< HEAD
+// Use this class to contain .col-* elements. Apply directly on .col-* elements to nest columns -- otherwise,
+// margins will disrupt alignment.
+=======
 .col--vcent {
 	align-self: center; // Warning: will cause height to shrink to content
 }
@@ -92,8 +96,7 @@ $bp: (
 	align-self: bottom; // Warning: will cause height to shrink to content
 }
 
-// Use this class to contain .col-* elements. Apply directly on .col-* elements to nest columns -- otherwise,
-// margins will disrupt alignment.
+>>>>>>> develop
 .wrapper {
 	// @include hpad($hp-gutter); // add the same gutter space to the left and right sides of the browser. Optional.
 	@include hmargin(auto); // horizontally center in browser

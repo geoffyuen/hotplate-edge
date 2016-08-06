@@ -1,16 +1,16 @@
 // require('es6-promise').polyfill(); // Uncomment if old Node/npm
+var
+ie8 = false;
 
 var
-autoprefixer = require('gulp-autoprefixer'),
 browserSync  = require('browser-sync'),
 cache        = require('gulp-cache'),
 concat       = require('gulp-concat'),
 gulp         = require('gulp'),
-gutil        = require('gulp-util'),
+// gutil        = require('gulp-util'),
 imagemin     = require('gulp-imagemin'),
 cssnano      = require('gulp-cssnano'),
 notify       = require("gulp-notify"),
-pixrem       = require("gulp-pixrem"),
 plumber      = require('gulp-plumber'),
 rename       = require('gulp-rename'),
 sass         = require('gulp-sass'),
@@ -18,9 +18,15 @@ sourcemaps   = require('gulp-sourcemaps'),
 shell        = require('gulp-shell'),
 uglify       = require('gulp-uglify'),
 svgstore     = require('gulp-svgstore'),
-svgmin       = require('gulp-svgmin'),
-svg2png      = require('gulp-svg2png')
+svgmin       = require('gulp-svgmin')
 ;
+
+if (ie8) {
+	var
+	pixrem       = require("gulp-pixrem"),
+	svg2png      = require('gulp-svg2png')
+	;
+}
 
 
 // start bs
@@ -39,27 +45,31 @@ gulp.task('bs-reload', function() {
 
 // process ./src/styles.scss
 gulp.task('styles', function(){
-	gulp.src(['src/**/*.scss'])
+	return gulp
+	.src(['src/**/*.scss'])
 	.pipe(plumber({errorHandler: notify.onError("Sass error: <%= error.message %>")}))
 	.pipe(sourcemaps.init())
 	.pipe(sass( {outputStyle: 'nested'} ))
-	.pipe(autoprefixer({
+	.pipe(cssnano({
+		autoprefixer: {
 			browsers: ['last 2 versions','ie 8','ie 9','ie 10'],
 			remove: false,
 			flexbox: true,
 			add: true
-		}))
-	.pipe(cssnano({autoprefixer: false}))
-	.pipe(pixrem()) // remove this if you don't need to support IE8 or you don't use rems
+		}
+	}))
+	// .pipe(pixrem()) // for IE8 or you don't use rems
 	.pipe(sourcemaps.write('./src'))
 	.pipe(gulp.dest('./'))
-	.pipe(browserSync.reload({stream:true}))
+	.pipe(browserSync.stream())
+	// .pipe(browserSync.reload({stream:true}))
 	.pipe(notify("Styles done."))
 });
 
 // optimize images (jpg, png, gif, svg)
 gulp.task('img', function(){
-	gulp.src('src/img/**/*')
+	return gulp
+	.src('src/img/**/*')
 	.pipe(plumber({errorHandler: notify.onError("Img error: <%= error.message %>")}))
 	.pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
 	.pipe(gulp.dest('img/'))
@@ -89,15 +99,15 @@ gulp.task('svgstore', function() {
 });
 
 // create png fallbacks for ie8
-gulp.task('svg2png', function() {
-	return gulp
-	.src('src/sprites/**/*.svg')
-	.pipe(plumber({errorHandler: notify.onError("svg2png error: <%= error.message %>")}))
-	.pipe(svg2png())
-	.pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
-	.pipe(gulp.dest('./img'))
-	.pipe(notify("SVGs 2 PNG"))
-});
+// gulp.task('svg2png', function() {
+// 	return gulp
+// 	.src('src/sprites/**/*.svg')
+// 	.pipe(plumber({errorHandler: notify.onError("svg2png error: <%= error.message %>")}))
+// 	.pipe(svg2png())
+// 	.pipe(cache(imagemin({ optimizationLevel: 3, progressive: true, interlaced: true })))
+// 	.pipe(gulp.dest('./img'))
+// 	.pipe(notify("SVGs 2 PNG"))
+// });
 
 // compress js into ./js/main.js
 gulp.task('scripts', function() {
@@ -116,22 +126,21 @@ gulp.task('phps', shell.task([
   'php -S localhost:8000'
 ]))
 
-// serve, open and watch
-gulp.task('default', ['browser-sync'], function() {
+function mainprocess() {
 	gulp.watch("src/**/*.scss", ['styles']);
 	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
 	gulp.watch("src/img/**/*", ['img','bs-reload']);
-	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'svg2png','bs-reload']);
-	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
+	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'bs-reload']);
+	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);	
+}
+// serve, sync and watch
+gulp.task('default', ['browser-sync'], function() {
+	mainprocess();
 });
 
 // serve and watch
-gulp.task('cont', ['browser-sync0'], function() {
-	gulp.watch("src/**/*.scss", ['styles']);
-	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
-	gulp.watch("src/img/**/*", ['img','bs-reload']);
-	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'svg2png','bs-reload']);
-	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);
+gulp.task('cont', function() {
+	mainprocess();
 });
 
 // open current folder in subblime
