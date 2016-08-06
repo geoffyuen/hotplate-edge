@@ -84,18 +84,8 @@ $bp: (
 	flex: 1;
 }
 
-// Nested columns: use this class on a column that contains columns
-.has-col {
-	@include hmargin(0);
-	display: flex;
-	flex-wrap: wrap;
-	align-content: flex-start;
-
-	.no-flexbox & {
-		font-size: 0;
-	}
-}
-
+// Use this class to contain .col-* elements. Apply directly on .col-* elements to nest columns -- otherwise,
+// margins will disrupt alignment.
 .wrapper {
 	// @include hpad($hp-gutter); // add the same gutter space to the left and right sides of the browser. Optional.
 	@include hmargin(auto); // horizontally center in browser
