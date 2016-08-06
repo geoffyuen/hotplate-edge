@@ -84,16 +84,12 @@ $bp: (
 	flex: 1;
 }
 
-// Nested columns: use this class on a column that contains columns
-.has-col {
-	@include hmargin(0);
-	display: flex;
-	flex-wrap: wrap;
-	align-content: flex-start;
+.col--vcent {
+	align-self: center; // Warning: will cause height to shrink to content
+}
 
-	.no-flexbox & {
-		font-size: 0;
-	}
+.col--bottom {
+	align-self: bottom; // Warning: will cause height to shrink to content
 }
 
 .wrapper {
