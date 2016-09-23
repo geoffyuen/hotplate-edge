@@ -89,7 +89,7 @@ $bp: (
 }
 
 .col--bottom {
-	align-self: bottom; // Warning: will cause height to shrink to content
+	align-self: flex-end; // Warning: will cause height to shrink to content
 }
 
 // Use this class to contain .col-* elements. Apply directly on .col-* elements to nest columns -- otherwise,
