@@ -8,8 +8,7 @@
 	<title></title>
 	<meta name="description" content="">
 	<link rel="stylesheet" href="style.css">
-    <script src="bower_components/respondJS/dest/respond.min.js"></script>
-    <script src="bower_components/modernizr/modernizr.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
 <body>
 	<!--[if lte IE 9]>
@@ -17,43 +16,55 @@
 	<![endif]-->
 
 
-
-
-
-
-
-	<section class="page-content">
+	<header role="heading" class="site-header">
 		<div class="wrapper">
 			<div class="col-12">
-
+				<h1>Header</h1>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptatum quas vitae deserunt similique ab blanditiis consequuntur ipsa recusandae, sapiente odit, omnis earum eveniet enim dolorem. Perspiciatis nobis animi explicabo.</p>
 			</div><!--col-12-->
+		</div><!--wrapper-->
+		<div class="wrapper">
+			<nav class="site-nav">
+				<ul>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+					<li><a href="#">Link</a></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
+
+
+
+
+	<section role="main" class="page-content">
+		<div class="wrapper">
+			<div class="col-8">
+				<h2>Headline</h2>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aperiam perspiciatis itaque. Nam qui dolore facere, corporis iste quaerat, deserunt ab asperiores soluta ea voluptas doloremque quo explicabo totam fugiat.</p>
+			</div>
+			<div class="col-4">
+				<h3>Sidebar</h3>
+				<p>Labore iusto, commodi quibusdam ipsam id neque quam suscipit in blanditiis nisi eos magni facere animi ipsa quae nesciunt vero, optio pariatur veniam inventore deleniti quia fugit. Quo maxime, corrupti?</p>
+			</div>
 		</div><!--wrapper-->
 	</section>
 
 
 
-	<footer class="site-footer">
+	<footer role="contentinfo" class="site-footer">
 		<div class="wrapper">
-
-			<div class="col-10">
-				Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum alias tempora quo, blanditiis quaerat. Similique rem assumenda, sint corporis tempore aspernatur facilis aliquid dignissimos veniam fugiat consectetur amet consequuntur ducimus.
+			<div class="col-12">
+				<h6>Footer</h6>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quis voluptates dolorum consectetur dicta odio eum! Vel illum eum optio officiis cumque, incidunt libero dolore architecto voluptatem quidem commodi sequi?</p>
 			</div>
-
-
-			<div class="col-2 social">
-				<ul>
-					<li><a href="#">LinkedIn</a></li>
-					<li><a href="#">Facebook</a></li>
-					<li><a href="#">Twitter</a></li>
-				</ul>
-			</div>
-
-
 		</div>
 	</footer>
 
+
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="js/main.js"></script>
+	<script src="js/main.min.js"></script>
 	<script>
 		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
 		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;

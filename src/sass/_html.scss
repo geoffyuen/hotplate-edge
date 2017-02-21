@@ -2,14 +2,12 @@
 // & base typograpy
 
 html {
-	@extend %lighttheme;
 	box-sizing: border-box;
-	background: #fff;
-	font: 200 #{$hp-basefontsize}/1.6 $hp-fonts;
+	font: #{$hp-basefontsize}/1.6 $hp-fonts;
 }
 
 *, *:before, *:after {
-  box-sizing: inherit;
+	box-sizing: inherit;
 }
 
 body {
@@ -22,43 +20,19 @@ body {
 table {
 	border-collapse: collapse;
 }
-
 th, td {
 	border: 1px solid;
 	border-color: inherit;
 	padding: .5em 1em;
 }
 
-
-// headline scale
-// @for $i from 1 through 6 {
-// 	h#{$i} {
-// 		font-size: #{(7 - $i)*.1 * (7 - $i)*.6 + 1}em;
-// 	}
-// }
-
-// remove white-space on top, add on bottom:
+// Consistent margins using rems and not the default ems
 @include headlines {
-	line-height: 1.2;
-	margin: 0 0 .5em 0;
-	letter-spacing: -.01em;
-
-	a {
-	text-decoration: none;
-		&:hover {
-			text-decoration: underline;
-		}
-	}
+	margin: 1rem 0;
 }
 
-
-
-// add white-space on top when following content:
 p,ol,ul,dl,table,img,code,pre,blockquote,hr {
-	margin: $hp-fontsize 0;
-	&+h1,&+h2,&+h3,&+h4,&+h5,&+h6 {
-		margin-top: $hp-fontsize;
-	}
+	margin: 1rem 0;
 }
 
 ul {
@@ -67,5 +41,4 @@ ul {
 
 
 // IE FIXES
-
 svg:not(:root) { overflow: hidden; }

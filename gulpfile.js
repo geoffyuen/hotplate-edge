@@ -32,9 +32,9 @@ if (ie8) {
 // start bs
 gulp.task('browser-sync', function() {
 	browserSync({
-		server: { baseDir: "./" } // use this to serve static pages
 		// proxy: "localhost:8888/project-starter" // use this if you're running a server like MAMP witht the default port
-		// proxy: "localhost/project-starter" // use this if your running a server
+		// proxy: "localhost/project-starter" // use this if you're running a server on localhot with no port
+		server: { baseDir: "./" } // use this to serve static pages
 	});
 });
 
@@ -52,7 +52,7 @@ gulp.task('styles', function(){
 	.pipe(sass( {outputStyle: 'nested'} ))
 	.pipe(cssnano({
 		autoprefixer: {
-			browsers: ['last 2 versions','ie 8','ie 9','ie 10'],
+			browsers: ['last 2 versions','ie 10', 'ie 11'],
 			remove: false,
 			flexbox: true,
 			add: true
@@ -131,7 +131,7 @@ function mainprocess() {
 	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
 	gulp.watch("src/img/**/*", ['img','bs-reload']);
 	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'bs-reload']);
-	gulp.watch(["*.html", "*.php", "views/*.twig"], ['bs-reload']);	
+	gulp.watch(["*.html", "*.php", "templates/*.twig"], ['bs-reload']);
 }
 // serve, sync and watch
 gulp.task('default', ['browser-sync'], function() {

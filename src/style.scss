@@ -1,18 +1,29 @@
-// @import 'sass/wordpress-header';
-@import 'sass/flatcolors';
-@import 'sass/hotplate-definitions';
-@import 'sass/mixins';
-@import 'sass/themes';
-@import 'sass/helper';
+// WORDPRESS?
+// @import 'sass/_wordpress-header.scss';
 
-@import 'sass/normalize';
-@import 'sass/html';
-@import 'sass/forms';
+// SETTINGS: used with preprocessors and contain font, colors definitions, etc
+@import 'sass/_colors.scss';
+@import 'sass/_all-settings.scss'; // fonts, grid, media queries
 
-// @import 'sass/hotplate-grid'; // ie8+ compatible grid
-// @import 'sass/hotplate-flex'; // ie10+ grid using flexbox, padding, nestable
-@import 'sass/hotplate-flexplus'; // ie10+ grid using flexbox, margins and calc and is nestable
+// TOOLS: globally used mixins and functions
+@import 'sass/_mixins.scss';
+@import 'sass/_themes.scss';
 
-@import 'sass/header-footer';
+// GENERIC: reset and/or normalize styles
+@import 'sass/_normalize.scss';
 
-@import 'sass/z-index';
+// ELEMENTS: styling for bare HTML elements
+@import 'sass/_html.scss';
+@import 'sass/_forms.scss';
+
+// OBJECTS: class-based selectors which define undecorated design patterns (eg. media-object)
+@import 'sass/_grid.scss'; // ie10+ grid using flexbox, margins and calc and is nestable
+// You should start putting new stuff here
+
+// COMPONENTS: specific UI components
+@import 'sass/_header-footer.scss';
+// ...and here
+
+// TRUMPS: utilities and helper classes with ability to override everything above
+@import 'sass/_helper.scss';
+@import 'sass/_z-index.scss';

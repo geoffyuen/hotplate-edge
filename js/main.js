@@ -11,8 +11,6 @@ $.get("img/sprites.svg", function(data) {
 })
   .success(function(){ svg_debug('#svg-inject') })
 ;
-// Ajax the header/nav into the document
-$.get("nav.html", function(data) {
-	// console.log(data);
-	$("body").prepend(data);
+jQuery(document).ready(function($) {
+
 });

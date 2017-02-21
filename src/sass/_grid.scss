@@ -1,8 +1,7 @@
 // This is a flexbox system that uses margins for gutters instead of padding.
 // It uses calc() to compensate for the margins and you can nest the grid.
 // With this grid you can set custom padding, box-shadow and background-colors
-// on the columns and it'll work as expected unlike the other two grids
-// (_hotplate-grid.scss and _hotplate-flex).
+// on the columns
 
 img {
 	max-width: 100%;
@@ -17,11 +16,6 @@ img {
 	&.wrapper {
 		width: 100%;
 	}
-	.no-flexbox & {
-		display: inline-block;
-		vertical-align: top;
-		font-size: $hp-fontsize;
-	}
 }
 
 
@@ -29,7 +23,7 @@ img {
 // preset column classes ala bootstrap - granular control of columns
 
 $bp: (
-	xxs :1px,
+	// xxs :1px,
 	xs :$xs,
 	sm :$sm,
 	md :$md,
@@ -37,35 +31,52 @@ $bp: (
 	xl :$xl,
 );
 
+@mixin columncompiler($name) {
+	.#{$name}-only {
+			display: initial;
+	}
+	.#{$name}-hide {
+			display: none;
+	}
+	@for $i from 1 through 12 {
+		.col-#{$name}-#{$i} {
+			@include fcol(12,$i);
+			&.wrapper {
+				@include col(12,$i);
+			}
+		}
+	}
+}
+
+// XXS NEEDS NO MEDIA QUERIES
+@for $i from 1 through 12 {
+	.col-xxs-#{$i} {
+		@extend %column;
+	}
+}
+@include columncompiler('xxs');
+
+
+// COMPILE THE OTHER COLUMNS WITH MEDIA QUERIES
 @each $name, $mq in $bp {
 
+	// MOBILE FIRST
 	.#{$name}-only {
 		display: none;
-		@include media(#{$mq}) {
-			display: initial;
-		}
 	}
 	.#{$name}-hide {
 		display: block;
-		@include media(#{$mq}) {
-			display: none;
-		}
 	}
-
 	@for $i from 1 through 12 {
 		.col-#{$name}-#{$i} {
 			@extend %column;
 		}
 	}
+	// MOBILE FIRST END
+
+	// MEDIA QUERIED
 	@include media(#{$mq}) {
-		@for $i from 1 through 12 {
-			.col-#{$name}-#{$i} {
-				@include fcol(12,$i);
-				&.wrapper {
-					@include col(12,$i);
-				}
-			}
-		}
+		@include columncompiler($name);
 	}
 
 }
@@ -95,7 +106,6 @@ $bp: (
 // Use this class to contain .col-* elements. Apply directly on .col-* elements to nest columns -- otherwise,
 // margins will disrupt alignment.
 .wrapper {
-	// @include hpad($hp-gutter); // add the same gutter space to the left and right sides of the browser. Optional.
 	@include hmargin(auto); // horizontally center in browser
 	display: flex;
 	flex-wrap: wrap;
@@ -107,10 +117,6 @@ $bp: (
 		width: 100%;
 	}
 
-	.no-flexbox & {
-		font-size: 0;
-	}
-
 	.wrapper {
 		@include hmargin(0);
 		@include hpad(0);
@@ -118,11 +124,22 @@ $bp: (
 		align-content: flex-start;
 		display: flex;
 		flex-wrap: wrap;
+	}
 
-		.no-flexbox & {
-			font-size: 0;
-		}
-
+	&--space-between {
+		justify-content: space-between;
+	}
+	&--vcenter {
+		align-items: center;
+	}
+	&--vbottom {
+		align-items: flex-end;
+	}
+	&--hcenter {
+		justify-content: center;
+	}
+	&--hright {
+		justify-content: flex-end;
 	}
 }
 

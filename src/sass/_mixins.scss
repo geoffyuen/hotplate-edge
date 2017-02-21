@@ -12,13 +12,7 @@
 	}
 }
 
-@mixin image-replace($imageURL) {
-	background: url($imageURL) no-repeat;
-	text-indent: 100%;
-	white-space: nowrap;
-	overflow: hidden;
-}
-
+// Style all the headlines
 @mixin headlines {
 	h1,h2,h3,h4,h5,h6 {
 		@content;

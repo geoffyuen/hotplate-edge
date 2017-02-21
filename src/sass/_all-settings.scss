@@ -1,10 +1,11 @@
 // Hotplate variables
 
 // Typography - applied in _html.scss
-$hp-basefontsize: 10px; // Base root size - 10 makes it easier to use em/rems;
-$hp-mobilefontsize: 1.4rem; // font size for mobile
-$hp-fontsize: 1.6rem; // Used for the inline-block columns. Ignore when flexing
-$hp-fonts: "Fira Sans", "Helvetica Neue", sans-serif;
+$hp-basefontsize: 10px; // Base root size applied to <html> - 10 makes it easier to use em/rems;
+$hp-mobilefontsize: 1.4rem; // font size for mobile applied to <body>
+$hp-fontsize: 1.6rem; // font size for mobile applied to <body> at a media query
+$hp-fonts: sans-serif;
+$hp-headline-fonts: sans-serif;
 
 // Hotplate grid
 $hp-gutter: 1.4rem; // Gutter will be double this value!
@@ -32,13 +33,17 @@ $xxs:320px;
 	}
 }
 
-// use this to define non-first mobile first columns
+// Use this to define non-first mobile first columns
+
+// Column with margins
 @mixin col($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
 	width: 100% / $numberofcolumns * $howmanycolumns;
 	@if $font-size {
 		font-size: $font-size;
 	}
 }
+
+// Column without margins (used when columns is commbined with wrapper)
 @mixin fcol($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
 	width: calc(#{100% / $numberofcolumns * $howmanycolumns} - #{$hp-gutter * 2};
 	@if $font-size {
