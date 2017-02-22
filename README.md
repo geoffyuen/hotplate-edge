@@ -1,75 +1,76 @@
 # Hotplate
 
-## A boilerplate for websites and WordPress themes
+## A boilerplate for building websites and WordPress themes
 
-Features Gulp, Sass, tiny CSS grid, HTML5BP, SVG spritesheets, IE8+:
+https://github.com/geoffyuen/hotplate-edge
 
-- modified html5boilerplate index.html support for IE 8+, removed of compatibility mode button
-- Gulp for watching, compiling Sass, javascript, svg spritesheet and imageoptimization
-- Browsersync for refreshing on save
-- css grid framework and organization
-- https://github.com/geoffyuen/hotplate-edge
+Sass + CSS Grid + Gulp + Browser-sync + More
 
-## Get Started
+- Sass makes writing CSS easier and faster
+- responsive 12-column CSS flexbox grid for layouts
+- Gulp optimizes your images, javascripts and CSS
+- Browser-sync reloads your browser when you save files
+- IE10+
+
+
+## Quickstart
 
 1. `bower install https://github.com/geoffyuen/hotplate-edge.git && mv bower_components/hotplate-edge/* .`
 2. `npm install`
-3. edit gulpfile.js browsersync proxy line for your local server
-4. `gulp`
-5. Profit!
+3. `gulp`
 
-- `gulp` starts watching and opens a browser window/tab
-- `gulp phps &` starts the built-in php server when you can then follow with another `gulp` command
-- `gulp sublime` opens the current folder in Sublime Text
-- `gulp s` opens the current folder in Sublime Text and runs `gulp`
-
-
-## Gulp Includes:
-
-- Sass
-- Autoprefixer
-- Pixrem
-- Sourcemapping
-- Browsersync
-- js concatenation
-- js uglify
-- image optimization
-- svg spriting
+----
 
 ## Folder Structure
 
-- *src* contains scss, js and img/* images
-- src/style.scss compliles to ./style.css
-- src/js/* compiles to ./js/main.js and ./js/main.min.js
-- src/img/* optimized to ./img
-- src/svg/*.svg for svg icons compiles to /img and ajaxed in
-- . should contain your html/php files
+- `src` contains scss, js and img/* images
+	- `style.scss` compliles to `./style.css`
+	- `sass/*` should contain all your sass files
+	- `js/*` concats and minifies to `./js/main.js` and `./js/main.min.js`
+	- `img/*` optimized to `./img`
+	- `sprites/*.svg` for svg icons compiles to `/img/spritesheet.svg`
+- `./` should contain your html/php/twig files
+- `js` will contain your javascript. You should also put any vendor scripts in here
+- `img` will contain any optimized png, jpg and spritesheets
 
-## style.scss
+----
 
-This file should just contain @imports.
+## Gulp will perform the following tasks:
 
-### Requirements
+- Sass compilation
+- Autoprefixer
+- Sourcemapping
+- Browsersync
+- js concatenation + uglify
+- png and jpg optimization
+- svg spriting
 
-- npm
-- bower
+### Web Server Configuration
 
-# Grid
+#### Are you already running a webserver? (MAMP, Docker, Vagrant, etc):
 
-There are 3 grids, inspired by Skeleton and Bootstrap, included with this boilerplate. All are **rowless**, meaning that you can insert countless columns inside a wrapper element. The columns will wrap to a "newline" if it's not able to fit on the current "row". This produces much less structural and unsemantic markup with typical float based grids like Bootstrap, Foundation, Bourbon, etc. Clearfixes are also not needed. All three grids have natively support **vertical alignment**. With the flexbox based grids, **equal heights** are also natively supported.
+Open the gulpfile.js. Edit the variables:
 
-| SCSS Partial        | Tech                      | Gutters | support | Notes   |
-|---------------------|---------------------------|---------|---------|---------|
-| _hotplate-flexplus  | [Flexbox][1], [calc()][2] | margins | IE10+   | Default |
-| _hotplate-grid      | Inline-block | padding    | IE8+    | For legacy browsers |
-| _hotplate-flex      | [Flexbox][1] | padding    | IE10+   | Drop-in replacement for hotplate-grid |
+- `localurl = "yourlocalurl"` - eg. MAMP: `localurl = "localhost:8888/yourprojectfolder"`
+- `iamrunningaserver = true`
 
-It's highly recommend to use the default flexbox grid. With it you get equal height columns, can apply coloured backgrounds and custom padding to your columns. However it is bleeding edge and has not been in production nearly as long as the inline-block based grid. If you need to support legacy browsers like IE8 use inline-block based grid.
+#### You're not running a web server?
 
-[1]: http://caniuse.com/#search=flexbox
-[2]: http://caniuse.com/#search=calc
+Open the gulpfile.js. Edit the variable:
 
-## Quickstart to using the grid
+- `iamrunningaserver = false`
+
+Running `gulp` will start a webserver (using Browser-sync).
+
+----
+
+## Grid
+
+- inspired by Skeleton and Bootstrap, included with this boilerplate.
+- **rowless**, meaning that you can insert countless columns inside a wrapper element. The columns will wrap to a "newline" if it's not able to fit on the current "row". This produces much less structural and unsemantic markup with typical float based grids like Bootstrap, Foundation, Bourbon, etc. Clearfixes are also not needed.
+- you get equal height columns, can apply coloured backgrounds and custom padding to your columns.
+
+### Quickstart to using the grid
 
 Three columns:
 
@@ -81,7 +82,7 @@ Three columns:
 </div>
 ```
 
-Two rows of three columns
+Two rows of three columns:
 
 ```
 <div class="wrapper">
@@ -94,7 +95,7 @@ Two rows of three columns
 </div>
 ```
 
-Header, content area, sidebar and footer
+Header, content area, sidebar and footer:
 
 ```
 <div class="wrapper">
@@ -107,22 +108,72 @@ Header, content area, sidebar and footer
 
 ### Breakpoints
 
+The use the classes below in your html to layout pages. Use the varibles in your Sass files to perform media queries using the `media` or `undermedia` mixins.
+
+
+Width  |Class            |Sass Var
+:------|:----------------|:--------
+1140px |col-xl-*         |$xl
+960px  |col-lg-*         |$lg
+768px  |col-md-* or col-*|$md
+620px  |col-sm-*         |$sm
+480px  |col-xs-*         |$xs
+default|col-xxs-*        |$xxs
+
+The * denotes number from 1-12. Combine the column classes on an element to change it's width depending on how wide the browser viewport is.
+
+#### HTML Example:
+
 ```
-$xl: 1140px;
-$lg: 960px;
-$md: 768px;
-$sm: 620px;
-$xs: 480px;
-$xxs:320px;
+<div class="wrapper">
+	<div class="col-xxs-6 col-md-12 col-xl-4"></div>
+</div>
 ```
 
-There are column classes that respond to each of the breakpoints listed above:
+The column above will display at half-width column on mobile, full width at tablet and then down to a third-width column widescreen monitor.
 
-- col-xl-*
-- col-lg-*
-- col-md-* or col-*
-- col-sm-*
-- col-xs-*
-- col-xxs-*
+#### Responsive mixins:
 
-Where * is an number from 1-12.
+```
+@include media() {
+	your rules go here;
+}
+```
+
+This translates to:
+
+```
+@media (min-width: 768px) {
+	your rules are here;
+}
+```
+
+If you want a specific breakpoint pass one of the breakpoint variables or your own (in ems, px, etc):
+
+```
+@include media($sm) {
+	your rules go here;
+}
+```
+
+```
+@include media(5em) {
+	your rules go here;
+}
+```
+
+To write media queries below a breakpoint:
+
+```
+@include undermedia($lg) {
+	your rules go here;
+}
+```
+
+This translates to:
+
+```
+@media (max-width: 959px) {
+	your rules are here;
+}
+```
