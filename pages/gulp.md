@@ -15,7 +15,7 @@ title: Gulp
 - `js` will contain your javascript. You should also put any vendor scripts in here
 - `img` will contain any optimized png, jpg and spritesheets
 
-<hr>
+----
 
 ## Gulp will perform the following tasks:
 
