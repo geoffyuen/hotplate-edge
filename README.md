@@ -2,7 +2,7 @@
 
 ## A boilerplate for building websites and WordPress themes
 
-https://github.com/geoffyuen/hotplate-edge
+https://geoffyuen.github.io/hotplate-edge
 
 Sass + CSS Grid + Gulp + Browser-sync + More
 

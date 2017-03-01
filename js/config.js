@@ -16,10 +16,10 @@ $(function() {
 
     // Navigation items
     siteNavItems: [
-      { name: 'Github', href: 'https://github.com/geoffyuen', newWindow: false},
       { name: 'About'},
       { name: 'Gulp'},
       { name: 'Grid'}
+      { name: 'Github', href: 'https://github.com/geoffyuen/hoteplate-edge', newWindow: false},
     ],
 
     // Posts folder name
