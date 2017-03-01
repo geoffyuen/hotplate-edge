@@ -19,7 +19,7 @@ $(function() {
       { name: 'About'},
       { name: 'Gulp'},
       { name: 'Grid'},
-      { name: 'Github', href: 'https://github.com/geoffyuen/hoteplate-edge', newWindow: false}
+      { name: 'Github', href: 'https://github.com/geoffyuen/hotplate-edge', newWindow: false}
     ],
 
     // Posts folder name
