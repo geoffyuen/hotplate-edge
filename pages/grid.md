@@ -3,8 +3,6 @@ layout: default
 title: Grid
 ---
 
-## Grid
-
 - inspired by Skeleton and Bootstrap, included with this boilerplate.
 - **rowless**, meaning that you can insert countless columns inside a wrapper element. The columns will wrap to a "newline" if it's not able to fit on the current "row". This produces much less structural and unsemantic markup with typical float based grids like Bootstrap, Foundation, Bourbon, etc. Clearfixes are also not needed.
 - you get equal height columns, can apply coloured backgrounds and custom padding to your columns.
@@ -50,14 +48,14 @@ Header, content area, sidebar and footer:
 The use the classes below in your html to layout pages. Use the varibles in your Sass files to perform media queries using the `media` or `undermedia` mixins.
 
 
-Width  |Class            |Sass Var
-:------|:----------------|:--------
-1140px |col-xl-*         |$xl
-960px  |col-lg-*         |$lg
-768px  |col-md-* or col-*|$md
-620px  |col-sm-*         |$sm
-480px  |col-xs-*         |$xs
-default|col-xxs-*        |$xxs
+|Width  |Class            |Sass Var|
+|:------|:----------------|:--------|
+|1140px |col-xl-*         |$xl|
+|960px  |col-lg-*         |$lg|
+|768px  |col-md-* or col-*|$md|
+|620px  |col-sm-*         |$sm|
+|480px  |col-xs-*         |$xs|
+|default|col-xxs-*        |$xxs|
 
 The * denotes number from 1-12. Combine the column classes on an element to change it's width depending on how wide the browser viewport is.
 
