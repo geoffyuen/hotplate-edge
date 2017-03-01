@@ -1,77 +1,67 @@
-<!--[if IE]><![endif]--><!DOCTYPE html>
-<!--[if IE 8]><html class="no-js lt-ie9" lang=""><![endif]-->
-<!--[if gt IE 8]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!DOCTYPE html>
+<html lang="en">
 <head>
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title></title>
-	<meta name="description" content="">
-	<link rel="stylesheet" href="style.css">
-	<script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CMS.js</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="css/poole.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!--[if lt IE 9]>
+  <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
 </head>
 <body>
-	<!--[if lte IE 9]>
-		<p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-	<![endif]-->
 
+  <!-- Main View -->
+  <div class="container content">
 
-	<header role="heading" class="site-header">
-		<div class="wrapper">
-			<div class="col-12">
-				<h1>Header</h1>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Harum voluptatum quas vitae deserunt similique ab blanditiis consequuntur ipsa recusandae, sapiente odit, omnis earum eveniet enim dolorem. Perspiciatis nobis animi explicabo.</p>
-			</div><!--col-12-->
-		</div><!--wrapper-->
-		<div class="wrapper">
-			<nav class="site-nav">
-				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-					<li><a href="#">Link</a></li>
-				</ul>
-			</nav>
-		</div>
-	</header>
+    <header class="masthead">
+      <h3 class="masthead-title">
+        <a href="#" class="cms_sitename" title="Home"></a>
+        <small class="cms_tagline"></small>
+      </h3>
+      <nav class="cms_nav"></nav>
+    </header>
 
+    <div class="cms_main"></div>
 
+    <footer class="cms_footer">
+      <small class="cms_footer_text"></small>
+    </footer>
 
+  </div>
 
-	<section role="main" class="page-content">
-		<div class="wrapper">
-			<div class="col-8">
-				<h2>Headline</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorum aperiam perspiciatis itaque. Nam qui dolore facere, corporis iste quaerat, deserunt ab asperiores soluta ea voluptas doloremque quo explicabo totam fugiat.</p>
-			</div>
-			<div class="col-4">
-				<h3>Sidebar</h3>
-				<p>Labore iusto, commodi quibusdam ipsam id neque quam suscipit in blanditiis nisi eos magni facere animi ipsa quae nesciunt vero, optio pariatur veniam inventore deleniti quia fugit. Quo maxime, corrupti?</p>
-			</div>
-		</div><!--wrapper-->
-	</section>
+  <!-- Page View -->
+  <script id="page-template" type="x-template">
+    <article class="page">
+      <h1 class="page-title"></h1>
+      <div class="page-content"></div>
+    </article>
+  </script>
 
+  <!-- Post View -->
+  <script id="post-template" type="x-template">
+    <article class="post">
+      <h1 class="post-title"></h1>
+      <time class="post-date"></time>
+      <div class="post-content"></div>
+    </article>
+  </script>
 
+  <!-- Error View -->
+  <script id="error-template" type="x-template">
+    <div class="error">
+      <b>Sorry, something went wrong :(</b>
+      <p class="error_text"></p>
+      <a href="#" class="close alert_close">&times;</a>
+    </div>
+  </script>
 
-	<footer role="contentinfo" class="site-footer">
-		<div class="wrapper">
-			<div class="col-12">
-				<h6>Footer</h6>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia quis voluptates dolorum consectetur dicta odio eum! Vel illum eum optio officiis cumque, incidunt libero dolore architecto voluptatem quidem commodi sequi?</p>
-			</div>
-		</div>
-	</footer>
-
-
-	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-	<script src="js/main.min.js"></script>
-	<script>
-		(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-		function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-		e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-		e.src='//www.google-analytics.com/analytics.js';
-		r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-		ga('create','UA-XXXXX-X');ga('send','pageview');
-	</script>
+  <script src="//code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="js/marked.min.js"></script>
+  <script src="js/cms.js"></script>
+  <script src="js/config.js"></script>
 </body>
 </html>
