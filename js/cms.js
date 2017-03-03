@@ -80,13 +80,21 @@ var CMS = {
 
       // Main view / Frontpage
       '' : function () {
+        if (typeof CMS.settings.pageAsFrontpage === 'undefined' || CMS.settings.pageAsFrontpage === '') {
           CMS.renderPosts();
+        } else {
+          CMS.renderPage(CMS.settings.pageAsFrontpage);
+        }
       },
 
       // Post view / single view
       '#post' : function () {
         var id = url.split('#post/')[1].trim();
         CMS.renderPost(id);
+      },
+
+      '#posts' : function () {
+        CMS.renderPosts();
       },
 
       // Page view
@@ -107,6 +115,7 @@ var CMS = {
   },
 
   renderPage: function (title) {
+          console.log(title);
     CMS.pages.sort(function (a, b) { return CMS.settings.sortDateOrder ? b.date - a.date : a.date - b.date; });
     CMS.pages.forEach(function (page) {
       if (page.title == title) {

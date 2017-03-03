@@ -1,1 +1,31 @@
 /* Custom Styles */
+.masthead {
+	/*display: flex;
+	align-items: flex-end*/
+}
+.masthead-title {
+	float: none;
+}
+.masthead-title a {
+	float: none;
+}
+nav {
+	float: none;
+	/*flex: 1;
+	display: flex;
+	align-items: flex-end;*/
+}
+nav ul {
+	margin-bottom: 0;
+}
+nav ul li {
+	padding-left: 0;
+}
+nav ul li+li {
+	padding-left: .5em;
+}
+
+.masthead-title small{
+	padding-left: 0;
+	font-size: .7em;
+}

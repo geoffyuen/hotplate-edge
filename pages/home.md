@@ -1,18 +1,19 @@
 ---
 layout: default
-title: About
+title: Hotplate
 ---
 
-https://geoffyuen.github.io/hotplate-edge
+## A boilerplate for websites and WordPress themes.
 
-Sass + CSS Grid + Gulp + Browser-sync + More
+Sass + Flexbox grid + Gulp + Browser-sync + More
 
 - Sass makes writing CSS easier and faster
 - responsive 12-column CSS flexbox grid for layouts
-- Gulp optimizes your images, javascripts and CSS
+- Gulp optimizes your images, concats and minifies your javascripts and CSS and generates svg spritesheets
 - Browser-sync reloads your browser when you save files
 - IE10+
 
+https://github.com/geoffyuen/hotplate-edge
 
 ## Quickstart
 

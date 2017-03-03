@@ -16,9 +16,11 @@ $(function() {
 
     // Navigation items
     siteNavItems: [
-      { name: 'About'},
       { name: 'Gulp'},
+      { name: 'Images'},
+      { name: 'Sass'},
       { name: 'Grid'},
+      { name: 'Blog', href: '#posts', newWindow: false},
       { name: 'Github↗', href: 'https://github.com/geoffyuen/hotplate-edge', newWindow: false}
     ],
 
@@ -35,13 +37,13 @@ $(function() {
     sortDateOrder: true,
 
     // Posts on Frontpage (blog style)
-    postsOnFrontpage: true,
+    postsOnFrontpage: false,
 
-    // Page as Frontpage (static)
-    pageAsFrontpage: '',
+    // Page as Frontpage: pass title of page (static)
+    pageAsFrontpage: 'Hotplate',
 
     // Posts/Blog on different URL
-    postsOnUrl: '',
+    postsOnUrl: 'posts',
 
     // Site fade speed
     fadeSpeed: 300,
@@ -51,7 +53,8 @@ $(function() {
 
     // Mode 'Github' for Github Pages, 'Server' for Self Hosted. Defaults
     // to Github
-    mode: 'Github',
+    //mode: 'Github',
+    mode: 'Server',
 
      // If Github mode is set, your Github username and repo name.
     githubUserSettings: {
