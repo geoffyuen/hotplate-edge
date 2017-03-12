@@ -63,17 +63,10 @@ gulp.task('styles', function(){
 	}))
 	.pipe(sourcemaps.write('./src'))
 	.pipe(gulp.dest('./'))
-	.pipe(browserSync.stream())
+	.pipe(browserSync.stream({match: '**/*.css'}))
 	.pipe(notify("Styles done."))
 });
 
-// Inject when css changes (this was not working correctly in the "styles" task)
-gulp.task('cssinject', function () {
-	return gulp
-	.src(['*.css'])
-	.pipe(browserSync.stream())
-	.pipe(notify("Styles Injected."))
-});
 
 // Optimize images (jpg, png, gif, svg)
 gulp.task('img', function(){
@@ -126,7 +119,6 @@ gulp.task('scripts', function() {
 // The meat of our Gulp loop
 function mainprocess() {
 	gulp.watch("src/**/*.scss", ['styles']);
-	gulp.watch("*.css", ['cssinject']);
 	gulp.watch("src/**/*.js", ['scripts','bs-reload']);
 	gulp.watch("src/img/**/*", ['img','bs-reload']);
 	gulp.watch("src/sprites/**/*.svg", ['svgstore', 'bs-reload']);
