@@ -17,6 +17,11 @@ body {
 	}
 }
 
+img, svg {
+	max-width: 100%;
+	height: auto;
+}
+
 table {
 	border-collapse: collapse;
 }
@@ -39,6 +44,12 @@ ul {
 	padding-left: 1.125em;
 }
 
+hr {
+	border: 0;
+	border-top: 1px solid currentColor;
+	opacity: .2;
+}
 
-// IE FIXES
-svg:not(:root) { overflow: hidden; }
+
+// IE FIXES - this is now in normalize:
+// svg:not(:root) { overflow: hidden; }

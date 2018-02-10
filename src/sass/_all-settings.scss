@@ -19,6 +19,8 @@ $xs: 480px;
 // iphone6+?
 $xxs:320px;
 
+// Wrapper max-width
+$hp-maxwidth: $xl;
 
 // mobile-first media query
 @mixin media($mediawidth: $md) {

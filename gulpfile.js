@@ -1,8 +1,11 @@
-// require('es6-promise').polyfill(); // Uncomment if old Node/npm
+// require('es6-promise').polyfill(); // Install and uncomment if old Node/npm
+
+// Uncomment to disable nags
+// export DISABLE_NOTIFIER=true;
 
 var
 //localurl          = "localhost:8888/yourprojectfolder",
-localurl          = "localhost/yourprojectfolder",
+localurl          = "test.test/hotplate-edge/index.html",
 iamrunningaserver = true
 ;
 
