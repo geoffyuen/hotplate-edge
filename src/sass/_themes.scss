@@ -1,14 +1,14 @@
 %lighttheme {
-	color: #444;
+	color: c(ltgray);
 	a {
 		&:link, &:visited {
-			color: $dkred;
+			color: c(blue);
 		}
 		&:hover {
-			color: lighten($dkred, 10%);
+			color: lighten(c(blue), 10%);
 		}
 		&:active {
-			color: $dkred;
+			color: c(blue);
 		}
 	}
 
@@ -25,13 +25,13 @@
 	color: #fff;
 	a {
 		&:link, &:visited {
-			color: lighten($red, 50%);
+			color: lighten(c(red), 50%);
 		}
 		&:hover {
-			color: lighten($red, 50%);
+			color: lighten(c(red), 50%);
 		}
 		&:active {
-			color: lighten($red, 50%);
+			color: lighten(c(red), 50%);
 		}
 	}
 
