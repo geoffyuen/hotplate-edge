@@ -3,12 +3,6 @@
 // With this grid you can set custom padding, box-shadow and background-colors
 // on the columns
 
-img {
-	max-width: 100%;
-	height: auto;
-}
-
-
 %column {
 	@include hmargin($hp-gutter);
 	width: calc(100% - #{$hp-gutter * 2});
@@ -109,22 +103,22 @@ $bp: (
 	@include hmargin(auto); // horizontally center in browser
 	display: flex;
 	flex-wrap: wrap;
-	width: 100%;
-	max-width: $lg;
+	max-width: $hp-maxwidth;
 
-	hr {
-		@include hmargin($hp-gutter);
-		width: 100%;
-	}
-
-	.wrapper {
-		@include hmargin(0);
-		@include hpad(0);
-		max-width: 100%;
+	& & {
 		align-content: flex-start;
-		display: flex;
-		flex-wrap: wrap;
+		// @include hmargin(0);
+		// @include hpad(0);
+		// max-width: 100%;
+		// display: flex;
+		// flex-wrap: wrap;
 	}
+
+	& > hr {
+		@include hmargin($hp-gutter);
+		width: calc(100% - #{$hp-gutter*2});
+	}
+
 
 	&--space-between {
 		justify-content: space-between;

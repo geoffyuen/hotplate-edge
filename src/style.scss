@@ -7,14 +7,14 @@
 
 // TOOLS: globally used mixins and functions
 @import 'sass/_mixins.scss';
-@import 'sass/_themes.scss';
+// @import 'sass/_themes.scss';
 
 // GENERIC: reset and/or normalize styles
 @import 'sass/_normalize.scss';
 
 // ELEMENTS: styling for bare HTML elements
 @import 'sass/_html.scss';
-@import 'sass/_forms.scss';
+// @import 'sass/_forms.scss';
 
 // OBJECTS: class-based selectors which define undecorated design patterns (eg. media-object)
 @import 'sass/_grid.scss'; // ie10+ grid using flexbox, margins and calc and is nestable

@@ -1,22 +1,31 @@
 // Flat Colours - or replace with brand colours, etc
+$colors: (
+    white: #fff,
+    black: #000,
+    blue: #3498db,
+    dkblue: #2980b9,
+    green: #1bbc9b,
+    dkgreen: #27ae60,
+    bluegreen: #1abc9c,
+    purple: #9b59b6,
+    dkpurple: #8e44ad,
+    greensea: #16a085,
+    yellow: #f1c40f,
+    dkyellow: #f39c12,
+    orange: #e67e22,
+    dkorange: #d35400,
+    red: #e74c3c,
+    dkred: #c0392b,
+    dkwhite: #ecf0f1,
+    dkrwhite: #bdc3c7,
+    ltrgray: #95a5a6,
+    ltgray: #7f8c8d,
+    gray: #34495e,
+    dkgray: #2c3e50
+);
 
-$blue: #3498db;
-$dkblue: #2980b9;
-$green: #1bbc9b;
-$dkgreen: #27ae60;
-$bluegreen: #1abc9c;
-$purple: #9b59b6;
-$dkpurple: #8e44ad;
-$greensea: #16a085;
-$yellow: #f1c40f;
-$dkyellow: #f39c12;
-$orange: #e67e22;
-$dkorange: #d35400;
-$red: #e74c3c;
-$dkred: #c0392b;
-$dkwhite: #ecf0f1;
-$dkrwhite: #bdc3c7;
-$ltrgray: #95a5a6;
-$ltgray: #7f8c8d;
-$gray: #34495e;
-$dkgray: #2c3e50;
+// return color from $colors;
+// eg color: c(white);
+@function c($colorname) {
+    @return map-get($colors, $colorname);
+}
