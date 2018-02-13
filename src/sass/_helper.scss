@@ -189,13 +189,13 @@ svg.svg {
     }
 }
 
-.inlinelist {
+.inlinelist, .inlinelist ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
 	li {
 		display: inline;
-		margin: 1em 0;
-		padding: 0;
+		margin: 1em 1em 1em 0;
+        padding: 0;
 	}
 }

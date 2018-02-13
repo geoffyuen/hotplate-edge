@@ -55,6 +55,7 @@ $(function() {
     // to Github
     //mode: 'Github',
     mode: 'Github',
+    // mode: 'Server',
 
      // If Github mode is set, your Github username and repo name.
     githubUserSettings: {
