@@ -50,6 +50,9 @@ hr {
 	opacity: .2;
 }
 
+svg {
+	fill: currentColor;
+}
 
 // IE FIXES - this is now in normalize:
 // svg:not(:root) { overflow: hidden; }
