@@ -84,7 +84,7 @@
 }
 
 // text alignment with breakpoints
-
+// show/hide with breakpoints
 .tright {
     text-align: right;
 }
@@ -94,7 +94,15 @@
 .tleft {
     text-align: right;
 }
+.xxs--hide {
+    display: none;
+}
 @each $mq_name, $mq in $bp {
+	// MOBILE FIRST
+	.#{$mq_name}-block {
+		display: none;
+	}
+
     // MEDIA QUERIED
     @include media(#{$mq}) {
         .tright--#{$mq_name} {
@@ -116,7 +124,25 @@
             position: absolute;
             width: 1px;
         }
+
+        .#{$mq_name}--block {
+            display: block;
+        }
+        .#{$mq_name}--flex {
+            display: flex;
+        }
+        .#{$mq_name}--inline {
+            display: inline;
+        }
+        .#{$mq_name}--inline-block {
+            display: inline-block;
+        }
+        .#{$mq_name}--hide {
+            display: none;
+        }
+
     }
+	// MOBILE FIRST END
 }
 .tucase {
     text-transform: uppercase;
