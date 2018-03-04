@@ -47,7 +47,7 @@ $hp-maxwidth: $xl;
 
 // Column without margins (used when columns is commbined with wrapper)
 @mixin fcol($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
-	width: calc(#{100% / $numberofcolumns * $howmanycolumns} - #{$hp-gutter * 2};
+	width: calc(#{100% / $numberofcolumns * $howmanycolumns} - #{$hp-gutter * 2});
 	@if $font-size {
 		font-size: $font-size;
 	}
