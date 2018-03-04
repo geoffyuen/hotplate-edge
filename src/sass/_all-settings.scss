@@ -22,6 +22,11 @@ $xxs:320px;
 // Wrapper max-width
 $hp-maxwidth: $xl;
 
+// return mq from $mq;
+@function mq($mediaquery) {
+    @return map-get($mq, $mediaquery);
+}
+
 // mobile-first media query
 @mixin media($mediawidth: $md) {
 	@media (min-width: $mediawidth) {

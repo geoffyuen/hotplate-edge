@@ -8,7 +8,12 @@
 	position: absolute;
 	width: 1px;
 }
-
+// font-weight
+@for $i from 1 through 9 {
+    .t#{$i*100} {
+        font-weight: $i*100;
+    }
+}
 
 // margins and padding
 @for $i from 0 through 8 {
