@@ -57,11 +57,7 @@
     }
 
 }
-@each $width in (0, 1, 2, 4, 5, 8, 10) {
-	.b#{$width} {
-		border-width: #{$width}px;
-	}
-}
+
 
 // colors, backgrounds, border
 @each $name, $value in $colors {
@@ -94,6 +90,11 @@
 	}
 }
 
+@each $width in (0, 1, 2, 4, 5, 8, 10) {
+	.b#{$width} {
+		border-width: #{$width}px;
+	}
+}
 // text alignment with breakpoints
 // show/hide with breakpoints
 .tright {
