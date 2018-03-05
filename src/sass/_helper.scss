@@ -8,6 +8,7 @@
 	position: absolute;
 	width: 1px;
 }
+
 // font-weight
 @for $i from 1 through 9 {
     .t#{$i*100} {
@@ -55,6 +56,11 @@
         @include hpad(#{$i}em);
     }
 
+}
+@each $width in (0, 1, 2, 4, 5, 8, 10) {
+	.b#{$width} {
+		border-width: #{$width}px;
+	}
 }
 
 // colors, backgrounds, border
