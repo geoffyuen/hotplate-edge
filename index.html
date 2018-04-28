@@ -49,12 +49,6 @@
       align-items: center;
     }
 
-    pre {
-      margin: 1em auto;
-      padding: 1em;
-      background-color: #2c3e50;
-      color: #f1c40f;
-    }
   </style>
   <script src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
 </head>
@@ -103,11 +97,15 @@
         <h2>Get Started</h2>
       </div>
       <div class="col-9" data-aos="fade-up">
+        <p>Requirements: gulp and browser-sync installed globally</p>
+        <pre class="bggray tgreen mv1 p1">npm install --global gulp-cli
+npm install --global browser-sync</pre>
+        <p>Install Browser-sync globally so it doesn't have to be installed everytime. It takes up a lot of space.</p>
         <p>Clone the
           <a href="https://github.com/geoffyuen/hotplate-edge" target="_blank">repo</a>. NPM install. Gulp.</p>
-        <pre>git clone https://github.com/geoffyuen/hotplate-edge mysite
+        <pre class="bggray tgreen mv1 p1">git clone https://github.com/geoffyuen/hotplate-edge mysite
 cd mysite</pre> Edit the localserver variable in gulpfile.js
-        <pre>npm install
+        <pre class="bggray tgreen mv1 p1">npm install
 gulp</pre>
       </div>
     </section>
@@ -158,12 +156,12 @@ gulp</pre>
         <p>Where # is your column unit from 1–12. .col-# are aliases of col-md-#.</p>
 
         <h4>Use media queries</h4>
-        <pre><code>@include media(md) {
+        <pre class="bggray tgreen mv1 p1"><code>@include media(md) {
   your sass here
 }</pre>
         </code>
-        <p>...or if you want to target everything under md:</p>
-        <pre><code>@include undermedia(md) {
+        <p>...or if you want to target everything smaller than md:</p>
+        <pre class="bggray tgreen mv1 p1"><code>@include undermedia(md) {
   your sass here
 }</pre>
         </code>
@@ -261,6 +259,8 @@ gulp</pre>
     </div>
   </footer>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.2.0/aos.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="js/main.min.js"></script>
   <script>
     AOS.init({});
   </script>

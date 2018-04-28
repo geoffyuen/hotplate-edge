@@ -9,7 +9,7 @@ var localurl = "localhost/hotplate-edge",
 
 var
   gulp = require("gulp"),
-  browserSync = require('browser-sync'),
+  // browserSync = require('browser-sync'),
   cache = require("gulp-cache"),
   concat = require("gulp-concat"),
   imagemin = require("gulp-imagemin"),
@@ -19,11 +19,10 @@ var
   rename = require("gulp-rename"),
   sass = require("gulp-sass"),
   sourcemaps = require("gulp-sourcemaps"),
-  shell = require('gulp-shell'),
   uglify = require("gulp-uglify"),
   svgstore = require("gulp-svgstore"),
-  svgmin = require("gulp-svgmin");
-
+  svgmin = require("gulp-svgmin"),
+  exec = require('child_process').exec;
 // Start bs
 gulp.task("browser-sync", function() {
   if (iamrunningaserver) {
@@ -36,6 +35,17 @@ gulp.task("browser-sync", function() {
     });
   }
 });
+
+// Global BS
+
+gulp.task('bs-serve-watch2', function() {
+  if (iamrunningaserver) {
+    exec('browser-sync start -p "' + localurl + '" -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
+  } else {
+    exec('browser-sync start -s -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
+  }
+})
+
 
 // Trigger reload
 gulp.task("bs-reload", function() {
@@ -65,7 +75,7 @@ gulp.task("styles", function() {
     )
     .pipe(sourcemaps.write("./src"))
     .pipe(gulp.dest("./"))
-    .pipe(browserSync.stream({ match: "**/*.css" }))
+    // .pipe(browserSync.stream({ match: "**/*.css" }))
     .pipe(notify("Styles done."));
 });
 
@@ -131,7 +141,7 @@ gulp.task("scripts", function() {
     .pipe(rename({ suffix: ".min" }))
     .pipe(uglify())
     .pipe(gulp.dest("js/"))
-    .pipe(browserSync.reload({ stream: true }))
+    // .pipe(browserSync.reload({ stream: true }))
     .pipe(notify("js squished."));
 });
 
@@ -143,8 +153,19 @@ function mainprocess() {
   gulp.watch("src/sprites/**/*.svg", ["svgstore", "bs-reload"]);
   gulp.watch(["*.html", "*.php", "templates/*.twig"], ["bs-reload"]);
 }
+// ...without bs
+function altprocess() {
+  gulp.watch("src/**/*.scss", ["styles"]);
+  gulp.watch("src/**/*.js", ["scripts"]);
+  gulp.watch("src/img/**/*", ["img"]);
+  gulp.watch("src/sprites/**/*.svg", ["svgstore"]);
+}
 
 // Serve, sync and watch
 gulp.task("default", ["browser-sync"], function() {
   mainprocess();
+});
+// Alt serve sync and watch
+gulp.task("pro", ["bs-serve-watch2"], function() {
+  altprocess();
 });
