@@ -8,6 +8,10 @@
   },
   "author": "Geoff Yuen",
   "license": "ISC",
+  "temp": {
+    "browser-sync": "^2.6.4",
+    "gulp-shell": "^0.6.5"
+  },
   "devDependencies": {
     "browser-sync": "^2.6.4",
     "gulp": "^3.8.11",
@@ -19,7 +23,6 @@
     "gulp-plumber": "^1.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-shell": "^0.6.5",
     "gulp-sourcemaps": "^2.6.4",
     "gulp-svgmin": "^1.1.2",
     "gulp-svgstore": "^6.1.1",
