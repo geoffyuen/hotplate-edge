@@ -3,11 +3,13 @@
 // Uncomment to disable nags
 // export DISABLE_NOTIFIER=true;
 
-var localurl = "localhost/hotplate-edge",
+var
+  localurl = "localhost/hotplate-edge",
   // localurl          = "test.test/hotplate-edge/index.html",
   iamrunningaserver = true;
 
 var
+  legacy = false,
   gulp = require("gulp"),
   // browserSync = require('browser-sync'),
   cache = require("gulp-cache"),
@@ -23,6 +25,7 @@ var
   svgstore = require("gulp-svgstore"),
   svgmin = require("gulp-svgmin"),
   exec = require('child_process').exec;
+
 // Start bs
 gulp.task("browser-sync", function() {
   if (iamrunningaserver) {
@@ -37,7 +40,6 @@ gulp.task("browser-sync", function() {
 });
 
 // Global BS
-
 gulp.task('bs-serve-watch2', function() {
   if (iamrunningaserver) {
     exec('browser-sync start -p "' + localurl + '" -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
