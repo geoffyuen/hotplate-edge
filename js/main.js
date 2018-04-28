@@ -12,5 +12,5 @@ $.get("img/sprites.svg", function(data) {
   .success(function(){ svg_debug('#svg-inject') })
 ;
 jQuery(document).ready(function($) {
-
+    console.log('working');
 });
