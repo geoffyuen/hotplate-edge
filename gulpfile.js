@@ -10,7 +10,6 @@ var localurl = "localhost/hotplate-edge",
 var
   gulp = require("gulp"),
   browserSync = require('browser-sync'),
-  browserSync = require('browser-sync').create(),
   cache = require("gulp-cache"),
   concat = require("gulp-concat"),
   imagemin = require("gulp-imagemin"),
