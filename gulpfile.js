@@ -3,10 +3,11 @@
 // Uncomment to disable nags
 // export DISABLE_NOTIFIER=true;
 
-var
-  localurl = "localhost/hotplate-edge",
-  // localurl          = "test.test/hotplate-edge/index.html",
-  iamrunningaserver = true;
+var localurl = "127.0.0.1:5500";
+// var localurl = "localhost/hotplate-edge";
+// var localurl          = "test.test/hotplate-edge/index.html";
+// var iamrunningaserver = false;
+var iamrunningaserver = true;
 
 var
   legacy = false,
@@ -44,7 +45,7 @@ gulp.task('bs-serve-watch2', function() {
   if (iamrunningaserver) {
     exec('browser-sync start -p "' + localurl + '" -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
   } else {
-    exec('browser-sync start -s -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
+    exec('browser-sync start -s -f "*.html, *.php, templates/**/*.twig, style.css, js/*.js, img/**/*"');
   }
 })
 
@@ -164,10 +165,10 @@ function altprocess() {
 }
 
 // Serve, sync and watch
-gulp.task("default", ["browser-sync"], function() {
+gulp.task("olddefault", ["browser-sync"], function() {
   mainprocess();
 });
 // Alt serve sync and watch
-gulp.task("pro", ["bs-serve-watch2"], function() {
+gulp.task("default", ["bs-serve-watch2"], function() {
   altprocess();
 });
