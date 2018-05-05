@@ -12,7 +12,7 @@ html {
 
 body {
 	font-size: $hp-mobilefontsize;
-	@include media($lg) {
+	@include media(lg) {
 		font-size: $hp-fontsize;
 	}
 }

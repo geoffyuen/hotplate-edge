@@ -13,9 +13,7 @@
 }
 
 
-
 // preset column classes ala bootstrap - granular control of columns
-
 @mixin columncompiler($name) {
 	.#{$name}-only {
 			display: initial;
@@ -33,6 +31,7 @@
 	}
 }
 
+
 // XXS NEEDS NO MEDIA QUERIES
 @for $i from 1 through 12 {
 	.col-xxs-#{$i} {
@@ -42,18 +41,8 @@
 @include columncompiler('xxs');
 
 
-$bp: (
-	// xxs :1px,
-	xs: mq(xs),
-	sm: mq(sm),
-	md: mq(md),
-	lg: mq(lg),
-	xl: mq(xl),
-);
-
-
 // COMPILE THE OTHER COLUMNS WITH MEDIA QUERIES
-@each $name, $mediaqueryvalue in $bp {
+@each $name, $mediaqueryvalue in $mq {
 
 	// MOBILE FIRST
 	.#{$name}-only {
@@ -61,6 +50,9 @@ $bp: (
 	}
 	.#{$name}-hide {
 		display: block;
+	}
+	.wrapper.#{$name}-hide {
+		display: flex;
 	}
 	@for $i from 1 through 12 {
 		.col-#{$name}-#{$i} {
@@ -108,11 +100,8 @@ $bp: (
 
 	& & {
 		align-content: flex-start;
-		// @include hmargin(0);
-		// @include hpad(0);
+		@include hmargin(0); // used to be auto, set it back to 0
 		// max-width: 100%;
-		// display: flex;
-		// flex-wrap: wrap;
 	}
 
 	& > hr {

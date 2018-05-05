@@ -109,7 +109,7 @@
 .xxs--hide {
     display: none;
 }
-@each $mq_name, $mq in $bp {
+@each $mq_name, $mq in $mq {
 	// MOBILE FIRST
 	.#{$mq_name}-block {
 		display: none;

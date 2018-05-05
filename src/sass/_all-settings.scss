@@ -10,18 +10,9 @@ $hp-headline-fonts: sans-serif;
 // Hotplate grid
 $hp-gutter: 1.4rem; // Gutter will be double this value!
 
-// Breakpoints
-$xl: 1140px;
-$lg: 960px;
-$md: 768px;
-$sm: 620px;
-$xs: 480px;
-// iphone6+?
-$xxs:320px;
-
+// breakpoints
 $mq: (
-	// iphone6+?
-	xxs:320px,
+	// xxs:320px,
 	xs: 480px,
 	sm: 620px,
 	md: 768px,
@@ -32,14 +23,14 @@ $mq: (
 $hp-maxwidth: mq(xl);
 
 // return mq from $mq;
-@function mq($mediaquery) {
-	@return map-get($mq, $mediaquery);
+@function mq($mediawidth) {
+	@return map-get($mq, $mediawidth);
 }
 
 // mobile-first media query
 @mixin media($mediawidth: md) {
 	@if map-has-key($mq, $mediawidth) {
-		@media (min-width: mq($mediaquery)) {
+		@media (min-width: mq($mediawidth)) {
 			@content;
 		}
 	}
@@ -52,7 +43,7 @@ $hp-maxwidth: mq(xl);
 
 @mixin undermedia($mediawidth: $md) {
 	@if map-has-key($mq, $mediawidth) {
-		@media (min-width: (mq($mediaquery)-1)) {
+		@media (min-width: (mq($mediawidth)-1)) {
 			@content;
 		}
 	}
@@ -67,6 +58,7 @@ $hp-maxwidth: mq(xl);
 @function colwidth($totalcolumns: 3, $numbofcolumns: 1) {
 	@return 100% / $totalcolumns * $numbofcolumns;
 }
+
 // Use this to define non-first mobile first columns
 
 // Column with margins
