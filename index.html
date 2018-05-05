@@ -94,13 +94,13 @@
 
     <section class="wrapper mv2">
       <div class="col-3 tright--md" data-aos="fade-up">
-        <h2>Get Started</h2>
+        <h2 class="sticky">Get Started</h2>
       </div>
       <div class="col-9" data-aos="fade-up">
         <p>Requirements: gulp and browser-sync installed globally</p>
         <pre class="bggray tgreen mv1 p1">npm install --global gulp-cli
 npm install --global browser-sync</pre>
-        <p>Install Browser-sync globally so it doesn't have to be installed everytime. It takes up a lot of space.</p>
+        <p>Install Browser-sync globally so it doesn't have to be installed everytime. It takes up a lot of space and a lot of time to install if included individually with every package.json. Just install it once!</p>
         <p>Clone the
           <a href="https://github.com/geoffyuen/hotplate-edge" target="_blank">repo</a>. NPM install. Gulp.</p>
         <pre class="bggray tgreen mv1 p1">git clone https://github.com/geoffyuen/hotplate-edge mysite
@@ -112,7 +112,7 @@ gulp</pre>
 
     <section class="wrapper mv2">
       <div class="col-3 tright--md" data-aos="fade-up">
-        <h2>The Grid System</h2>
+        <h2 class="sticky">The Grid System</h2>
       </div>
       <div class="col-9" data-aos="fade-up">
         <p>Use a .wrapper class to start using the grid system. Use .col-* classes to create your layouts. If the columns go
@@ -176,7 +176,7 @@ gulp</pre>
 
     <section class="wrapper mv2">
       <div class="col-3 tright--md" data-aos="fade-up">
-        <h2>SASS</h2>
+        <h2 class="sticky">SASS</h2>
       </div>
       <div class="col-9" data-aos="fade-up">
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus autem porro illo praesentium! Ratione perspiciatis
@@ -198,11 +198,11 @@ gulp</pre>
 
     <section class="wrapper mv2">
       <div class="col-3 tright--md" data-aos="fade-up">
-        <h2>SVG Sprite&shy;sheet</h2>
+        <h2 class="sticky">SVG Sprite&shy;sheet</h2>
       </div>
       <div class="col-9" data-aos="fade-up">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus autem porro illo praesentium! Ratione perspiciatis
-          deserunt iure. Blanditiis velit voluptate cumque nam accusantium, et, quidem modi, saepe quaerat nemo dolor!</p>
+        <p>Place your individual svg icons in ./src/sprites. A Gulp task will combine all the svgs in this folder into ./img/spritesheet.svg. The script, ./src/js/ajaxspritesheet will inject this into the top of your page but hidden. Check the javascript console and you can see the html you need to use throughout your site. The width and height attributes are set the the size that the svg was create but your can change these and the sprite will scale to fit inside those dimensions.</p>
+        <p>If your individual svg is filled with #000000 (black) you can use apply a css class to the svg html to change the fill colour.</p>
       </div>
     </section>
 
@@ -210,14 +210,8 @@ gulp</pre>
       <div class="wrapper wrapper--hcenter pv2 ph2">
 
         <div class="col-9" data-aos="fade-up">
-          <h2 class="tcenter">Another Framework? Why?!</h2>
-          <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ad, et ab debitis animi illum tempora explicabo officia
-            unde placeat itaque dolorum odit. Ipsam eligendi, beatae voluptate iste ut quos eveniet?</p>
-          <p>Unde libero doloribus quam facilis distinctio quibusdam cum quaerat voluptates nostrum accusantium culpa totam
-            dolorem earum, expedita excepturi error voluptatibus eum! Sapiente modi, soluta saepe sint veritatis nam debitis
-            perferendis?</p>
-          <p>Quos consectetur dolore dignissimos animi, debitis esse cupiditate enim quae! Mollitia adipisci tenetur sint. Praesentium
-            temporibus ducimus architecto expedita nostrum animi fugiat maxime saepe possimus velit unde quia, ratione voluptates!</p>
+          <h2 class="tcenter">Flexbox Framework? Why not CSS Grid?!</h2>
+          <p>Enterprise often is locked into still using Internet Explorer 11 (or worse). IE11 only supports an old specification of Grid but Flexbox is well supported. If you don't need to support IE10 or 11 the Hotplate grid framework isn't necessary to use.</p>
         </div>
       </div>
     </section>

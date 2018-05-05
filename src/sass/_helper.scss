@@ -9,6 +9,11 @@
 	width: 1px;
 }
 
+.sticky {
+    top: 1rem;
+    position: sticky;
+}
+
 // font-weight
 @for $i from 1 through 9 {
     .t#{$i*100} {
