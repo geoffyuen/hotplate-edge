@@ -19,43 +19,64 @@ $xs: 480px;
 // iphone6+?
 $xxs:320px;
 
+$mq: (
+	// iphone6+?
+	xxs:320px,
+	xs: 480px,
+	sm: 620px,
+	md: 768px,
+	lg: 960px,
+	xl: 1140px
+);
 // Wrapper max-width
-$hp-maxwidth: $xl;
+$hp-maxwidth: mq(xl);
 
 // return mq from $mq;
 @function mq($mediaquery) {
-    @return map-get($mq, $mediaquery);
+	@return map-get($mq, $mediaquery);
 }
 
 // mobile-first media query
-@mixin media($mediawidth: $md) {
-	@media (min-width: $mediawidth) {
-		@content;
+@mixin media($mediawidth: md) {
+	@if map-has-key($mq, $mediawidth) {
+		@media (min-width: mq($mediaquery)) {
+			@content;
+		}
+	}
+	@else {
+		@media (min-width: $mediawidth) {
+			@content;
+		}
 	}
 }
 
 @mixin undermedia($mediawidth: $md) {
-	@media (max-width: $mediawidth - 1) {
-		@content;
+	@if map-has-key($mq, $mediawidth) {
+		@media (min-width: (mq($mediaquery)-1)) {
+			@content;
+		}
+	}
+	@else {
+		@media (max-width: $mediawidth - 1) {
+			@content;
+		}
 	}
 }
 
+// return mq from $mq;
+@function colwidth($totalcolumns: 3, $numbofcolumns: 1) {
+	@return 100% / $totalcolumns * $numbofcolumns;
+}
 // Use this to define non-first mobile first columns
 
 // Column with margins
-@mixin col($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
-	width: 100% / $numberofcolumns * $howmanycolumns;
-	@if $font-size {
-		font-size: $font-size;
-	}
+@mixin col($totalcolumns: 3, $numbofcolumns: 1) {
+	width: colwidth($totalcolumns, $numbofcolumns);
 }
 
 // Column without margins (used when columns is commbined with wrapper)
-@mixin fcol($numberofcolumns: 3, $howmanycolumns: 1, $font-size: null) {
-	width: calc(#{100% / $numberofcolumns * $howmanycolumns} - #{$hp-gutter * 2});
-	@if $font-size {
-		font-size: $font-size;
-	}
+@mixin fcol($totalcolumns: 3, $numbofcolumns: 1) {
+	width: calc(#{colwidth($totalcolumns, $numbofcolumns)} - #{$hp-gutter * 2});
 }
 
 @mixin hpad($lpad, $rpad: $lpad) {

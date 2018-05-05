@@ -16,15 +16,6 @@
 
 // preset column classes ala bootstrap - granular control of columns
 
-$bp: (
-	// xxs :1px,
-	xs :$xs,
-	sm :$sm,
-	md :$md,
-	lg :$lg,
-	xl :$xl,
-);
-
 @mixin columncompiler($name) {
 	.#{$name}-only {
 			display: initial;
@@ -51,8 +42,18 @@ $bp: (
 @include columncompiler('xxs');
 
 
+$bp: (
+	// xxs :1px,
+	xs: mq(xs),
+	sm: mq(sm),
+	md: mq(md),
+	lg: mq(lg),
+	xl: mq(xl),
+);
+
+
 // COMPILE THE OTHER COLUMNS WITH MEDIA QUERIES
-@each $name, $mq in $bp {
+@each $name, $mediaqueryvalue in $bp {
 
 	// MOBILE FIRST
 	.#{$name}-only {
@@ -69,7 +70,7 @@ $bp: (
 	// MOBILE FIRST END
 
 	// MEDIA QUERIED
-	@include media(#{$mq}) {
+	@include media(#{$mediaqueryvalue}) {
 		@include columncompiler($name);
 	}
 

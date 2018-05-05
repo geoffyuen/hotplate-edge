@@ -7,7 +7,7 @@ var localurl = "127.0.0.1:5500";
 // var localurl = "localhost/hotplate-edge";
 // var localurl          = "test.test/hotplate-edge/index.html";
 // var iamrunningaserver = false;
-var iamrunningaserver = true;
+var iamrunningaserver = false;
 
 var
   legacy = false,
