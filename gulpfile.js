@@ -3,11 +3,12 @@
 // Uncomment to disable nags
 // export DISABLE_NOTIFIER=true;
 
-var localurl = "127.0.0.1:5500";
+var localurl = false;
+// var localurl = "localhost:8000/hotplate-edge";
+// var localurl = "localhost:8888/hotplate-edge";
+// var localurl = "127.0.0.1:5500";
 // var localurl = "localhost/hotplate-edge";
-// var localurl          = "test.test/hotplate-edge/index.html";
-// var iamrunningaserver = false;
-var iamrunningaserver = false;
+// var localurl = "test.test/hotplate-edge/index.html";
 
 var
   legacy = false,
@@ -29,23 +30,23 @@ var
 
 // Start bs
 gulp.task("browser-sync", function() {
-  if (iamrunningaserver) {
+  if (!localurl) {
     browserSync({
-      proxy: localurl
+      server: { baseDir: "./" } // serve static pages
     });
   } else {
     browserSync({
-      server: { baseDir: "./" } // serve static pages
+      proxy: localurl
     });
   }
 });
 
 // Global BS
 gulp.task('bs-serve-watch2', function() {
-  if (iamrunningaserver) {
-    exec('browser-sync start -p "' + localurl + '" -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
-  } else {
+  if (!localurl) {
     exec('browser-sync start -s -f "*.html, *.php, templates/**/*.twig, style.css, js/*.js, img/**/*"');
+  } else {
+    exec('browser-sync start -p "' + localurl + '" -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
   }
 })
 
