@@ -19,13 +19,14 @@ $mq: (
 	lg: 960px,
 	xl: 1140px
 );
-// Wrapper max-width
-$hp-maxwidth: mq(xl);
-
 // return mq from $mq;
 @function mq($mediawidth) {
 	@return map-get($mq, $mediawidth);
 }
+
+// Wrapper max-width
+$hp-maxwidth: mq(xl);
+
 
 // mobile-first media query
 @mixin media($mediawidth: md) {

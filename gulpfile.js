@@ -4,14 +4,12 @@
 // export DISABLE_NOTIFIER=true;
 
 var localurl = false;
-// var localurl = "localhost:8000/hotplate-edge";
-// var localurl = "localhost:8888/hotplate-edge";
+// var localurl = "127.0.0.1:8000";
 // var localurl = "127.0.0.1:5500";
 // var localurl = "localhost/hotplate-edge";
 // var localurl = "test.test/hotplate-edge/index.html";
 
 var
-  legacy = false,
   gulp = require("gulp"),
   // browserSync = require('browser-sync'),
   cache = require("gulp-cache"),
@@ -28,9 +26,9 @@ var
   svgmin = require("gulp-svgmin"),
   exec = require('child_process').exec;
 
-// Start bs
+// Old: Start bs
 gulp.task("browser-sync", function() {
-  if (!localurl) {
+  if (localurl == false) {
     browserSync({
       server: { baseDir: "./" } // serve static pages
     });
@@ -43,7 +41,7 @@ gulp.task("browser-sync", function() {
 
 // Global BS
 gulp.task('bs-serve-watch2', function() {
-  if (!localurl) {
+  if (localurl == false) {
     exec('browser-sync start -s -f "*.html, *.php, templates/**/*.twig, style.css, js/*.js, img/**/*"');
   } else {
     exec('browser-sync start -p "' + localurl + '" -f "*.html, *.php, templates/*.twig, style.css, js/*.js, img/*"');
