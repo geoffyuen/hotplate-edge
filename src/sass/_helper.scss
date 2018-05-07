@@ -111,15 +111,24 @@
 .tleft {
     text-align: right;
 }
-.xxs--hide {
+
+.block {
+    display: block;
+}
+.flex {
+    display: flex;
+}
+.inline {
+    display: inline;
+}
+.inline-block {
+    display: inline-block;
+}
+.none {
     display: none;
 }
-@each $mq_name, $mq in $mq {
-	// MOBILE FIRST
-	.#{$mq_name}-block {
-		display: none;
-	}
 
+@each $mq_name, $mq in $mq {
     // MEDIA QUERIED
     @include media(#{$mq}) {
         .tright--#{$mq_name} {
@@ -142,19 +151,19 @@
             width: 1px;
         }
 
-        .#{$mq_name}--block {
+        .block--#{$mq_name} {
             display: block;
         }
-        .#{$mq_name}--flex {
+        .flex--#{$mq_name} {
             display: flex;
         }
-        .#{$mq_name}--inline {
+        .inline--#{$mq_name} {
             display: inline;
         }
-        .#{$mq_name}--inline-block {
+        .inline-block--#{$mq_name} {
             display: inline-block;
         }
-        .#{$mq_name}--hide {
+        .none--#{$mq_name} {
             display: none;
         }
 
