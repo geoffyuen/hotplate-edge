@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="style.css">
   <style>
     html {
-      font-family: Open Sans, sans;
+      font-family: Open Sans, sans-serif;
     }
 
     body {
@@ -31,11 +31,19 @@
     h4,
     h5,
     h6 {
-      font-family: Montserrat, Poppins, Open Sans, sans;
+      font-family: Montserrat, sans-serif;
       text-transform: uppercase;
       letter-spacing: .25em;
       line-height: 1.25;
       margin: 1.2rem 0;
+      color: #e74c3c;
+    }
+
+    .sans {
+      font-family: Open Sans, sans-serif;
+    }
+    .sans2 {
+      font-family: Montserrat, sans-serif;
     }
 
     .h100 {
@@ -45,9 +53,9 @@
       align-items: center;
     }
     .site-header {
-      background: linear-gradient(45deg, #613f8b, #ab1d1d);
+      background: linear-gradient(45deg, #0d3289, #ab1d1d, #0d3289, #ab1d1d, #0d3289, #ab1d1d);
       background-size: 400% 400%;
-      animation: purplered 30s ease infinite;
+      animation: purplered 10s ease infinite;
     }
     @keyframes purplered {
       0%{background-position:0% 50%}
@@ -68,7 +76,8 @@
           />
         </svg>
         <h1 class="tdkyellow" data-aos="fade-up" data-aos-anchor="#subheader" data-aos-offset="0">Hotplate</h1>
-        <h2 class="twhite" data-aos="fade-up" data-aos-anchor="#subheader" data-aos-offset="10">Sass + grid&nbsp;system + SVG&nbsp;spritesheet + Gulp</h2>
+        <h2 class="twhite sans tncase" data-aos="fade-up" data-aos-anchor="#subheader" data-aos-offset="10">A Boilerplate for Creating Websites</h2>
+        <h3 class="twhite" data-aos="fade-up" data-aos-anchor="#subheader" data-aos-offset="30">Sass + grid&nbsp;system + SVG&nbsp;spritesheet + Gulp + Browser-sync</h3>
       </div>
     </div>
   </header>
@@ -150,7 +159,7 @@ gulp</pre>
 
         <h3>Responsive classes</h3>
 
-        <table class="table" data-aos="fade-left">
+        <table class="table overflow-x" data-aos="fade-left">
           <tr>
             <td>0px</td>
             <td>480px</td>
