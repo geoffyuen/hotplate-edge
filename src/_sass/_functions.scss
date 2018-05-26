@@ -1,0 +1,54 @@
+// Utilities functions for string manipulation
+@function str-replace($string, $search, $replace: '') {
+	$index: str-index($string, $search);
+	@if $index {
+		@return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+	}
+	@return $string;
+}
+
+@function to-string($value) {
+	@return inspect($value);
+}
+
+@function strip-unit($number) {
+	@if type-of($number)=='number' and not unitless($number) {
+		@return $number / ($number * 0 + 1);
+	}
+	@return $number;
+}
+
+// Internal Functions
+// Retrieve Hotplate settings;
+// - instead of a bunch of global variables all Hotplate settings
+//   are stored in a map with submaps
+
+// Get media query widths
+@function mq($mediawidth) {
+	$temp: map-get($hotplate, mq);
+	@return map-get($temp, $mediawidth);
+}
+
+// Get submap/group to iterate through
+@function group($group) {
+	@return map-get($hotplate, $group);
+}
+
+// Get singular value from group/submap
+@function get($group, $setting) {
+	$temp: map-get($hotplate, $group);
+	@return map-get($temp, $setting);
+}
+
+
+// Interate thru a map to create utilty classes
+@mixin range($name, $max) {
+	$dbl: $max * 2;
+	@for $i from 0 through $dbl {
+		$index: to-string($i/2) !global;
+		$temp: str-replace($index, '.', '_');
+		.#{$name}#{$temp} {
+			@content;
+		}
+	}
+}

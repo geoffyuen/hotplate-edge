@@ -1,29 +1,31 @@
+@import
 // WORDPRESS?
-// @import 'sass/_wordpress-header.scss';
+// '_wordpress-header.scss';
 
 // SETTINGS: used with preprocessors and contain font, colors definitions, etc
-@import 'sass/_colors.scss';
-@import 'sass/_all-settings.scss'; // fonts, grid, media queries
+'_colors.scss',
+'_all-settings.scss', // fonts, grid, media queries
 
 // TOOLS: globally used mixins and functions
-@import 'sass/_mixins.scss';
-// @import 'sass/_themes.scss';
+'_mixins.scss',
+// '_themes.scss',
 
 // GENERIC: reset and/or normalize styles
-@import 'sass/_normalize.scss';
+'_normalize.scss',
 
 // ELEMENTS: styling for bare HTML elements
-@import 'sass/_html.scss';
-// @import 'sass/_forms.scss';
+'_html.scss',
+// '_forms.scss',
 
 // OBJECTS: class-based selectors which define undecorated design patterns (eg. media-object)
-@import 'sass/_grid.scss'; // ie10+ grid using flexbox, margins and calc and is nestable
+'_grid.scss', // ie10+ grid using flexbox, margins and calc and is nestable
 // You should start putting new stuff here
 
 // COMPONENTS: specific UI components
-@import 'sass/_header-footer.scss';
+'_header-footer.scss',
 // ...and here
 
 // TRUMPS: utilities and helper classes with ability to override everything above
-@import 'sass/_helper.scss';
-@import 'sass/_z-index.scss';
+'_helper.scss',
+
+'_z-index.scss';

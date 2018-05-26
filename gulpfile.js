@@ -4,10 +4,10 @@
 // export DISABLE_NOTIFIER=true;
 
 var localurl = false;
-// var localurl = "127.0.0.1:8000";
-// var localurl = "127.0.0.1:5500";
-// var localurl = "localhost/hotplate-edge";
-// var localurl = "test.test/hotplate-edge/index.html";
+// var localurl = "flywheel.test";
+// var localurl = "localhost:8888";
+
+var phpserve = false;
 
 var
   gulp = require("gulp"),
@@ -26,7 +26,7 @@ var
   svgmin = require("gulp-svgmin"),
   exec = require('child_process').exec;
 
-// Old: Start bs
+// Old: gulp-browsersync start
 gulp.task("browser-sync", function() {
   if (localurl == false) {
     browserSync({
@@ -38,8 +38,13 @@ gulp.task("browser-sync", function() {
     });
   }
 });
+// Old: BS trigger reload
+gulp.task("bs-reload", function() {
+  browserSync.reload();
+});
 
-// Global BS
+
+// Global browser-sync start and watch
 gulp.task('bs-serve-watch2', function() {
   if (localurl == false) {
     exec('browser-sync start -s -f "*.html, *.php, templates/**/*.twig, style.css, js/*.js, img/**/*"');
@@ -49,15 +54,10 @@ gulp.task('bs-serve-watch2', function() {
 })
 
 
-// Trigger reload
-gulp.task("bs-reload", function() {
-  browserSync.reload();
-});
-
 // Process ./src/styles.scss
 gulp.task("styles", function() {
   return gulp
-    .src(["src/**/*.scss"])
+    .src(["src/_sass/*.scss"])
     .pipe(
       plumber({
         errorHandler: notify.onError("Sass error: <%= error.message %>")
@@ -149,7 +149,7 @@ gulp.task("scripts", function() {
 
 // The meat of our Gulp loop
 function mainprocess() {
-  gulp.watch("src/**/*.scss", ["styles"]);
+  gulp.watch("src/_sass/*.scss", ["styles"]);
   gulp.watch("src/**/*.js", ["scripts", "bs-reload"]);
   gulp.watch("src/img/**/*", ["img", "bs-reload"]);
   gulp.watch("src/sprites/**/*.svg", ["svgstore", "bs-reload"]);
@@ -157,7 +157,7 @@ function mainprocess() {
 }
 // ...without bs
 function altprocess() {
-  gulp.watch("src/**/*.scss", ["styles"]);
+  gulp.watch("src/_sass/*.scss", ["styles"]);
   gulp.watch("src/**/*.js", ["scripts"]);
   gulp.watch("src/img/**/*", ["img"]);
   gulp.watch("src/sprites/**/*.svg", ["svgstore"]);
