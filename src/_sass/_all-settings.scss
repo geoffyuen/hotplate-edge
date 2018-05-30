@@ -44,7 +44,7 @@ $hp-maxwidth: mq(xl);
 
 @mixin undermedia($mediawidth: $md) {
 	@if map-has-key($mq, $mediawidth) {
-		@media (min-width: (mq($mediawidth)-1)) {
+		@media (max-width: (mq($mediawidth)-1)) {
 			@content;
 		}
 	}
