@@ -1,5 +1,3 @@
-// require('es6-promise').polyfill(); // Install and uncomment if old Node/npm
-
 // Uncomment to disable nags
 // export DISABLE_NOTIFIER=true;
 
@@ -26,26 +24,10 @@ var
   svgmin = require("gulp-svgmin"),
   exec = require('child_process').exec;
 
-// Old: gulp-browsersync start
-gulp.task("browser-sync", function() {
-  if (localurl == false) {
-    browserSync({
-      server: { baseDir: "./" } // serve static pages
-    });
-  } else {
-    browserSync({
-      proxy: localurl
-    });
-  }
-});
-// Old: BS trigger reload
-gulp.task("bs-reload", function() {
-  browserSync.reload();
-});
 
 
 // Global browser-sync start and watch
-gulp.task('bs-serve-watch2', function() {
+gulp.task('bs-serve-watch', function() {
   if (localurl == false) {
     exec('browser-sync start -s -f "*.html, *.php, templates/**/*.twig, style.css, js/*.js, img/**/*"');
   } else {
@@ -148,26 +130,14 @@ gulp.task("scripts", function() {
 });
 
 // The meat of our Gulp loop
-function mainprocess() {
-  gulp.watch("src/_sass/*.scss", ["styles"]);
-  gulp.watch("src/**/*.js", ["scripts", "bs-reload"]);
-  gulp.watch("src/img/**/*", ["img", "bs-reload"]);
-  gulp.watch("src/sprites/**/*.svg", ["svgstore", "bs-reload"]);
-  gulp.watch(["*.html", "*.php", "templates/*.twig"], ["bs-reload"]);
-}
-// ...without bs
-function altprocess() {
+function main_process() {
   gulp.watch("src/_sass/*.scss", ["styles"]);
   gulp.watch("src/**/*.js", ["scripts"]);
   gulp.watch("src/img/**/*", ["img"]);
   gulp.watch("src/sprites/**/*.svg", ["svgstore"]);
 }
 
-// Serve, sync and watch
-gulp.task("olddefault", ["browser-sync"], function() {
-  mainprocess();
-});
 // Alt serve sync and watch
-gulp.task("default", ["bs-serve-watch2"], function() {
-  altprocess();
+gulp.task("default", ["bs-serve-watch"], function() {
+  main_process();
 });
