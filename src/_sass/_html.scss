@@ -33,11 +33,11 @@ th, td {
 
 // Consistent margins using rems and not the default ems
 @include headlines {
-	margin: 1rem 0;
+	margin: 2rem 0;
 }
 
 p,ol,ul,dl,table,img,code,pre,blockquote,hr {
-	margin: 1rem 0;
+	margin: 2rem 0;
 }
 
 ul {
