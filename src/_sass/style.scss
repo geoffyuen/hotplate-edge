@@ -1,31 +1,32 @@
 @import
 // WORDPRESS?
-// '_wordpress-header.scss';
+// 'wordpress-header';
 
 // SETTINGS: used with preprocessors and contain font, colors definitions, etc
-'_colors.scss',
-'_all-settings.scss', // fonts, grid, media queries
+'colors',
+'all-settings', // fonts, grid, media queries
 
 // TOOLS: globally used mixins and functions
-'_mixins.scss',
-// '_themes.scss',
+'mixins',
+// 'themes',
 
 // GENERIC: reset and/or normalize styles
-'_normalize.scss',
+'scss/normalize',
 
 // ELEMENTS: styling for bare HTML elements
-'_html.scss',
-// '_forms.scss',
+'html',
+// 'forms',
 
 // OBJECTS: class-based selectors which define undecorated design patterns (eg. media-object)
-'_grid.scss', // ie10+ grid using flexbox, margins and calc and is nestable
+'grid', // ie10+ grid using flexbox, margins and calc and is nestable
 // You should start putting new stuff here
 
 // COMPONENTS: specific UI components
-'_header-footer.scss',
+'header-footer',
 // ...and here
 
 // TRUMPS: utilities and helper classes with ability to override everything above
-'_helper.scss',
+'helper',
+'tachyons', // scss folder contains all the tachyons partials
 
-'_z-index.scss';
+'z-index';
