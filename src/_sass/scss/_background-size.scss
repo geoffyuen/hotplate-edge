@@ -1,19 +1,14 @@
-
 // Converted Variables
-
-
 // Custom Media Query Variables
-
-
 /*
 
-   BACKGROUND SIZE
-   Docs: http://tachyons.io/docs/themes/background-size/
+  BACKGROUND SIZE
+  Docs: http://tachyons.io/docs/themes/background-size/
 
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
 
 */
 
@@ -22,20 +17,11 @@
   on an html element.
 */
 
-  .cover { background-size: cover!important; }
-  .contain { background-size: contain!important; }
-
-@media #{$breakpoint-not-small} {
-  .cover-ns { background-size: cover!important; }
-  .contain-ns { background-size: contain!important; }
-}
-
-@media #{$breakpoint-medium} {
-  .cover-m { background-size: cover!important; }
-  .contain-m { background-size: contain!important; }
-}
-
-@media #{$breakpoint-large} {
-  .cover-l { background-size: cover!important; }
-  .contain-l { background-size: contain!important; }
+@include gen {
+  .cover#{$sfx} {
+    background-size: cover !important;
+  }
+  .contain#{$sfx} {
+    background-size: contain !important;
+  }
 }

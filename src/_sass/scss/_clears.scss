@@ -1,14 +1,9 @@
-
 // Converted Variables
-
-
 // Custom Media Query Variables
-
-
 /*
 
-   CLEARFIX
-   http://tachyons.io/docs/layout/clearfix/
+  CLEARFIX
+  http://tachyons.io/docs/layout/clearfix/
 
 */
 
@@ -16,32 +11,30 @@
    Ref: http://nicolasgallagher.com/micro-clearfix-hack/ */
 
 .cf:before,
-.cf:after { content: " "; display: table; }
-.cf:after { clear: both; }
-.cf {       *zoom: 1; }
-
-.cl { clear: left; }
-.cr { clear: right; }
-.cb { clear: both; }
-.cn { clear: none; }
-
-@media #{$breakpoint-not-small} {
-  .cl-ns { clear: left; }
-  .cr-ns { clear: right; }
-  .cb-ns { clear: both; }
-  .cn-ns { clear: none; }
+.cf:after {
+  content: " ";
+  display: table;
 }
 
-@media #{$breakpoint-medium} {
-  .cl-m { clear: left; }
-  .cr-m { clear: right; }
-  .cb-m { clear: both; }
-  .cn-m { clear: none; }
+.cf:after {
+  clear: both;
 }
 
-@media #{$breakpoint-large} {
-  .cl-l { clear: left; }
-  .cr-l { clear: right; }
-  .cb-l { clear: both; }
-  .cn-l { clear: none; }
+.cf {
+  *zoom: 1;
+}
+
+@include gen {
+  .cl#{$sfx} {
+    clear: left;
+  }
+  .cr#{$sfx} {
+    clear: right;
+  }
+  .cb#{$sfx} {
+    clear: both;
+  }
+  .cn#{$sfx} {
+    clear: none;
+  }
 }

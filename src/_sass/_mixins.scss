@@ -18,3 +18,49 @@
 		@content;
 	}
 }
+
+// Generate Media Queried Classes
+// Eg
+// @include gen() {
+//   .switch#{$sfx} {
+//     color: blue;
+//   }
+//   .qbert#{$sfx} {
+//     background: red;
+//   }
+// }
+// Output
+// .switch {
+// 	color: blue;
+//   }
+//   .qbert {
+// 	background: red;
+//   }
+//   @media (min-width: 480px) {
+// 	.switch-xs {
+// 	  color: blue;
+// 	}
+// 	.qbert-xs {
+// 	  background: red;
+// 	}
+//   }
+//   @media (min-width: 620px) {
+// 	.switch-sm {
+// 	  color: blue;
+// 	}
+// 	.qbert-sm {
+// 	  background: red;
+// 	}
+//   }
+
+$sfx: '';
+@mixin gen() {
+	$sfx: '' !global;
+	@content;
+	@each $mq_name, $mq_val in $mq {
+		$sfx: '-'+$mq_name !global;
+		@include media(#{$mq_val}) {
+			@content;
+		}	
+	}
+}

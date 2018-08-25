@@ -17,6 +17,8 @@ var
   notify = require("gulp-notify"),
   plumber = require("gulp-plumber"),
   rename = require("gulp-rename"),
+  fibers = require("fibers"),
+  // sass = require("gulp-dart-sass"),
   sass = require("gulp-sass"),
   sourcemaps = require("gulp-sourcemaps"),
   uglify = require("gulp-uglify"),
@@ -47,6 +49,7 @@ gulp.task("styles", function() {
     )
     .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: "nested" }))
+    // .pipe(sass({fiber: fibers}).on('error', sass.logError))
     .pipe(
       cssnano({
         autoprefixer: {

@@ -1,12 +1,12 @@
 .visuallyhidden {
-	border: 0;
-	clip: rect(0 0 0 0);
-	height: 1px;
-	margin: -1px;
-	overflow: hidden;
-	padding: 0;
-	position: absolute;
-	width: 1px;
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
 }
 
 .sticky {
@@ -14,231 +14,42 @@
     position: sticky;
 }
 
-// font-weight
-@for $i from 1 through 9 {
-    .t#{$i*100} {
-        font-weight: $i*100;
-    }
-}
-
-// margins and padding
-@for $i from 0 through 8 {
-    .m#{$i} {
-        margin: #{$i}em;
-    }
-    .mt#{$i} {
-        margin-top: #{$i}em;
-    }
-
-    .mb#{$i} {
-        margin-bottom: #{$i}em;
-    }
-
-    .mv#{$i} {
-        @include vmargin(#{$i}em);
-    }
-
-    .mh#{$i}.mh#{$i}.mh#{$i} {
-        @include hmargin(#{$i}em);
-    }
-
-    .p#{$i} {
-        padding: #{$i}em;
-    }
-    .pt#{$i} {
-        padding-top: #{$i}em;
-    }
-
-    .pb#{$i} {
-        padding-bottom: #{$i}em;
-    }
-
-    .pv#{$i} {
-        @include vpad(#{$i}em);
-    }
-
-    .ph#{$i}.ph#{$i}.ph#{$i} {
-        @include hpad(#{$i}em);
-    }
-
-}
-
-
-// colors, backgrounds, border
-@each $name, $value in $colors {
-	.t#{$name} {
-		color: $value;
-	}
-	.a#{$name}:link, .a#{$name}:visited {
-		color: $value;
-	}
-	.a--hover#{$name}:hover {
-		color: $value;
-	}
-	.bg#{$name} {
-		background-color: $value;
-	}
-	.b#{$name} {
-		border: 1px solid $value;
-	}
-	.btop#{$name} {
-		border-top: 1px solid $value;
-	}
-	.bleft#{$name} {
-		border-left: 1px solid $value;
-	}
-	.bright#{$name} {
-		border-right: 1px solid $value;
-	}
-	.bbottom#{$name} {
-		border-bottom: 1px solid $value;
-	}
-}
-
-@each $width in (0, 1, 2, 4, 5, 8, 10) {
-	.b#{$width} {
-		border-width: #{$width}px;
-	}
-}
-// text alignment with breakpoints
-// show/hide with breakpoints
-.tright {
-    text-align: right;
-}
-.tcenter {
-    text-align: center;
-}
-.tleft {
-    text-align: right;
-}
-.xxs--hide {
-    display: none;
-}
-@each $mq_name, $mq in $mq {
-	// MOBILE FIRST
-	.#{$mq_name}-block {
-		display: none;
-	}
-
-    // MEDIA QUERIED
-    @include media(#{$mq}) {
-        .tright--#{$mq_name} {
-            text-align: right;
-        }
-        .tcenter--#{$mq_name} {
-            text-align: center;
-        }
-        .tleft--#{$mq_name} {
-            text-align: left;
-        }
-        .visuallyhidden--#{$mq_name} {
-            border: 0;
-            clip: rect(0 0 0 0);
-            height: 1px;
-            margin: -1px;
-            overflow: hidden;
-            padding: 0;
-            position: absolute;
-            width: 1px;
-        }
-
-        .#{$mq_name}--block {
-            display: block;
-        }
-        .#{$mq_name}--flex {
-            display: flex;
-        }
-        .#{$mq_name}--inline {
-            display: inline;
-        }
-        .#{$mq_name}--inline-block {
-            display: inline-block;
-        }
-        .#{$mq_name}--hide {
-            display: none;
-        }
-
-    }
-	// MOBILE FIRST END
-}
-.tucase {
-    text-transform: uppercase;
-}
-.tncase {
-    text-transform: none;
-}
-.tnounderline {
-	text-decoration: none;
-}
-
-
-// display block
-.blk {
-    display: block;
-    &--hcenter {
-        @include hmargin(auto);
-    }
-}
-
 .icon {
-    fill: currentColor;
-    // vertical-align: -.15em;
+    fill: currentColor; // vertical-align: -.15em;
 }
 
 svg.svg {
     width: 1em;
     height: 1em;
     fill: currentColor;
-	vertical-align: -.15em;
-	&--wider {
-		width: 2em;
-	}
-}
-
-.w100 {
-    width: 100%;
-    max-width: none;
-}
-
-
-.flex {
-    display: flex;
-    &--justify {
-        justify-content: space-between;
-    }
-    &__child {
-        flex: 0 1 auto;
-    }
-}
-// order classes for flex children
-@for $i from 1 through 12 {
-    .order-#{$i} {
-        order: $i*-1;
+    vertical-align: -.15em;
+    &--wider {
+        width: 2em;
     }
 }
 
 .compactmargins {
-    & > * {
+    &>* {
         @include vmargin(0);
     }
 }
 
 .childmargins {
-    & > *:first-child {
+    &>*:first-child {
         margin-top: 0;
     }
-    & > *:last-child {
+    &>*:last-child {
         margin-bottom: 0;
     }
 }
 
 .inlinelist {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	li {
-		display: inline;
-		margin: 1em 0;
-		padding: 0;
-	}
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: inline;
+        margin: 1em 0;
+        padding: 0;
+    }
 }
