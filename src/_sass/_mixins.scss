@@ -54,13 +54,22 @@
 //   }
 
 $sfx: '';
-@mixin gen() {
+@mixin gen($map: $mq) {
 	$sfx: '' !global;
 	@content;
-	@each $mq_name, $mq_val in $mq {
-		$sfx: '-'+$mq_name !global;
-		@include media(#{$mq_val}) {
+	@each $name, $val in $map {
+		$sfx: '-'+$name !global;
+		@include media(#{$val}) {
 			@content;
 		}	
+	}
+}
+
+$value: '';
+@mixin gen2($map) {
+	@each $name, $val in $map {
+		$sfx: $name !global;
+		$value: $val !global;
+		@content;
 	}
 }
