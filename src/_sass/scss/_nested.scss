@@ -52,12 +52,12 @@
 }
 
 .nested-links a {
-  color: c(blue);
+  color: $nested-links;
   transition: color .15s ease-in;
 }
 
 .nested-links a:hover,
 .nested-links a:focus {
-  color: c(light-blue);
+  color: $nested-links-hover-focus;
   transition: color .15s ease-in;
 }

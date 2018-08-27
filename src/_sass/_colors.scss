@@ -23,9 +23,3 @@ $colors: (
     gray: #34495e,
     dkgray: #2c3e50
 );
-
-// return color from $colors;
-// eg color: c(white);
-@function c($colorname) {
-    @return map-get($colors, $colorname);
-}

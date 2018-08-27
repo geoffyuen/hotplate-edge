@@ -81,6 +81,32 @@ $box-shadow-3: 2px 2px 4px 2px rgba( 0, 0, 0, 0.2 ) !default;
 $box-shadow-4: 2px 2px 8px 0px rgba( 0, 0, 0, 0.2 ) !default;
 $box-shadow-5: 4px 4px 8px 0px rgba( 0, 0, 0, 0.2 ) !default;
 
+$black-90: rgba(0,0,0,.9) !default;
+$black-80: rgba(0,0,0,.8) !default;
+$black-70: rgba(0,0,0,.7) !default;
+$black-60: rgba(0,0,0,.6) !default;
+$black-50: rgba(0,0,0,.5) !default;
+$black-40: rgba(0,0,0,.4) !default;
+$black-30: rgba(0,0,0,.3) !default;
+$black-20: rgba(0,0,0,.2) !default;
+$black-10: rgba(0,0,0,.1) !default;
+$black-05: rgba(0,0,0,.05) !default;
+$black-025: rgba(0,0,0,.025) !default;
+$black-0125: rgba(0,0,0,.0125) !default;
+
+$white-90: rgba(255,255,255,.9) !default;
+$white-80: rgba(255,255,255,.8) !default;
+$white-70: rgba(255,255,255,.7) !default;
+$white-60: rgba(255,255,255,.6) !default;
+$white-50: rgba(255,255,255,.5) !default;
+$white-40: rgba(255,255,255,.4) !default;
+$white-30: rgba(255,255,255,.3) !default;
+$white-20: rgba(255,255,255,.2) !default;
+$white-10: rgba(255,255,255,.1) !default;
+$white-05: rgba(255,255,255,.05) !default;
+$white-025: rgba(255,255,255,.025) !default;
+$white-0125: rgba(255,255,255,.0125) !default;
+
 $colors: (
     transparent: transparent,
     black: #000,
@@ -121,33 +147,19 @@ $colors: (
     washed-red: #ffdfdf
 ) !default;
 
-$black: #000 !default;
-$black-90: rgba(0,0,0,.9) !default;
-$black-80: rgba(0,0,0,.8) !default;
-$black-70: rgba(0,0,0,.7) !default;
-$black-60: rgba(0,0,0,.6) !default;
-$black-50: rgba(0,0,0,.5) !default;
-$black-40: rgba(0,0,0,.4) !default;
-$black-30: rgba(0,0,0,.3) !default;
-$black-20: rgba(0,0,0,.2) !default;
-$black-10: rgba(0,0,0,.1) !default;
-$black-05: rgba(0,0,0,.05) !default;
-$black-025: rgba(0,0,0,.025) !default;
-$black-0125: rgba(0,0,0,.0125) !default;
+$nested-links: c(blue) !default;
+$nested-links-hover-focus: c(light-blue) !default;
 
-$white: #fff !default;
-$white-90: rgba(255,255,255,.9) !default;
-$white-80: rgba(255,255,255,.8) !default;
-$white-70: rgba(255,255,255,.7) !default;
-$white-60: rgba(255,255,255,.6) !default;
-$white-50: rgba(255,255,255,.5) !default;
-$white-40: rgba(255,255,255,.4) !default;
-$white-30: rgba(255,255,255,.3) !default;
-$white-20: rgba(255,255,255,.2) !default;
-$white-10: rgba(255,255,255,.1) !default;
-$white-05: rgba(255,255,255,.05) !default;
-$white-025: rgba(255,255,255,.025) !default;
-$white-0125: rgba(255,255,255,.0125) !default;
+$tablestripe-odd: (
+    light-silver: #aaa,
+    moon-gray: #ccc,
+    light-gray: #eee,
+    near-white: #f4f4f4,
+    light: $white-10,
+    dark: $black-10
+) !default;
+
+
 
 // Custom Media Query Variables
 

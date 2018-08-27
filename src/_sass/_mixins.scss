@@ -19,6 +19,13 @@
 	}
 }
 
+
+// return color from $colors;
+// eg color: c(white);
+@function c($colorname) {
+    @return map-get($colors, $colorname);
+}
+
 // Generate Media Queried Classes
 // Eg
 // @include gen() {
@@ -71,5 +78,13 @@ $value: '';
 		$sfx: $name !global;
 		$value: $val !global;
 		@content;
+	}
+}
+
+@mixin range($color, $rule, $sfx: '') {
+	@for $i from 1 through 9 {
+		.#{$sfx}#{$color}-#{$i*10} {
+			#{$rule}: rgba(c($color), $i/10);
+		}
 	}
 }
