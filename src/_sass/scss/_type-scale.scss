@@ -32,32 +32,38 @@
 @include gen {
   .f-6,
   .f-headline#{$sfx} {
-    font-size: $font-size-headline;
+    font-size: cfg(font_size_headline);
   }
   .f-5,
   .f-subheadline#{$sfx} {
-    font-size: $font-size-subheadline;
+    font-size: cfg(font_size_subheadline);
   }
   /* Type Scale */
-  .f1#{$sfx} {
-    font-size: $font-size-1;
+  @for $index from 1 through length( cfg(font_sizes) ) {
+    $value: nth( cfg(font_sizes), $index );
+    .f#{$index} {
+      font-size: $value;
+    }  
   }
-  .f2#{$sfx} {
-    font-size: $font-size-2;
-  }
-  .f3#{$sfx} {
-    font-size: $font-size-3;
-  }
-  .f4#{$sfx} {
-    font-size: $font-size-4;
-  }
-  .f5#{$sfx} {
-    font-size: $font-size-5;
-  }
-  .f6#{$sfx} {
-    font-size: $font-size-6;
-  }
-  .f7#{$sfx} {
-    font-size: $font-size-7;
-  }
+//   .f1#{$sfx} {
+//     font-size: $font-size-1;
+//   }
+//   .f2#{$sfx} {
+//     font-size: $font-size-2;
+//   }
+//   .f3#{$sfx} {
+//     font-size: $font-size-3;
+//   }
+//   .f4#{$sfx} {
+//     font-size: $font-size-4;
+//   }
+//   .f5#{$sfx} {
+//     font-size: $font-size-5;
+//   }
+//   .f6#{$sfx} {
+//     font-size: $font-size-6;
+//   }
+//   .f7#{$sfx} {
+//     font-size: $font-size-7;
+//   }
 }

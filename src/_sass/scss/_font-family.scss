@@ -8,11 +8,11 @@
 */
 
 .sans-serif {
-  font-family: $sans-serif;
+  font-family: cfg(sans_serif);
 }
 
 .serif {
-  font-family: $serif;
+  font-family: cfg(serif);
 }
 
 .system-sans-serif {

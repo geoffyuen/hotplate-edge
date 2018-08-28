@@ -19,6 +19,9 @@
 	}
 }
 
+@function cfg($key, $map: $cfg) {
+	@return map-get($map, $key);
+}
 
 // return color from $colors;
 // eg color: c(white);

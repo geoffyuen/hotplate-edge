@@ -1,20 +1,25 @@
 
 // Converted Variables
+$cfg: (
+    fonts: (
+        sans_serif: "-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif",
+        serif: "georgia, serif",    
+        code: "consolas, monaco, monospace"
+    ),
 
-$sans-serif: -apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif !default;
-$serif: georgia, serif !default;
-$code: consolas, monaco, monospace !default;
+    font_size_headline: 6rem,
+    font_size_subheadline: 5rem,
 
-$font-size-headline: 6rem !default;
-$font-size-subheadline: 5rem !default;
-
-$font-size-1: 3rem !default;
-$font-size-2: 2.25rem !default;
-$font-size-3: 1.5rem !default;
-$font-size-4: 1.25rem !default;
-$font-size-5: 1rem !default;
-$font-size-6: .875rem !default;
-$font-size-7: .75rem !default;
+    font_sizes: (
+        3rem,
+        2.25rem,
+        1.5rem,
+        1.25rem,
+        1rem,
+        .875rem,
+        .75rem
+    )
+);
 
 $letter-spacing-tight: -.05em !default;
 $letter-spacing-1: .1em !default;
