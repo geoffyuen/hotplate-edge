@@ -2,12 +2,12 @@
 // Custom Media Query Variables
 /*
 
-   SKINS
-   Docs: http://tachyons.io/docs/themes/skins/
+    SKINS
+    Docs: http://tachyons.io/docs/themes/skins/
 
-   Classes for setting foreground and background colors on elements.
-   If you haven't declared a border color, but set border on an element, it will
-   be set to the current text color.
+    Classes for setting foreground and background colors on elements.
+    If you haven't declared a border color, but set border on an element, it will
+    be set to the current text color.
 
 */
 
@@ -16,7 +16,7 @@
 @include range(black, color);
 @include range(white, color);
 
-@include gen2($colors) {
+@include gen2(cfg(colors)) {
     .#{$sfx} {
         color: $value;
     }
@@ -25,7 +25,7 @@
 @include range(black, background-color,'bg-');
 @include range(white, background-color,'bg-');
 /* Background colors */
-@include gen2($colors) {
+@include gen2(cfg(colors)) {
     .bg-#{$sfx} {
         background-color: $value;
     }
