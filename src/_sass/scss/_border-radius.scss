@@ -27,26 +27,10 @@
 */
 
 @include gen {
-    .br0#{$sfx} {
-        border-radius: $border-radius-none
-    }
-    .br1#{$sfx} {
-        border-radius: $border-radius-1;
-    }
-    .br2#{$sfx} {
-        border-radius: $border-radius-2;
-    }
-    .br3#{$sfx} {
-        border-radius: $border-radius-3;
-    }
-    .br4#{$sfx} {
-        border-radius: $border-radius-4;
-    }
-    .br-100#{$sfx} {
-        border-radius: $border-radius-circle;
-    }
-    .br-pill#{$sfx} {
-        border-radius: $border-radius-pill;
+    @each $key, $val in cfg(border_radius) {
+        .br#{$key}#{$sfx} {
+            border-radius: $val;
+        }    
     }
     .br--bottom#{$sfx} {
         border-top-left-radius: 0;

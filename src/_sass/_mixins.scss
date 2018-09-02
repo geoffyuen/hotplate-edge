@@ -22,10 +22,14 @@
 @function cfg($key, $map: $cfg) {
 	@return map-get($map, $key);
 }
+@function subcfg($submap, $key, $map: $cfg) {
+	$subcfg: map-get($map, $submap);
+	@return map-get($subcfg, $key);
+}
 
-// return color from $colors;
+// return color from cfg(colors);
 // eg color: c(white);
-@function c($colorname) {
+@function c($colorname, $map: $cfg) {
     @return map-get(cfg(colors), $colorname);
 }
 
@@ -64,12 +68,12 @@
 //   }
 
 $sfx: '';
-@mixin gen($map: $mq) {
+@mixin gen($map: cfg(breakpoint)) {
 	$sfx: '' !global;
 	@content;
 	@each $name, $val in $map {
 		$sfx: '-'+$name !global;
-		@include media(#{$val}) {
+		@media #{$val} {
 			@content;
 		}	
 	}

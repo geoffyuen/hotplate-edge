@@ -24,35 +24,22 @@
 */
 
 @include gen {
-  .bw0#{$sfx} {
-    border-width: $border-width-none;
-  }
-  .bw1#{$sfx} {
-    border-width: $border-width-1;
-  }
-  .bw2#{$sfx} {
-    border-width: $border-width-2;
-  }
-  .bw3#{$sfx} {
-    border-width: $border-width-3;
-  }
-  .bw4#{$sfx} {
-    border-width: $border-width-4;
-  }
-  .bw5#{$sfx} {
-    border-width: $border-width-5;
+  @each $key, $val in cfg(border_width) {
+    .bw#{$key}#{$sfx} {
+        border-width: $val;
+    }    
   }
   /* Resets */
   .bt-0#{$sfx} {
-    border-top-width: $border-width-none
+    border-top-width: 0;
   }
   .br-0#{$sfx} {
-    border-right-width: $border-width-none
+    border-right-width: 0;
   }
   .bb-0#{$sfx} {
-    border-bottom-width: $border-width-none
+    border-bottom-width: 0;
   }
   .bl-0#{$sfx} {
-    border-left-width: $border-width-none
+    border-left-width: 0;
   }
 }

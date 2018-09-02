@@ -38,33 +38,38 @@
     max-width: 100%;
   }
   /* Max Width Scale */
-  .mw1#{$sfx} {
-    max-width: $max-width-1;
+  @each $key, $val in cfg(height) {
+    .mw#{$key}#{$sfx} {
+      max-width: $val;
+    }
   }
-  .mw2#{$sfx} {
-    max-width: $max-width-2;
-  }
-  .mw3#{$sfx} {
-    max-width: $max-width-3;
-  }
-  .mw4#{$sfx} {
-    max-width: $max-width-4;
-  }
-  .mw5#{$sfx} {
-    max-width: $max-width-5;
-  }
-  .mw6#{$sfx} {
-    max-width: $max-width-6;
-  }
-  .mw7#{$sfx} {
-    max-width: $max-width-7;
-  }
-  .mw8#{$sfx} {
-    max-width: $max-width-8;
-  }
-  .mw9#{$sfx} {
-    max-width: $max-width-9;
-  }
+  // .mw1#{$sfx} {
+  //   max-width: $max-width-1;
+  // }
+  // .mw2#{$sfx} {
+  //   max-width: $max-width-2;
+  // }
+  // .mw3#{$sfx} {
+  //   max-width: $max-width-3;
+  // }
+  // .mw4#{$sfx} {
+  //   max-width: $max-width-4;
+  // }
+  // .mw5#{$sfx} {
+  //   max-width: $max-width-5;
+  // }
+  // .mw6#{$sfx} {
+  //   max-width: $max-width-6;
+  // }
+  // .mw7#{$sfx} {
+  //   max-width: $max-width-7;
+  // }
+  // .mw8#{$sfx} {
+  //   max-width: $max-width-8;
+  // }
+  // .mw9#{$sfx} {
+  //   max-width: $max-width-9;
+  // }
   /* Max Width String Properties */
   .mw-none#{$sfx} {
     max-width: none;

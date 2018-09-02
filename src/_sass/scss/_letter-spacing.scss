@@ -13,13 +13,9 @@
 */
 
 @include gen {
-  .tracked#{$sfx} {
-    letter-spacing: $letter-spacing-1;
-  }
-  .tracked-tight#{$sfx} {
-    letter-spacing: $letter-spacing-tight;
-  }
-  .tracked-mega#{$sfx} {
-    letter-spacing: $letter-spacing-2;
+  @each $key, $val in cfg(letter_spacing) {
+    .tracked-#{$key}#{$sfx} {
+      letter-spacing: $val;
+    }
   }
 }

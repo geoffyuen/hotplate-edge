@@ -45,21 +45,28 @@
 /* Width Scale */
 
 @include gen {
-  .w1#{$sfx} {
-    width: $width-1;
+
+  @each $key, $val in cfg(height) {
+    .w#{$key}#{$sfx} {
+      width: $val;
+    }
   }
-  .w2#{$sfx} {
-    width: $width-2;
-  }
-  .w3#{$sfx} {
-    width: $width-3;
-  }
-  .w4#{$sfx} {
-    width: $width-4;
-  }
-  .w5#{$sfx} {
-    width: $width-5;
-  }
+
+  // .w1#{$sfx} {
+  //   width: $width-1;
+  // }
+  // .w2#{$sfx} {
+  //   width: $width-2;
+  // }
+  // .w3#{$sfx} {
+  //   width: $width-3;
+  // }
+  // .w4#{$sfx} {
+  //   width: $width-4;
+  // }
+  // .w5#{$sfx} {
+  //   width: $width-5;
+  // }
   .w-10#{$sfx} {
     width: 10%;
   }

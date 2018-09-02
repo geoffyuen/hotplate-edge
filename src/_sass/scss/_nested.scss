@@ -13,20 +13,22 @@
 
 */
 
-.nested-copy-line-height p,
-.nested-copy-line-height ul,
-.nested-copy-line-height ol {
-  line-height: $line-height-copy;
+@each $key, $val in cfg(line_height) {
+  .nested-#{$key}-line-height p,
+  .nested-#{$key}-line-height ul,
+  .nested-#{$key}-line-height ol {
+    line-height: $val;
+  }
 }
 
-.nested-headline-line-height h1,
-.nested-headline-line-height h2,
-.nested-headline-line-height h3,
-.nested-headline-line-height h4,
-.nested-headline-line-height h5,
-.nested-headline-line-height h6 {
-  line-height: $line-height-title;
-}
+// .nested-headline-line-height h1,
+// .nested-headline-line-height h2,
+// .nested-headline-line-height h3,
+// .nested-headline-line-height h4,
+// .nested-headline-line-height h5,
+// .nested-headline-line-height h6 {
+//   line-height: $line-height-title;
+// }
 
 .nested-list-reset ul,
 .nested-list-reset ol {
@@ -36,13 +38,13 @@
 }
 
 .nested-copy-indent p+p {
-  text-indent: $letter-spacing-1;
-  margin-top: $spacing-none;
-  margin-bottom: $spacing-none;
+  text-indent: subcfg(letter_spacing, 1);
+  margin-top: subcfg(spacing, none);
+  margin-bottom: subcfg(spacing, none);
 }
 
 .nested-copy-seperator p+p {
-  margin-top: $spacing-copy-separator;
+  margin-top: cfg(copy-separator);
 }
 
 .nested-img img {
@@ -52,12 +54,12 @@
 }
 
 .nested-links a {
-  color: $nested-links;
+  color: subcfg(nested_links, nested-links);
   transition: color .15s ease-in;
 }
 
 .nested-links a:hover,
 .nested-links a:focus {
-  color: $nested-links-hover-focus;
+  color: subcfg(nested_links, nested-links-hover-focus);
   transition: color .15s ease-in;
 }

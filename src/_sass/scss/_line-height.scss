@@ -13,13 +13,18 @@
 */
 
 @include gen {
-  .lh-solid#{$sfx} {
-    line-height: $line-height-solid;
-  }
-  .lh-title#{$sfx} {
-    line-height: $line-height-title;
-  }
-  .lh-copy#{$sfx} {
-    line-height: $line-height-copy;
+  @each $key, $val in cfg(line_height) {
+    .lh-#{$key}#{$sfx} {
+      line-height: $val;
+    }    
   }
 }
+// .lh-solid#{$sfx} {
+//   line-height: $line-height-solid;
+// }
+// .lh-title#{$sfx} {
+//   line-height: $line-height-title;
+// }
+// .lh-copy#{$sfx} {
+//   line-height: $line-height-copy;
+// }

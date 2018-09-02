@@ -36,21 +36,13 @@
 /* Height Scale */
 
 @include gen {
-  .h1#{$sfx} {
-    height: $height-1;
+
+  @each $key, $val in cfg(height) {
+    .h#{$key}#{$sfx} {
+      height: $val;
+    }
   }
-  .h2#{$sfx} {
-    height: $height-2;
-  }
-  .h3#{$sfx} {
-    height: $height-3;
-  }
-  .h4#{$sfx} {
-    height: $height-4;
-  }
-  .h5#{$sfx} {
-    height: $height-5;
-  }
+
   /* Height Percentages - Based off of height of parent */
   .h-25#{$sfx} {
     height: 25%;
