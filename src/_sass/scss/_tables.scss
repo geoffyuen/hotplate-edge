@@ -12,12 +12,6 @@
   border-spacing: 0;
 }
 
-// @include gen2(cfg(tablestripe_odd)) {
-//   .striped--#{$sfx}:nth-child(odd) {
-//     background-color: c($value);
-//   }
-// }
-
 @each $key, $val in cfg(tablestripe_odd) {
   .striped--#{$key}:nth-child(odd) {
     background-color: $val;

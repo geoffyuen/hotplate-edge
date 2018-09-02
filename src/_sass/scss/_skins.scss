@@ -16,17 +16,17 @@
 @include range(black, color);
 @include range(white, color);
 
-@include gen2(cfg(colors)) {
-    .#{$sfx} {
-        color: $value;
+@each $key, $val in cfg(colors) {
+    .#{$key} {
+        color: $val;
     }
 }
 
 @include range(black, background-color,'bg-');
 @include range(white, background-color,'bg-');
 /* Background colors */
-@include gen2(cfg(colors)) {
-    .bg-#{$sfx} {
-        background-color: $value;
+@each $key, $val in cfg(colors) {
+    .bg-#{$key} {
+        background-color: $val;
     }
 }

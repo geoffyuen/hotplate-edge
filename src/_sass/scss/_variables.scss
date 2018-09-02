@@ -133,7 +133,7 @@ $cfg: (
 );
 
 //
-// # Extend #cfg with maps that reference $cfg(colors):
+// # Extend $cfg with maps that reference $cfg(colors):
 //
 
 $cfg: map-merge($cfg, (nested_links: (

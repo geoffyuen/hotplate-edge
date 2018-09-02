@@ -79,14 +79,6 @@ $sfx: '';
 	}
 }
 
-$value: '';
-@mixin gen2($map) {
-	@each $name, $val in $map {
-		$sfx: $name !global;
-		$value: $val !global;
-		@content;
-	}
-}
 
 @mixin range($color, $rule, $pfx: '') {
 	@for $i from 1 through 9 {

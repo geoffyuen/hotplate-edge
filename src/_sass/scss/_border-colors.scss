@@ -20,9 +20,9 @@
 
 */
 
-@include gen2(cfg(colors)) {
-  .b--#{$sfx} {
-    border-color: $value;
+@each $key, $val in cfg(colors) {
+  .b--#{$key} {
+    border-color: $val;
   }
 }
 

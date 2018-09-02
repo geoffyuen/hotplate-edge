@@ -9,10 +9,10 @@
 
  */
 
-@include gen2(cfg(colors)) {
-  .hover-#{$sfx}:hover,
-  .hover-#{$sfx}:focus {
-    color: $value;
+ @each $key, $val in cfg(colors) {
+  .hover-#{$key}:hover,
+  .hover-#{$key}:focus {
+    color: $val;
   }
 }
 
