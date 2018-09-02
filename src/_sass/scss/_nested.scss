@@ -21,14 +21,14 @@
   }
 }
 
-// .nested-headline-line-height h1,
-// .nested-headline-line-height h2,
-// .nested-headline-line-height h3,
-// .nested-headline-line-height h4,
-// .nested-headline-line-height h5,
-// .nested-headline-line-height h6 {
-//   line-height: $line-height-title;
-// }
+.nested-headline-line-height h1,
+.nested-headline-line-height h2,
+.nested-headline-line-height h3,
+.nested-headline-line-height h4,
+.nested-headline-line-height h5,
+.nested-headline-line-height h6 {
+  line-height: subcfg(line_height, headline);
+}
 
 .nested-list-reset ul,
 .nested-list-reset ol {
