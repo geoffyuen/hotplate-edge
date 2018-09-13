@@ -40,7 +40,7 @@
 
 /* SVG stroke colors */
 @each $key, $val in cfg(colors) {
-    .fill-#{$key} {
+    .stroke-#{$key} {
         stroke: $val;
     }
 }
