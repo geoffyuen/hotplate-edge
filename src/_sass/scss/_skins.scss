@@ -12,7 +12,6 @@
 */
 
 /* Text colors */
-
 @include range(black, color);
 @include range(white, color);
 
@@ -22,11 +21,26 @@
     }
 }
 
+/* Background colors */
 @include range(black, background-color,'bg-');
 @include range(white, background-color,'bg-');
-/* Background colors */
+
 @each $key, $val in cfg(colors) {
     .bg-#{$key} {
         background-color: $val;
+    }
+}
+
+/* SVG fill colors */
+@each $key, $val in cfg(colors) {
+    .fill-#{$key} {
+        fill: $val;
+    }
+}
+
+/* SVG stroke colors */
+@each $key, $val in cfg(colors) {
+    .fill-#{$key} {
+        stroke: $val;
     }
 }
