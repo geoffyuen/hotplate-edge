@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tachyons Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        pre {
+            tab-size:2;
+            overflow-wrap: break-word;
+            word-break: break-all;
+            font-family: menlo, monospace;
+        }
+        pre::first-line  {
+            color: red;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bb b--black-20 pa3 sticky bg-white ma0 top-0"><input id="filter" type="text" class="filter w-100 pv1 ph2"
+            placeholder="tachyons class"></div>
+    <div id="rules" class="ph4"></div>
+    <!-- End body content -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+        var $rules = $('#rules');
+        Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
+            // console.log(a.selectorText);
+            var rule = GetStyle(a.selectorText);
+            if (rule.startsWith('.')) {
+                rule = rule.replace(/{/g, '\n{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
+                $rules.append('<pre class="bb b--black-20 pb4 mv4">' + rule + '</pre>');
+            }
+        });
+
+        function GetStyle(CLASSname) {
+            var styleSheets = document.styleSheets;
+            var styleSheetsLength = styleSheets.length;
+            for (var i = 0; i < styleSheetsLength; i++) {
+                if (styleSheets[i].rules) { var classes = styleSheets[i].rules; }
+                else {
+                    try { if (!styleSheets[i].cssRules) { continue; } }
+                    //Note that SecurityError exception is specific to Firefox.
+                    catch (e) { if (e.name == 'SecurityError') { console.log("SecurityError. Cant readd: " + styleSheets[i].href); continue; } }
+                    var classes = styleSheets[i].cssRules;
+                }
+                for (var x = 0; x < classes.length; x++) {
+                    if (classes[x].selectorText == CLASSname) {
+                        var ret = (classes[x].cssText) ? classes[x].cssText : classes[x].style.cssText;
+                        if (ret.indexOf(classes[x].selectorText) == -1) { ret = classes[x].selectorText + "{" + ret + "}"; }
+                        return ret;
+                    }
+                }
+            }
+        }
+
+        $("#filter").keyup(function () {
+            var filter = $(this).val(),
+                count = 0
+            ;
+            $("#rules pre").each(function () {
+                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
+                    $(this).css({ 'display': 'none' });
+                } else {
+                    $(this).css({ 'display': 'block' });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

@@ -1,7 +1,7 @@
 $cfg: (
     fonts: (
         sans_serif: "-apple-system, BlinkMacSystemFont, 'avenir next', avenir, helvetica, 'helvetica neue', ubuntu, roboto, noto, 'segoe ui', arial, sans-serif",
-        serif: "georgia, serif",    
+        serif: "georgia, serif",
         code: "consolas, monaco, monospace",
     ),
 
@@ -126,9 +126,9 @@ $cfg: (
     ),
 
     breakpoint: (
-        not-small: 'screen and (min-width: 30em)',
-        medium: 'screen and (min-width: 30em) and (max-width: 60em)',
-        large: 'screen and (min-width: 60em)',
+        ns: 'screen and (min-width: 30em)',
+        m: 'screen and (min-width: 30em) and (max-width: 60em)',
+        l: 'screen and (min-width: 60em)',
     ),
 );
 

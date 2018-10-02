@@ -29,5 +29,5 @@
 // .b--white-90 {
 //   border-color: $white-90;
 // }
-@include range(white, background-color,'b--');
-@include range(black, background-color,'b--');
+@include range(white, border-color,'b--');
+@include range(black, border-color,'b--');
