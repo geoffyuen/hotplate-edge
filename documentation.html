@@ -69,14 +69,14 @@
         }
 
         $("#filter").keyup(function () {
-            var filter = $(this).val(),
-                count = 0
-            ;
+            var filter = $(this).val().trim().replace(/ /g,'|');
+            //console.log(filter);
             $("#rules pre").each(function () {
-                if ($(this).text().search(new RegExp(filter, "i")) < 0) {
-                    $(this).css({ 'display': 'none' });
+                var $this = $(this);
+                if (($this.text()).match(new RegExp(filter,'g'))) {
+                    $this.css({ 'display': 'block' });
                 } else {
-                    $(this).css({ 'display': 'block' });
+                    $this.css({ 'display': 'none' });
                 }
             });
         });
