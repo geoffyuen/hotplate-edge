@@ -17,24 +17,33 @@
         pre::first-line  {
             color: red;
             font-weight: bold;
+            font-size: 1.2em;
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
-    <div class="bb b--black-20 pa3 sticky bg-white ma0 top-0"><input id="filter" type="text" class="filter w-100 pv1 ph2"
+    <div class="bb b--black-20 pa3 sticky bg-white ma0 top-0"><input list="suggestions" id="filter" type="text" class="filter w-100 pv1 ph2"
             placeholder="tachyons class"></div>
-    <div id="rules" class="ph4"></div>
+    <div id="rules"></div>
+    <datalist id="suggestions">
+        <option value="flexbox align- justify-">
+        <option value="position top left right bottom">
+    </datalist>
     <!-- End body content -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
     <script>
         var $rules = $('#rules');
         Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
             // console.log(a.selectorText);
             var rule = GetStyle(a.selectorText);
+            var text = a.selectorText + '';
+            text = text.split(' ')[0].replace('.','').replace(',','');
             if (rule.startsWith('.')) {
                 rule = rule.replace(/{/g, '\n{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
-                $rules.append('<pre class="bb b--black-20 pb4 mv4">' + rule + '</pre>');
+                $rules.append('<pre class="bb b--black-20 pa4 ma0" data-clipboard-text="' + text + '">' + rule + '</pre>');
             }
         });
 
@@ -70,6 +79,14 @@
                     $(this).css({ 'display': 'block' });
                 }
             });
+        });
+
+        var clipboard = new ClipboardJS('#rules pre');
+        clipboard.on('success', function(e) {
+            //console.info('Action:', e.action);
+            console.info('Text:', e.text);
+            //console.info('Trigger:', e.trigger);
+            e.clearSelection();
         });
     </script>
 </body>
