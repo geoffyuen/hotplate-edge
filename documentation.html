@@ -18,7 +18,6 @@
             color: red;
             font-weight: bold;
             font-size: 1.2em;
-            cursor: pointer;
         }
     </style>
 </head>
@@ -31,6 +30,7 @@
         <option value="flexbox align- justify-">
         <option value="position top left right bottom">
     </datalist>
+    <div id="alert" class="dn fixed pv2 ph4 bg-green white b br3" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">Copied!</div>
     <!-- End body content -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
@@ -43,7 +43,7 @@
             text = text.split(' ')[0].replace('.','').replace(',','');
             if (rule.startsWith('.')) {
                 rule = rule.replace(/{/g, '\n{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
-                $rules.append('<pre class="bb b--black-20 pa4 ma0" data-clipboard-text="' + text + '">' + rule + '</pre>');
+                $rules.append('<pre class="dim bb b--black-20 pa4 ma0" data-clipboard-text="' + text + '">' + rule + '</pre>');
             }
         });
 
@@ -87,6 +87,9 @@
             console.info('Text:', e.text);
             //console.info('Trigger:', e.trigger);
             e.clearSelection();
+            $('#alert').text(e.text + ' copied!').fadeIn(200, function(){
+                $(this).fadeOut(1000);
+            });
         });
     </script>
 </body>
