@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bg-dark-gray">
 
 <head>
     <meta charset="UTF-8">
@@ -7,7 +7,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tachyons Explorer</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
+        html, button, input, optgroup, select, textarea {
+            font-family: Montserrat, sans-serif;
+        }
         pre {
             tab-size:2;
             overflow-wrap: break-word;
@@ -18,14 +22,20 @@
 </head>
 
 <body>
-    <div class="bb bl bg-green shadow-2 pa4 sticky ma0 top-0 z-9999 flex"><input list="suggestions" id="filter" type="text" class="filter w-100 pv2 ph3"
-            placeholder="Type a Tachyons class or css rule. Click to copy to clipboard."><button id="clear" class="">Clear</button></div>
+    <div class="bg-blue shadow-2 pv4 sticky ma0 top-0 z-9999 flex items-center">
+        <h1 class="ph4 ma0 lh-solid white fw3">Tachyons Explorer</h1>
+        <div class="ph4 flex w-100 w-50-m">
+            <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph4 f3 bw0 lh-solid"
+            placeholder="Type a Tachyons class or css rule. Click the card title to copy to clipboard.">
+            <button id="clear" class="input-reset pv3 ph4 f3 bw0 bg-light-gray lh-solid">Clear</button>
+        </div>
+    </div>
 
     <div id="rules" class="flex flex-wrap f4"></div>
 
     <datalist id="suggestions">
         <option value="flexbox align- justify-">
-        <option value="position top left right bottom">
+        <option value="absolute top: left: right: bottom:">
     </datalist>
 
     <div id="alert" class="dn fixed pv2 ph4 bg-green white b br3" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">Copied!</div>
@@ -42,7 +52,7 @@
             text = text.split(' ')[0].split(':')[0].replace('.','').replace(',','');
             if (rule.startsWith('.')) {
                 rule = rule.replace(/{/g, '{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
-                $rules.append('<div class="card flex-auto w-100 w-50-m w-third-l pa4"><div class="flex flex-column bg-white shadow-2 br3 h-100 overflow-hidden"><h3 class="ma0 pv3 ph4 bg-black-05 pointer hover-green" data-clipboard-text="' + text + '">' + text + '</h3><pre class="flex-auto light-blue bg-black-90  ma0 pv3 ph4">' + rule + '</pre></div></div>');
+                $rules.append('<div class="card flex-auto w-100 w-50-m w-third-l pa4"><div class="flex flex-column bg-white shadow-2 ba b--dark-gray br3 h-100 overflow-hidden"><h3 class="ma0 pv3 ph4 bg-black-05 pointer hover-blue" data-clipboard-text="' + text + '">' + text + '</h3><pre class="flex-auto light-pink bg-black-90 ma0 pv3 ph4">' + rule + '</pre></div></div>');
             }
         });
 
