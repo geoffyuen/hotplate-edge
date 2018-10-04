@@ -14,23 +14,22 @@
             word-break: break-all;
             font-family: menlo, monospace;
         }
-        pre::first-line  {
-            color: red;
-            font-weight: bold;
-            font-size: 1.2em;
-        }
     </style>
 </head>
 
 <body>
-    <div class="bb b--black-20 pa3 sticky bg-white ma0 top-0"><input list="suggestions" id="filter" type="text" class="filter w-100 pv1 ph2"
-            placeholder="tachyons class"></div>
-    <div id="rules"></div>
+    <div class="bb bl bg-green shadow-2 pa4 sticky ma0 top-0 z-9999 flex"><input list="suggestions" id="filter" type="text" class="filter w-100 pv2 ph3"
+            placeholder="Type a Tachyons class or css rule. Click to copy to clipboard."><button id="clear" class="">Clear</button></div>
+
+    <div id="rules" class="flex flex-wrap f4"></div>
+
     <datalist id="suggestions">
         <option value="flexbox align- justify-">
         <option value="position top left right bottom">
     </datalist>
+
     <div id="alert" class="dn fixed pv2 ph4 bg-green white b br3" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">Copied!</div>
+
     <!-- End body content -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
@@ -40,10 +39,10 @@
             // console.log(a.selectorText);
             var rule = GetStyle(a.selectorText);
             var text = a.selectorText + '';
-            text = text.split(' ')[0].replace('.','').replace(',','');
+            text = text.split(' ')[0].split(':')[0].replace('.','').replace(',','');
             if (rule.startsWith('.')) {
-                rule = rule.replace(/{/g, '\n{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
-                $rules.append('<pre class="dim bb b--black-20 pa4 ma0" data-clipboard-text="' + text + '">' + rule + '</pre>');
+                rule = rule.replace(/{/g, '{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
+                $rules.append('<div class="card flex-auto w-100 w-50-m w-third-l pa4"><div class="flex flex-column bg-white shadow-2 br3 h-100 overflow-hidden"><h3 class="ma0 pv3 ph4 bg-black-05 pointer hover-green" data-clipboard-text="' + text + '">' + text + '</h3><pre class="flex-auto light-blue bg-black-90  ma0 pv3 ph4">' + rule + '</pre></div></div>');
             }
         });
 
@@ -71,7 +70,7 @@
         $("#filter").keyup(function () {
             var filter = $(this).val().trim().replace(/ /g,'|');
             //console.log(filter);
-            $("#rules pre").each(function () {
+            $("#rules .card").each(function () {
                 var $this = $(this);
                 if (($this.text()).match(new RegExp(filter,'g'))) {
                     $this.css({ 'display': 'block' });
@@ -80,8 +79,11 @@
                 }
             });
         });
+        $('#clear').click(function(){
+            $('#filter').val('').focus().trigger('keyup');
+        });
 
-        var clipboard = new ClipboardJS('#rules pre');
+        var clipboard = new ClipboardJS('#rules h3');
         clipboard.on('success', function(e) {
             //console.info('Action:', e.action);
             console.info('Text:', e.text);
