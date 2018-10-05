@@ -14,8 +14,8 @@
         }
         pre {
             tab-size:2;
-            overflow-wrap: break-word;
-            word-break: break-all;
+            /* overflow-wrap: break-word;
+            word-break: break-all; */
             font-family: menlo, monospace;
         }
     </style>
@@ -23,42 +23,71 @@
 
 <body>
     <div class="bg-blue shadow-2 pv4 sticky ma0 top-0 z-9999 flex items-center">
+
         <h1 class="ph4 ma0 lh-solid white fw3">Tachyons Explorer</h1>
+
         <div class="ph4 flex w-100 w-50-m">
-            <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph4 f3 bw0 lh-solid"
-            placeholder="Type a Tachyons class or css rule. Click the card title to copy to clipboard.">
+
+            <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph4 f3 bw0 lh-solid" placeholder="Type a Tachyons class or css rule. Click the card title to copy to clipboard.">
+            <datalist id="suggestions">
+                <option value="flexbox align- justify-">
+                <option value="absolute top: left: right: bottom:">
+            </datalist>
+
             <button id="clear" class="input-reset pv3 ph4 f3 bw0 bg-light-gray lh-solid">Clear</button>
         </div>
+
     </div>
+
 
     <div id="rules" class="flex flex-wrap f4"></div>
 
-    <datalist id="suggestions">
-        <option value="flexbox align- justify-">
-        <option value="absolute top: left: right: bottom:">
-    </datalist>
+    <template id="template">
+        <div class="card flex-auto w-100 w-50-m w-third-l pa4">
+
+            <div class="flex flex-column bg-white shadow-2 br3 h-100 overflow-hidden">
+
+                <h3 class="ma0 pv3 ph4 bg-black-05 pointer hover-blue" data-clipboard-text="">title</h3>
+
+                <pre class="flex-auto light-pink bg-black-90 ma0 pv3 ph4">code</pre>
+
+            </div>
+
+        </div>
+    </template>
+
 
     <div id="alert" class="dn fixed pv2 ph4 bg-green white b br3" style="top: 50%; left: 50%; transform: translate(-50%, -50%)">Copied!</div>
 
     <!-- End body content -->
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
     <script>
-        var $rules = $('#rules');
+        var
+            $rules = $('#rules'),
+            $template = $( $('#template').prop('content') )
+        ;
         Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
             // console.log(a.selectorText);
-            var rule = GetStyle(a.selectorText);
-            var text = a.selectorText + '';
-            text = text.split(' ')[0].split(':')[0].replace('.','').replace(',','');
+            var
+                rule = GetStyle(a.selectorText),
+                text = a.selectorText + ''
+                ;
+            text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
             if (rule.startsWith('.')) {
                 rule = rule.replace(/{/g, '{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
-                $rules.append('<div class="card flex-auto w-100 w-50-m w-third-l pa4"><div class="flex flex-column bg-white shadow-2 ba b--dark-gray br3 h-100 overflow-hidden"><h3 class="ma0 pv3 ph4 bg-black-05 pointer hover-blue" data-clipboard-text="' + text + '">' + text + '</h3><pre class="flex-auto light-pink bg-black-90 ma0 pv3 ph4">' + rule + '</pre></div></div>');
+                $template.find('h3').attr('data-clipboard-text', text).text(text);
+                $template.find('pre').text(rule);
+                $rules.append( $('#template').html() );
             }
         });
 
         function GetStyle(CLASSname) {
-            var styleSheets = document.styleSheets;
-            var styleSheetsLength = styleSheets.length;
+            var
+                styleSheets = document.styleSheets,
+                styleSheetsLength = styleSheets.length
+                ;
             for (var i = 0; i < styleSheetsLength; i++) {
                 if (styleSheets[i].rules) { var classes = styleSheets[i].rules; }
                 else {
@@ -78,28 +107,28 @@
         }
 
         $("#filter").keyup(function () {
-            var filter = $(this).val().trim().replace(/ /g,'|');
+            var filter = $(this).val().trim().replace(/ /g, '|');
             //console.log(filter);
             $("#rules .card").each(function () {
                 var $this = $(this);
-                if (($this.text()).match(new RegExp(filter,'g'))) {
+                if (($this.text()).match(new RegExp(filter, 'g'))) {
                     $this.css({ 'display': 'block' });
                 } else {
                     $this.css({ 'display': 'none' });
                 }
             });
         });
-        $('#clear').click(function(){
+        $('#clear').click(function () {
             $('#filter').val('').focus().trigger('keyup');
         });
 
         var clipboard = new ClipboardJS('#rules h3');
-        clipboard.on('success', function(e) {
+        clipboard.on('success', function (e) {
             //console.info('Action:', e.action);
-            console.info('Text:', e.text);
+            //console.info('Text:', e.text);
             //console.info('Trigger:', e.trigger);
             e.clearSelection();
-            $('#alert').text(e.text + ' copied!').fadeIn(200, function(){
+            $('#alert').text(e.text + ' copied!').fadeIn(200, function () {
                 $(this).fadeOut(1000);
             });
         });
