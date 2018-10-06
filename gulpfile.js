@@ -9,7 +9,6 @@ var phpserve = false;
 
 var
   gulp = require("gulp"),
-  // browserSync = require('browser-sync'),
   cache = require("gulp-cache"),
   concat = require("gulp-concat"),
   imagemin = require("gulp-imagemin"),
@@ -17,8 +16,6 @@ var
   notify = require("gulp-notify"),
   plumber = require("gulp-plumber"),
   rename = require("gulp-rename"),
-  // fibers = require("fibers"),
-  // sass = require("gulp-dart-sass"),
   sass = require("gulp-sass"),
   sourcemaps = require("gulp-sourcemaps"),
   uglify = require("gulp-uglify"),
@@ -41,7 +38,7 @@ gulp.task('bs-serve-watch', function() {
 // Process ./src/styles.scss
 gulp.task("styles", function() {
   return gulp
-    .src(["src/_sass/*.scss"])
+    .src(["src/_sass/**/*.scss"])
     .pipe(
       plumber({
         errorHandler: notify.onError("Sass error: <%= error.message %>")
@@ -49,7 +46,6 @@ gulp.task("styles", function() {
     )
     .pipe(sourcemaps.init())
     .pipe(sass({ outputStyle: "nested" }))
-    // .pipe(sass({fiber: fibers}).on('error', sass.logError))
     .pipe(
       cssnano({
         autoprefixer: {
