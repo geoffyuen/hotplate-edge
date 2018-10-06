@@ -37,7 +37,14 @@
                                 placeholder="Type a Tachyons class or css rule. Click the card title to copy to clipboard.">
                             <datalist id="suggestions">
                                 <option value="flexbox align- justify-">
-                                <option value="absolute top: left: right: bottom:">
+                                <option value="\s+width:">
+                                <option value="\s+min-width:">
+                                <option value="\s+height:">
+                                <option value="\s+display:">
+                                <option value="\s+min-height:">
+                                <option value="\s+position: \s+top: \s+left: \s+right: \s+bottom:">
+                                <option value="{\s+color:">
+                                <option value="\.bg-">
                             </datalist>
                             <button id="clear" class="input-reset pv0 ph3 bw0 bg-light-gray lh-solid hover-bg-black hover-white f1">×</button>
                         </div>
@@ -49,7 +56,9 @@
                 </div>
                 <div class="pa4 dn db-m db-l f4">
                     <div id="outer" class="" style="position: sticky; top 0;">
-                        <div id="inner" class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore, quas. Commodi cum sint maiores impedit, perspiciatis excepturi quod rem beatae dicta temporibus ea assumenda minus necessitatibus sed iste nesciunt ullam!</div>
+                        <div id="inner" class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
+                            quas. Commodi cum sint maiores impedit, perspiciatis excepturi quod rem beatae dicta
+                            temporibus ea assumenda minus necessitatibus sed iste nesciunt ullam!</div>
                     </div>
                 </div>
             </div>
@@ -66,7 +75,8 @@
 
             <div class="flex flex-column shadow-2 br3 h-100 overflow-hidden">
 
-                <h3 class="ma0 pv3 ph4 bg-dark-blue light-blue pointer hover-blue flex items-center justify-between" data-clipboard-text="">title</h3>
+                <h3 class="ma0 pv3 ph4 bg-dark-blue light-blue pointer hover-blue flex items-center justify-between"
+                    data-clipboard-text="">title</h3>
 
                 <pre class="overflow-x-auto flex-auto light-green bg-navy ma0 pv3 ph4">code</pre>
 
@@ -98,8 +108,11 @@
                 rule = rule.replace(/{/g, '{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
                 $template.find('h3').attr('data-clipboard-text', text).text(text);
                 $template.find('pre').text(rule);
-                if ( rule.startsWith('.bg-') ) {
-                    $template.find('h3').append('<span class="dib w1 h1 ml1 '+ text +'"></span>')
+                if (rule.startsWith('.bg-')) {
+                    $template.find('h3').append('<span class="dib w1 h1 ml1 ' + text + '"></span>')
+                }
+                if (rule.match(/\s+color/g)) {
+                    $template.find('h3').append('<span class="' + text + '">Tt</span>')
                 }
                 $rules.append($('#template').html());
             }
