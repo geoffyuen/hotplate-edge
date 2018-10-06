@@ -14,6 +14,10 @@
   .hover-#{$key}:focus {
     color: $val;
   }
+  .hover-bg-#{$key}:hover,
+  .hover-bg-#{$key}:focus {
+    background-color: $val;
+  }
 }
 
 @for $i from 1 through 9 {
@@ -28,7 +32,7 @@
     &:hover, &:focus {
       background-color: rgba(c(black), $val);
     }
-  }	
+  }
 }
 @for $i from 1 through 9 {
   .hover-bg-white-#{$i*10} {
@@ -42,7 +46,7 @@
     &:hover, &:focus {
       background-color: rgba(c(white), $val);
     }
-  }	
+  }
 }
 
 
