@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="bg-dark-gray">
+<html lang="en" class="bg-gray">
 
 <head>
     <meta charset="UTF-8">
@@ -34,30 +34,50 @@
                     <div class="mb4 flex flex-wrap">
                         <div class="w-100 flex">
                             <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph3 f3 bw0 lh-solid"
-                                placeholder="Type a Tachyons class or css rule. Click the card title to copy to clipboard.">
+                                placeholder="words (or) or regex">
                             <datalist id="suggestions">
-                                <option value="flexbox align- justify-" label="flexbox">
-                                <option value="\s+width:" label="width">
-                                <option value="\s+min-width:" label="min-width">
-                                <option value="\s+max-width:" label="max-width">
-                                <option value="\s+height:" label="height">
-                                <option value="\s+min-height:" label="min-height">
-                                <option value="\s+display:" label="display">
-                                <option value="\s+position: \s+top: \s+left: \s+right: \s+bottom:" label="position">
                                 <option value="{\s+color:" label="color">
-                                <option value="\.bg-" label="background-color">
+                                <option value="(\.bg-).*(\s+background-color)" label="background-color">
+                                <option value="\s+border" label="border">
+                                <option value="\s+display:" label="display">
+                                <option value="\s+height:" label="height">
+                                <option value="\s+margin" label="margin"></option>
+                                <option value="\s+max-width:" label="max-width">
+                                <option value="\s+min-height:" label="min-height">
+                                <option value="\s+min-width:" label="min-width">
+                                <option value="\s+padding" label="padding"></option>
+                                <option value="\s+(position:|top:|left:|right:|bottom:)" label="position">
+                                <option value="\s+width:" label="width">
+                                <option value="\s+(flexbox|align-|justify-|order)" label="flexbox">
+                                <option value="(table|collapse|striped)" label="table">
+                                <option value="clip" label=" clip">
+                                <option value="font-family" label=" font-family">
+                                <option value="font-size" label=" font-size">
+                                <option value="font-style" label=" font-style">
+                                <option value="font-weight" label=" font-weight">
+                                <option value="font-weight" label=" font-weight">
+                                <option value="overflow" label=" overflow">
+                                <option value="text-align" label=" text-align">
+                                <option value="text-decoration" label=" text-decoration">
+                                <option value="truncate" label=" truncate">
+                                <option value="vertical-align" label=" vertical-align">
+                                <option value="white-space" label=" white-space">
+                                <option value="word-break" label=" word-break">
+                                <option value="z-index" label=" z-index">
                             </datalist>
                             <button id="clear" class="input-reset pv0 ph3 bw0 bg-light-gray lh-solid hover-bg-black hover-white f1">×</button>
-                        </div>
-                        <div id="csscontainer" class="pt4 w-100 dn db-m db-l">
-                            <label><input type="radio" name="css" value="#outer" checked> Outer</label>
-                            <label class="ml4"><input id="cssinner" type="radio" name="css" value="#inner"> Inner</label>
                         </div>
                     </div>
                 </div>
                 <div class="pa4 dn db-m db-l f4">
-                    <div id="outer" class="" style="position: sticky; top 0;">
-                        <div id="inner" class="">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore,
+                    <div id="csscontainer" class="pb4 w-100 dn db-m db-l">
+                        <label><input type="radio" name="css" value="#outer" checked> Outer</label>
+                        <label class="ml4"><input id="cssinner" type="radio" name="css" value="#inner"> Inner</label>
+                    </div>
+                    <div id="outer" class="" style="position: sticky; top 0; outline: 1px dotted gray">
+                        Outer
+                        <div id="inner" class="" style="outline: 1px dashed darkgray">Inner: Lorem ipsum dolor sit amet
+                            consectetur adipisicing elit. Tempore,
                             quas. Commodi cum sint maiores impedit, perspiciatis excepturi quod rem beatae dicta
                             temporibus ea assumenda minus necessitatibus sed iste nesciunt ullam!</div>
                     </div>
@@ -66,7 +86,9 @@
         </div>
 
         <!--  -->
-        <div id="rules" class="w-100 w-75-m w-75-l flex flex-wrap f4 pa4"></div>
+        <div class="w-100 w-75-m w-75-l f4 pa4">
+            <div id="rules" class="flex flex-wrap"></div>
+        </div>
 
     </div>
 
@@ -76,8 +98,10 @@
 
             <div class="flex flex-column shadow-2 br3 h-100 overflow-hidden">
 
-                <h3 class="ma0 pv3 ph4 bg-dark-blue light-blue pointer hover-blue flex items-center justify-between"
-                    data-clipboard-text="">title</h3>
+                <div class="ma0 pv3 ph4 bg-light-gray black hover-blue flex items-center justify-between">
+                    <h3 class="ma0 lh-solid pointer" data-clipboard-text="">title</h3>
+                    <h4 class="swatch"></h4>
+                </div>
 
                 <pre class="overflow-x-auto flex-auto light-green bg-navy ma0 pv3 ph4">code</pre>
 
@@ -94,83 +118,78 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
     <script>
-        var
-            $rules = $('#rules'),
-            $template = $($('#template').prop('content'))
-            ;
-        Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
-            // console.log(a.selectorText);
+        $(function () {
             var
-                rule = GetStyle(a.selectorText),
+                $rules = $('#rules'),
+                $template = $($('#template').prop('content'))
+                ;
+            Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
+                var
+                    rule = a.cssText;
                 text = a.selectorText + ''
-                ;
-            text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
-            if (rule.startsWith('.')) {
-                rule = rule.replace(/{/g, '{\n\t').replace(/;/g, ';\n\t').replace(/\t }/g, '}');
-                $template.find('h3').attr('data-clipboard-text', text).text(text);
-                $template.find('pre').text(rule);
-                if (rule.startsWith('.bg-')) {
-                    $template.find('h3').append('<span class="dib w1 h1 ml1 ' + text + '"></span>')
-                }
-                if (rule.match(/\s+color/g)) {
-                    $template.find('h3').append('<span class="' + text + '">Tt</span>')
-                }
-                $rules.append($('#template').html());
-            }
-        });
-
-        function GetStyle(CLASSname) {
-            var
-                styleSheets = document.styleSheets,
-                styleSheetsLength = styleSheets.length
-                ;
-            for (var i = 0; i < styleSheetsLength; i++) {
-                if (styleSheets[i].rules) { var classes = styleSheets[i].rules; }
-                else {
-                    try { if (!styleSheets[i].cssRules) { continue; } }
-                    //Note that SecurityError exception is specific to Firefox.
-                    catch (e) { if (e.name == 'SecurityError') { console.log("SecurityError. Cant readd: " + styleSheets[i].href); continue; } }
-                    var classes = styleSheets[i].cssRules;
-                }
-                for (var x = 0; x < classes.length; x++) {
-                    if (classes[x].selectorText == CLASSname) {
-                        var ret = (classes[x].cssText) ? classes[x].cssText : classes[x].style.cssText;
-                        if (ret.indexOf(classes[x].selectorText) == -1) { ret = classes[x].selectorText + "{" + ret + "}"; }
-                        return ret;
+                    ;
+                text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
+                if (rule.startsWith('.')) {
+                    rule = rule.replace(/(;|{)/g, '$1\n\t').replace('\t }', '}'); // add newlines
+                    $template.find('h3')
+                        .attr('data-clipboard-text', text)
+                        .attr('id', text)
+                        .text(text);
+                    $template.find('pre').text(rule);
+                    var $h4 = $template.find('h4');
+                    $h4.attr('class', 'ma0 f3 lh-solid').text('');
+                    if (rule.startsWith('.bg-')) {
+                        $h4.addClass('dib w2 h2 ml1 ' + text);
                     }
-                }
-            }
-        }
-
-        $("#filter").keyup(function () {
-            var filter = $(this).val().trim().replace(/ /g, '|');
-            //console.log(filter);
-            $("#rules .card").each(function () {
-                var $this = $(this);
-                if (($this.text()).match(new RegExp(filter, 'g'))) {
-                    $this.css({ 'display': 'block' });
-                } else {
-                    $this.css({ 'display': 'none' });
+                    if (rule.match(/\s+color:/g)) {
+                        $h4.addClass(text).text('Tt');
+                    }
+                    if (rule.match(/\s+border-color/g)) {
+                        $h4.addClass('dib w2 h2 ml1 ba bw2 ' + text);
+                    }
+                    if (rule.match(/\s+box-shadow/g)) {
+                        $h4.addClass('dib w2 h2 ml1 ' + text);
+                    }
+                    $rules.append($('#template').html());
+                } else if (a.type == 4) {
+                    //console.log(a);
+                    //console.log('======');
+                    //Array.prototype.forEach.call(a.cssRules, function (b) {
+                    //    console.log(b);
+                    //});
                 }
             });
-        });
-        $('#clear').click(function () {
-            $('#filter').val('').focus().trigger('keyup');
-        });
 
-        var clipboard = new ClipboardJS('#rules h3');
-        clipboard.on('success', function (e) {
-            //console.info('Action:', e.action);
-            //console.info('Text:', e.text);
-            //console.info('Trigger:', e.trigger);
-            e.clearSelection();
-            $('#alert').text(e.text + ' copied!').fadeIn(200, function () {
-                $(this).fadeOut(1000);
+
+            $("#filter").keyup(function () {
+                var filter = $(this).val().trim().replace(/ /g, '|');
+                //console.log(filter);
+                $("#rules .card").each(function () {
+                    var $this = $(this);
+                    if (($this.text()).match(new RegExp(filter, 'g'))) {
+                        $this.css({ 'display': 'block' });
+                    } else {
+                        $this.css({ 'display': 'none' });
+                    }
+                });
+            });
+            $('#clear').click(function () {
+                $('#filter').val('').focus().trigger('keyup');
             });
 
-            $($('input[name="css"]:checked').val()).toggleClass(e.text);
-        });
+            var clipboard = new ClipboardJS('#rules h3');
+            clipboard.on('success', function (e) {
+                //console.info('Action:', e.action);
+                //console.info('Text:', e.text);
+                //console.info('Trigger:', e.trigger);
+                e.clearSelection();
+                $('#alert').text(e.text + ' copied!').fadeIn(200, function () {
+                    $(this).fadeOut(1000);
+                });
 
+                $($('input[name="css"]:checked').val()).toggleClass(e.text);
+            });
+        });
     </script>
 </body>
 
