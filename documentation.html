@@ -152,11 +152,16 @@
                     }
                     $rules.append($('#template').html());
                 } else if (a.type == 4) {
-                    //console.log(a);
-                    //console.log('======');
-                    //Array.prototype.forEach.call(a.cssRules, function (b) {
-                    //    console.log(b);
-                    //});
+                    // 4 == media query with cssRules array
+                    Array.prototype.forEach.call(a.cssRules, function (b) {
+                        // assume -* is the mq modifier
+                        var id, mq;
+                        id = b.selectorText.split(' ')[0].split(',')[0].split('-');
+                        mq = id.pop();
+                        id = id.join('-').replace('.','#');
+                        //console.log(id);
+                        $(id).append( ', -'+mq );
+                    });
                 }
             });
 
