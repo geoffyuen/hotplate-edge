@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tachyons Explorer</title>
-    <link rel="stylesheet" href="style.css">
+    <link id="tachyons" rel="stylesheet" href="style.css">
     <link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
         html, button, input, optgroup, select, textarea {
@@ -119,24 +119,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datalist-polyfill/1.22.1/datalist-polyfill.min.js"></script>
     <script>
         $(function () {
-            var
-                $rules = $('#rules'),
-                $template = $($('#template').prop('content'))
-                ;
-            Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
-                var
-                    rule = a.cssText;
-                text = a.selectorText + ''
-                    ;
+            var $rules = $('#rules');
+            var $template = $('#template').prop('content');
+            //Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
+            Array.prototype.forEach.call($('#tachyons')[0].sheet.cssRules, function (a) {
+                var rule = a.cssText;
+                var text = a.selectorText + '';
+                var $clone = $($template).clone();
                 text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
                 if (rule.startsWith('.')) {
                     rule = rule.replace(/(;|{)/g, '$1\n\t').replace('\t }', '}'); // add newlines
-                    $template.find('h3')
+                    $clone.find('h3')
                         .attr('data-clipboard-text', text)
                         .attr('id', text)
                         .text(text);
-                    $template.find('pre').text(rule);
-                    var $h4 = $template.find('h4');
+                    $clone.find('pre').text(rule);
+                    var $h4 = $clone.find('.swatch');
                     $h4.attr('class', 'ma0 f3 lh-solid').text('');
                     if (rule.startsWith('.bg-')) {
                         $h4.addClass('dib w2 h2 ml1 shadow-2 ' + text);
@@ -150,7 +148,8 @@
                     if (rule.match(/\s+box-shadow/g)) {
                         $h4.addClass('dib w2 h2 ml1 ' + text);
                     }
-                    $rules.append($('#template').html());
+                    //$rules.append($('#template').html());
+                    $clone.appendTo('#rules');
                 } else if (a.type == 4) {
                     // 4 == media query with cssRules array
                     Array.prototype.forEach.call(a.cssRules, function (b) {
