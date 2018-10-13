@@ -32,12 +32,14 @@
                     <div class="mb4 flex flex-wrap">
                         <div class="w-100 flex">
                             <div class="polyfill">
-                                <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph3 f3 bw0 lh-solid" placeholder="words (or) or regex">
+                                <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph3 f3 bw0 lh-solid"
+                                    placeholder="words (or) or regex">
                             </div>
                             <datalist id="suggestions">
                                 <option value="{\s+color:" label="color">
                                 <option value="(\.bg-).*(\s+background-color)" label="background-color">
                                 <option value="\s+border" label="border">
+                                <option value="\s+border-color" label="border-color">
                                 <option value="\s+display:" label="display">
                                 <option value="\s+height:" label="height">
                                 <option value="\s+margin" label="margin"></option>
@@ -53,7 +55,6 @@
                                 <option value="font-family" label=" font-family">
                                 <option value="font-size" label=" font-size">
                                 <option value="font-style" label=" font-style">
-                                <option value="font-weight" label=" font-weight">
                                 <option value="font-weight" label=" font-weight">
                                 <option value="overflow" label=" overflow">
                                 <option value="text-align" label=" text-align">
@@ -92,21 +93,26 @@
     </div>
 
 
-    <template id="template">
-        <div class="card flex-auto w-100 w-50-m w-50-l pa4 ">
+    <template id="rule_template">
+        <article class="card flex-auto w-100 w-50-m w-50-l pa4 ">
 
             <div class="flex flex-column shadow-2 br3 h-100 overflow-hidden">
 
-                <div class="ma0 pv3 ph4 bg-light-gray black hover-blue flex items-center justify-between">
-                    <h3 class="ma0 lh-solid pointer" data-clipboard-text="">title</h3>
-                    <h4 class="swatch"></h4>
+                <div class="ma0 pv3 ph4 bg-light-gray black flex items-center justify-between">
+                    <h3 class="classname ma0 lh-solid pointer hover-blue" data-clipboard-text="">title</h3>
+                    <div class="mq"></div>
+                    <div class="swatch ml-auto fw8 ma0 f3 lh-solid"></div>
                 </div>
 
-                <pre class="overflow-x-auto flex-auto light-green bg-navy ma0 pv3 ph4">code</pre>
+                <pre class="code overflow-x-auto flex-auto light-green bg-navy ma0 pv3 ph4">code</pre>
 
             </div>
 
-        </div>
+        </article>
+    </template>
+
+    <template id="mq_template">
+        <span class="pointer gray hover-blue" data-clipboard-text=""></span>
     </template>
 
 
@@ -119,34 +125,51 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/datalist-polyfill/1.22.1/datalist-polyfill.min.js"></script>
     <script>
         $(function () {
-            var $rules = $('#rules');
-            var $template = $('#template').prop('content');
+
+            var
+                // Section that will contain our rules:
+                $rules = $('#rules'),
+                // HTML5 template for our rules:
+                $template = $('#rule_template').prop('content')
+                ;
             //Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
             Array.prototype.forEach.call($('#tachyons')[0].sheet.cssRules, function (a) {
-                var rule = a.cssText;
-                var text = a.selectorText + '';
-                var $clone = $($template).clone();
+                var
+                    rule = a.cssText,
+                    text = a.selectorText + '',
+                    $clone = $($template).clone()
+                    ;
                 text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
                 if (rule.startsWith('.')) {
+
+                    // Rules come in unformmated. Add newlines for readability.
                     rule = rule.replace(/(;|{)/g, '$1\n\t').replace('\t }', '}'); // add newlines
-                    $clone.find('h3')
+
+                    // set classname/title
+                    $clone
+                        .find('.card')
+                        .attr('id', text);
+                    $clone
+                        .find('.classname')
                         .attr('data-clipboard-text', text)
-                        .attr('id', text)
                         .text(text);
+
+                    // set code
                     $clone.find('pre').text(rule);
-                    var $h4 = $clone.find('.swatch');
-                    $h4.attr('class', 'ma0 f3 lh-solid').text('');
+
+                    // make a swatch if needed
+                    var $swatch = $clone.find('.swatch');
                     if (rule.startsWith('.bg-')) {
-                        $h4.addClass('dib w2 h2 ml1 shadow-2 ' + text);
+                        $swatch.addClass('dib w2 h2 ml1 shadow-2 ' + text);
                     }
                     if (rule.match(/\s+color:/g)) {
-                        $h4.addClass(text).text('Tt');
+                        $swatch.addClass(text).text('Tt');
                     }
                     if (rule.match(/\s+border-color/g)) {
-                        $h4.addClass('dib w2 h2 ml1 ba bw2 ' + text);
+                        $swatch.addClass('dib w2 h2 ml1 ba bw2 ' + text);
                     }
                     if (rule.match(/\s+box-shadow/g)) {
-                        $h4.addClass('dib w2 h2 ml1 ' + text);
+                        $swatch.addClass('dib w2 h2 ml1 ' + text);
                     }
                     //$rules.append($('#template').html());
                     $clone.appendTo('#rules');
@@ -154,18 +177,21 @@
                     // 4 == media query with cssRules array
                     Array.prototype.forEach.call(a.cssRules, function (b) {
                         // assume -* is the mq modifier
-                        var id, mq;
+                        var id, mq, clipboard;
                         id = b.selectorText.split(' ')[0].split(',')[0].split('-');
+                        // Assume the last word is a mq mod
                         mq = id.pop();
-                        id = id.join('-').replace('.','#');
+                        // reconstruct string and we should get a classname/id of a rule/card
+                        id = id.join('-').replace('.', '#');
+                        clipboard = id.replace('#', '') + '-' + mq;
                         //console.log(id);
-                        $(id).append( ', -'+mq );
+                        $(id).find('.mq').append(', <span class="pointer gray hover-blue" data-clipboard-text="'+ clipboard +'">-' + mq + '</span>');
                     });
                 }
             });
 
 
-            $("#filter").on('input keyup paste',function () {
+            $("#filter").on('input keyup paste', function () {
                 var filter = $(this).val().trim().replace(/ /g, '|');
                 //console.log(filter);
                 $("#rules .card").each(function () {
@@ -181,7 +207,7 @@
                 $('#filter').val('').focus().trigger('keyup');
             });
 
-            var clipboard = new ClipboardJS('#rules h3');
+            var clipboard = new ClipboardJS('#rules [data-clipboard-text]');
             clipboard.on('success', function (e) {
                 //console.info('Action:', e.action);
                 //console.info('Text:', e.text);
