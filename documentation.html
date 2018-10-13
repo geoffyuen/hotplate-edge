@@ -7,15 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Tachyons Explorer</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <style>
         html, button, input, optgroup, select, textarea {
             font-family: Montserrat, sans-serif;
         }
         pre {
             tab-size:2;
-            /* overflow-wrap: break-word;
-            word-break: break-all; */
             font-family: menlo, monospace;
         }
     </style>
@@ -33,8 +31,9 @@
                     <h1 class="mt0 mb4 lh-solid white fw3 f1">Tachyons Explorer</h1>
                     <div class="mb4 flex flex-wrap">
                         <div class="w-100 flex">
-                            <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph3 f3 bw0 lh-solid"
-                                placeholder="words (or) or regex">
+                            <div class="polyfill">
+                                <input list="suggestions" id="filter" type="text" class="filter w-100 pv3 ph3 f3 bw0 lh-solid" placeholder="words (or) or regex">
+                            </div>
                             <datalist id="suggestions">
                                 <option value="{\s+color:" label="color">
                                 <option value="(\.bg-).*(\s+background-color)" label="background-color">
@@ -115,8 +114,9 @@
 
     <!-- ======== End body content ======== -->
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.1/clipboard.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/datalist-polyfill/1.22.1/datalist-polyfill.min.js"></script>
     <script>
         $(function () {
             var
@@ -139,7 +139,7 @@
                     var $h4 = $template.find('h4');
                     $h4.attr('class', 'ma0 f3 lh-solid').text('');
                     if (rule.startsWith('.bg-')) {
-                        $h4.addClass('dib w2 h2 ml1 ' + text);
+                        $h4.addClass('dib w2 h2 ml1 shadow-2 ' + text);
                     }
                     if (rule.match(/\s+color:/g)) {
                         $h4.addClass(text).text('Tt');
@@ -166,7 +166,7 @@
             });
 
 
-            $("#filter").keyup(function () {
+            $("#filter").on('input keyup paste',function () {
                 var filter = $(this).val().trim().replace(/ /g, '|');
                 //console.log(filter);
                 $("#rules .card").each(function () {
