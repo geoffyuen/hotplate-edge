@@ -18,13 +18,43 @@
         }
     </style>
 </head>
-
+<script>
+    var suggestions = {
+        "color": "{\\s+color:",
+        "background-color": "(\\.bg-).*(\\s+background-color)",
+        "border": "\\s+border",
+        "border-color": "\\s+border-color",
+        "display": "\\s+display:",
+        "height": "\\s+height:",
+        "margin": "\\s+margin",
+        "max-width": "\\s+max-width:",
+        "min-height": "\\s+min-height:",
+        "min-width": "\\s+min-width:",
+        "padding": "\\s+padding",
+        "position": "\\s+(position:|top:|left:|right:|bottom:)",
+        "width": "\\s+width:",
+        "flexbox": "\\s+(flexbox|align-|justify-|order)",
+        "table": "(table|collapse|striped)",
+        "clip": "clip",
+        "font-family": "font-family",
+        "font-size": "font-size",
+        "font-style": "font-style",
+        "font-weight": "font-weight",
+        "overflow": "overflow",
+        "text-align": "text-align",
+        "text-decoration": "text-decoration",
+        "truncate": "truncate",
+        "vertical-align": "vertical-align",
+        "white-space": "white-space",
+        "word-break": "word-break",
+        "z-index": "z-index"
+    };
+</script>
 <body>
-
 
     <div class="flex-m flex-l">
 
-        <!--  -->
+        <!-- sidebar -->
         <div class="w-100 w-25-m w-25-l bg-white shadow-2 top-0 min-vh-100-m min-vh-100-l">
             <div class="sticky top-0">
                 <div class="bg-blue pa4">
@@ -36,34 +66,11 @@
                                     placeholder="words (or) or regex">
                             </div>
                             <datalist id="suggestions">
-                                <option value="{\s+color:" label="color">
-                                <option value="(\.bg-).*(\s+background-color)" label="background-color">
-                                <option value="\s+border" label="border">
-                                <option value="\s+border-color" label="border-color">
-                                <option value="\s+display:" label="display">
-                                <option value="\s+height:" label="height">
-                                <option value="\s+margin" label="margin"></option>
-                                <option value="\s+max-width:" label="max-width">
-                                <option value="\s+min-height:" label="min-height">
-                                <option value="\s+min-width:" label="min-width">
-                                <option value="\s+padding" label="padding"></option>
-                                <option value="\s+(position:|top:|left:|right:|bottom:)" label="position">
-                                <option value="\s+width:" label="width">
-                                <option value="\s+(flexbox|align-|justify-|order)" label="flexbox">
-                                <option value="(table|collapse|striped)" label="table">
-                                <option value="clip" label=" clip">
-                                <option value="font-family" label=" font-family">
-                                <option value="font-size" label=" font-size">
-                                <option value="font-style" label=" font-style">
-                                <option value="font-weight" label=" font-weight">
-                                <option value="overflow" label=" overflow">
-                                <option value="text-align" label=" text-align">
-                                <option value="text-decoration" label=" text-decoration">
-                                <option value="truncate" label=" truncate">
-                                <option value="vertical-align" label=" vertical-align">
-                                <option value="white-space" label=" white-space">
-                                <option value="word-break" label=" word-break">
-                                <option value="z-index" label=" z-index">
+                                <script>
+                                    for (var key in suggestions) {
+                                        document.write('<option value="' + suggestions[key] + '" label="' + key + '">');
+                                    }
+                                </script>
                             </datalist>
                             <button id="clear" class="input-reset pv0 ph3 bw0 bg-light-gray lh-solid hover-bg-black hover-white f1">×</button>
                         </div>
@@ -85,22 +92,22 @@
             </div>
         </div>
 
-        <!--  -->
-        <div class="w-100 w-75-m w-75-l f4 pa4">
-            <div id="rules" class="flex flex-wrap"></div>
+        <!-- main area -->
+        <div class="w-100 w-75-m w-75-l f4">
+            <div id="rules" class="flex flex-wrap pa4"></div>
         </div>
 
     </div>
 
 
     <template id="rule_template">
-        <article class="card flex-auto w-100 w-50-m w-50-l pa4 ">
+        <article class="card flex-auto w-100 w-50-m w-50-l pa4">
 
             <div class="flex flex-column shadow-2 br3 h-100 overflow-hidden">
 
                 <div class="ma0 pv3 ph4 bg-light-gray black flex items-center justify-between">
                     <h3 class="classname ma0 lh-solid pointer hover-blue" data-clipboard-text="">title</h3>
-                    <div class="mq"></div>
+                    <div class="mq ml2"></div>
                     <div class="swatch ml-auto fw8 ma0 f3 lh-solid"></div>
                 </div>
 
@@ -112,7 +119,7 @@
     </template>
 
     <template id="mq_template">
-        <span class="pointer gray hover-blue" data-clipboard-text=""></span>
+        , <span class="mq_item pointer gray hover-blue" data-clipboard-text=""> </span>
     </template>
 
 
@@ -130,14 +137,15 @@
                 // Section that will contain our rules:
                 $rules = $('#rules'),
                 // HTML5 template for our rules:
-                $template = $('#rule_template').prop('content')
+                $rule_template = $('#rule_template').prop('content'),
+                $mq_template = $('#mq_template').prop('content')
                 ;
             //Array.prototype.forEach.call(document.styleSheets[0].cssRules, function (a) {
             Array.prototype.forEach.call($('#tachyons')[0].sheet.cssRules, function (a) {
                 var
                     rule = a.cssText,
                     text = a.selectorText + '',
-                    $clone = $($template).clone()
+                    $rule_clone = $($rule_template).clone()
                     ;
                 text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
                 if (rule.startsWith('.')) {
@@ -146,19 +154,19 @@
                     rule = rule.replace(/(;|{)/g, '$1\n\t').replace('\t }', '}'); // add newlines
 
                     // set classname/title
-                    $clone
+                    $rule_clone
                         .find('.card')
                         .attr('id', text);
-                    $clone
+                    $rule_clone
                         .find('.classname')
                         .attr('data-clipboard-text', text)
                         .text(text);
 
                     // set code
-                    $clone.find('pre').text(rule);
+                    $rule_clone.find('pre').text(rule);
 
                     // make a swatch if needed
-                    var $swatch = $clone.find('.swatch');
+                    var $swatch = $rule_clone.find('.swatch');
                     if (rule.startsWith('.bg-')) {
                         $swatch.addClass('dib w2 h2 ml1 shadow-2 ' + text);
                     }
@@ -172,20 +180,28 @@
                         $swatch.addClass('dib w2 h2 ml1 ' + text);
                     }
                     //$rules.append($('#template').html());
-                    $clone.appendTo('#rules');
+                    $rule_clone.appendTo('#rules');
                 } else if (a.type == 4) {
                     // 4 == media query with cssRules array
                     Array.prototype.forEach.call(a.cssRules, function (b) {
                         // assume -* is the mq modifier
-                        var id, mq, clipboard;
+                        var id, mq, clipboard, $mq_node;
+                        var $mq_clone = $($mq_template).clone();
                         id = b.selectorText.split(' ')[0].split(',')[0].split('-');
                         // Assume the last word is a mq mod
                         mq = id.pop();
                         // reconstruct string and we should get a classname/id of a rule/card
                         id = id.join('-').replace('.', '#');
+                        $mq_node = $(id).find('.mq')[0];
                         clipboard = id.replace('#', '') + '-' + mq;
-                        //console.log(id);
-                        $(id).find('.mq').append(', <span class="pointer gray hover-blue" data-clipboard-text="'+ clipboard +'">-' + mq + '</span>');
+                        // add mq if not already in there
+                        if ($(id).find('.' + mq).length == 0){
+                            $mq_clone.find('.mq_item')
+                                .attr('data-clipboard-text', clipboard)
+                                .addClass(mq).append('-' + mq)
+                                .appendTo($mq_node);
+                        };
+                        //$(id).find('.mq').append(', <span class="pointer gray hover-blue" data-clipboard-text="'+ clipboard +'">-' + mq + '</span>');
                     });
                 }
             });
@@ -193,7 +209,6 @@
 
             $("#filter").on('input keyup paste', function () {
                 var filter = $(this).val().trim().replace(/ /g, '|');
-                //console.log(filter);
                 $("#rules .card").each(function () {
                     var $this = $(this);
                     if (($this.text()).match(new RegExp(filter, 'g'))) {
@@ -206,6 +221,7 @@
             $('#clear').click(function () {
                 $('#filter').val('').focus().trigger('keyup');
             });
+
 
             var clipboard = new ClipboardJS('#rules [data-clipboard-text]');
             clipboard.on('success', function (e) {

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en" class="bg-dark-gray white">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tachyons and Slick.js</title>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <style>
+        html,
+        button,
+        input,
+        optgroup,
+        select,
+        textarea {
+            font-family: Montserrat, sans-serif;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: 300;
+        }
+
+        pre {
+            tab-size: 2;
+            font-family: menlo, monospace;
+        }
+
+        .tab {
+            width: auto !important;
+        }
+
+        #tabs .slick-slide {
+            width: auto !important;
+            outline: 0;
+        }
+
+        #tabs .slick-slide+.slick-slide {
+            margin-left: 2rem;
+        }
+
+        #tabs .slick-current .tab {
+            border-bottom: 1px solid white;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="measure-wide center mv4 ph4 tc">
+        <h1>Tachyons and <a class="white dim" href="//kenwheeler.github.io/slick/" target="_blank">Slick.js</a></h1>
+    </header>
+
+    <section class="measure-wide center mv4 ph4">
+        <h2>Draggable Tabs</h2>
+        <section id="tabs" class="mb2 tc bb b--white-10">
+            <div class="tab pointer dim pb3">Lorem</div>
+            <div class="tab pointer dim pb3">Eos</div>
+            <div class="tab pointer dim pb3">Obcaecati</div>
+            <div class="tab pointer dim pb3">Dolorem</div>
+            <div class="tab pointer dim pb3">Aperiam</div>
+            <div class="tab pointer dim pb3">Obcaecati</div>
+            <div class="tab pointer dim pb3">Dignissimos</div>
+        </section>
+        <section id="tab__content" class="">
+            <section>
+                <h2>Lorem</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet itaque debitis repellendus eum
+                    vero in provident doloremque architecto illo mollitia maxime repudiandae, laudantium consequuntur
+                    expedita aliquid exercitationem cum delectus dicta?</p>
+            </section>
+            <section>
+                <h2>Eos</h2>
+                <p>In magni aspernatur consectetur quia? Quo maxime dolore sint a assumenda autem aliquam aspernatur
+                    distinctio inventore ipsum beatae rem quibusdam perferendis eligendi voluptatum incidunt doloribus
+                    fugiat, ex dolor itaque tenetur?</p>
+            </section>
+            <section>
+                <h2>Obcaecati</h2>
+                <p>Quasi ratione eaque illum, tenetur ad maiores exercitationem tempore repellat asperiores maxime aut
+                    officiis, molestiae explicabo voluptate? Nam aliquam distinctio repellendus magnam dolore repellat
+                    sapiente, expedita, voluptatibus corrupti dolor perspiciatis.</p>
+            </section>
+            <section>
+                <h2>Dolorem</h2>
+                <p>In nostrum minus optio atque exercitationem maiores modi eveniet. Reiciendis nemo saepe quia harum
+                    officiis sint debitis est laboriosam quis quod sequi magni ratione, praesentium nulla repudiandae
+                    perferendis assumenda cum.</p>
+            </section>
+            <section>
+                <h2>Aperiam</h2>
+                <p>At corrupti fuga doloribus in similique consectetur alias mollitia quos animi optio, quisquam earum,
+                    placeat quidem laborum est repudiandae totam minima omnis nulla odit facere itaque? Eligendi illum
+                    tenetur fugiat?</p>
+            </section>
+            <section>
+                <h2>Obcaecati</h2>
+                <p>Officia eveniet soluta provident iusto velit voluptates veritatis praesentium blanditiis cumque
+                    tempore odio voluptatibus earum expedita, at ad consequuntur neque aspernatur sunt dolorum
+                    architecto illum? Fugit magni maxime ea exercitationem?</p>
+            </section>
+            <section>
+                <h2>Dignissimos</h2>
+                <p>Non aliquam vitae, impedit quisquam nemo perferendis vero earum eligendi illo sunt, cupiditate
+                    itaque id? Id ex ratione ducimus asperiores consectetur sint quod nihil commodi cupiditate,
+                    voluptatibus a atque sit.</p>
+            </section>
+        </section>
+    </section>
+
+
+    <!-- ======== End body content ======== -->
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+    <script>
+        $('#tabs').slick({
+            variableWidth: true,
+            centerMode: true,
+            //infinite: false,
+            asNavFor: '#tab__content',
+            focusOnSelect: true,
+            //arrows: false,
+            prevArrow: '<div class="slick-prev dim pointer w2 absolute top-0 left--2"><</div>',
+            nextArrow: '<div class="slick-next dim pointer w2 absolute top-0 right--2 tc"︎>></div>'
+        });
+        // https://developer.mozilla.org/en-US/docs/Web/Events/wheel
+        $('#tabs').on('wheel', (function (e) {
+            e.preventDefault();
+            if (e.originalEvent.deltaY < 0) {
+                $(this).slick('slickNext');
+            } else {
+                $(this).slick('slickPrev');
+            }
+        }));
+        $('#tab__content').slick({
+            adaptiveHeight: true,
+            arrows: false,
+            draggable: false,
+        });
+    </script>
+</body>
+
+</html>
