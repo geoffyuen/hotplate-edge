@@ -46,7 +46,7 @@
 
 @include gen {
 
-  @each $key, $val in cfg(height) {
+  @each $key, $val in cfg(width) {
     .w#{$key}#{$sfx} {
       width: $val;
     }
