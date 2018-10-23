@@ -147,6 +147,7 @@
                     text = a.selectorText + '',
                     $rule_clone = $($rule_template).clone()
                     ;
+                    //console.log(a.type);
                 text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
                 if (rule.startsWith('.')) {
 
@@ -189,7 +190,8 @@
                         var $mq_clone = $($mq_template).clone();
                         id = b.selectorText.split(' ')[0].split(',')[0].split('-');
                         // Assume the last word is a mq mod
-                        mq = id.pop();
+                        mq = id.pop().split('::before').join('').split('::after').join('');
+                        //console.log(mq);
                         // reconstruct string and we should get a classname/id of a rule/card
                         id = id.join('-').replace('.', '#');
                         $mq_node = $(id).find('.mq')[0];
