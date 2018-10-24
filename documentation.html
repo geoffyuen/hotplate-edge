@@ -18,38 +18,6 @@
         }
     </style>
 </head>
-<script>
-    var suggestions = {
-        "color": "{\\s+color:",
-        "background-color": "(\\.bg-).*(\\s+background-color)",
-        "border": "\\s+border",
-        "border-color": "\\s+border-color",
-        "display": "\\s+display:",
-        "height": "\\s+height:",
-        "margin": "\\s+margin",
-        "max-width": "\\s+max-width:",
-        "min-height": "\\s+min-height:",
-        "min-width": "\\s+min-width:",
-        "padding": "\\s+padding",
-        "position": "\\s+(position:|top:|left:|right:|bottom:)",
-        "width": "\\s+width:",
-        "flexbox": "\\s+(flexbox|align-|justify-|order)",
-        "table": "(table|collapse|striped)",
-        "clip": "clip",
-        "font-family": "font-family",
-        "font-size": "font-size",
-        "font-style": "font-style",
-        "font-weight": "font-weight",
-        "overflow": "overflow",
-        "text-align": "text-align",
-        "text-decoration": "text-decoration",
-        "truncate": "truncate",
-        "vertical-align": "vertical-align",
-        "white-space": "white-space",
-        "word-break": "word-break",
-        "z-index": "z-index"
-    };
-</script>
 <body>
 
     <div class="flex-m flex-l">
@@ -67,6 +35,37 @@
                             </div>
                             <datalist id="suggestions">
                                 <script>
+                                    var suggestions = {
+                                        'color': '{\\s+color:',
+                                        'background-color': '(\\.bg-).*(\\s+background-color)',
+                                        'border': '\\s+border',
+                                        'border-color': '\\s+border-color',
+                                        'display': '\\s+display:',
+                                        'height': '\\s+height:',
+                                        'margin': '\\s+margin',
+                                        'max-width': '\\s+max-width:',
+                                        'min-height': '\\s+min-height:',
+                                        'min-width': '\\s+min-width:',
+                                        'padding': '\\s+padding',
+                                        'position': '\\s+(position:|top:|left:|right:|bottom:)',
+                                        'width': '\\s+width:',
+                                        'flexbox': '\\s+(flexbox|align-|justify-|order)',
+                                        'table': '(table|collapse|striped)',
+                                        'aspect-ratio': 'aspect-ratio',
+                                        'clip': 'clip',
+                                        'font-family': 'font-family',
+                                        'font-size': 'font-size',
+                                        'font-style': 'font-style',
+                                        'font-weight': 'font-weight',
+                                        'overflow': 'overflow',
+                                        'text-align': 'text-align',
+                                        'text-decoration': 'text-decoration',
+                                        'truncate': 'truncate',
+                                        'vertical-align': 'vertical-align',
+                                        'white-space': 'white-space',
+                                        'word-break': 'word-break',
+                                        'z-index': 'z-index'
+                                    };
                                     for (var key in suggestions) {
                                         document.write('<option value="' + suggestions[key] + '" label="' + key + '">');
                                     }
@@ -147,9 +146,8 @@
                     text = a.selectorText + '',
                     $rule_clone = $($rule_template).clone()
                     ;
-                    //console.log(a.type);
                 text = text.split(' ')[0].split(':')[0].replace('.', '').replace(',', '');
-                if (rule.startsWith('.')) {
+                if (a.type == 1 && rule.startsWith('.')) {
 
                     // Rules come in unformmated. Add newlines for readability.
                     rule = rule.replace(/(;|{)/g, '$1\n\t').replace('\t }', '}'); // add newlines
@@ -191,7 +189,6 @@
                         id = b.selectorText.split(' ')[0].split(',')[0].split('-');
                         // Assume the last word is a mq mod
                         mq = id.pop().split('::before').join('').split('::after').join('');
-                        //console.log(mq);
                         // reconstruct string and we should get a classname/id of a rule/card
                         id = id.join('-').replace('.', '#');
                         $mq_node = $(id).find('.mq')[0];
