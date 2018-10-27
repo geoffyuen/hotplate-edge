@@ -8,6 +8,10 @@
     <title>Tachyons Explorer</title>
     <link id="tachyons" rel="stylesheet" href="style.css">
     <link href="//fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shCore.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/scripts/shBrushCss.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shCore.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/SyntaxHighlighter/3.0.83/styles/shThemeMidnight.min.css">
     <style>
         html, button, input, optgroup, select, textarea {
             font-family: Montserrat, sans-serif;
@@ -15,6 +19,11 @@
         pre {
             tab-size:2;
             font-family: menlo, monospace;
+        }
+        .card .syntaxhighlighter {
+            background-color: transparent;
+            margin: 0 !important;
+            padding: 1em 0;
         }
     </style>
 </head>
@@ -102,7 +111,7 @@
     <template id="rule_template">
         <article class="card flex-auto w-100 w-50-m w-50-l pa4">
 
-            <div class="flex flex-column shadow-2 br3 h-100 overflow-hidden">
+            <div class="flex flex-column shadow-2 br3 h-100 overflow-hidden bg-black">
 
                 <div class="ma0 pv3 ph4 bg-light-gray black flex items-center justify-between">
                     <h3 class="classname ma0 lh-solid pointer hover-blue" data-clipboard-text="">title</h3>
@@ -110,7 +119,7 @@
                     <div class="swatch ml-auto fw8 ma0 f3 lh-solid"></div>
                 </div>
 
-                <pre class="code overflow-x-auto flex-auto light-green bg-navy ma0 pv3 ph4">code</pre>
+                <pre class="code overflow-x-auto flex-auto xlight-green xbg-navy ma0 pv3 ph4 brush: css">code</pre>
 
             </div>
 
@@ -235,6 +244,10 @@
                 $($('input[name="css"]:checked').val()).toggleClass(e.text);
             });
         });
+
+        SyntaxHighlighter.defaults['tab-size'] = 2;
+        SyntaxHighlighter.defaults['toolbar'] = false;
+        SyntaxHighlighter.all();
     </script>
 </body>
 
