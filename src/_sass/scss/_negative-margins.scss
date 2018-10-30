@@ -27,111 +27,90 @@
     -l  = large
 
 */
+// Converted Variables
+// Custom Media Query Variables
+/* Variables */
+
+/*
+  SPACING
+  Docs: http://tachyons.io/docs/layout/spacing/
+
+  An eight step powers of two scale ranging from 0 to 16rem.
+
+  Base:
+    p = padding
+    m = margin
+
+  Modifiers:
+    a = all
+    h = horizontal
+    v = vertical
+    t = top
+    r = right
+    b = bottom
+    l = left
+
+    0 = none
+    1 = 1st step in spacing scale
+    2 = 2nd step in spacing scale
+    3 = 3rd step in spacing scale
+    4 = 4th step in spacing scale
+    5 = 5th step in spacing scale
+    6 = 6th step in spacing scale
+    7 = 7th step in spacing scale
+
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
+
+*/
 
 @include gen {
-  .na1#{$sfx} {
-    margin: -$spacing-extra-small;
+
+  @for $idx from 1 through length(cfg(spacing)) {
+    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+    .na#{$idx - 1}#{$sfx} {
+      margin: -$val;
+    }
   }
-  .na2#{$sfx} {
-    margin: -$spacing-small;
+  @for $idx from 1 through length(cfg(spacing)) {
+    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+    .nl#{$idx - 1}#{$sfx} {
+      margin-left: -$val;
+    }
   }
-  .na3#{$sfx} {
-    margin: -$spacing-medium;
+  @for $idx from 1 through length(cfg(spacing)) {
+    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+    .nr#{$idx - 1}#{$sfx} {
+      margin-right: -$val;
+    }
   }
-  .na4#{$sfx} {
-    margin: -$spacing-large;
+  @for $idx from 1 through length(cfg(spacing)) {
+    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+    .nb#{$idx - 1}#{$sfx} {
+      margin-bottom: -$val;
+    }
   }
-  .na5#{$sfx} {
-    margin: -$spacing-extra-large;
+  @for $idx from 1 through length(cfg(spacing)) {
+    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+    .nt#{$idx - 1}#{$sfx} {
+      margin-top: -$val;
+    }
   }
-  .na6#{$sfx} {
-    margin: -$spacing-extra-extra-large;
+  @for $idx from 1 through length(cfg(spacing)) {
+    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+    .nv#{$idx - 1}#{$sfx} {
+      margin-top: -$val;
+      margin-bottom: -$val;
+    }
   }
-  .na7#{$sfx} {
-    margin: -$spacing-extra-extra-extra-large;
+  @for $idx from 1 through length(cfg(spacing)) {
+    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+    .nh#{$idx - 1}#{$sfx} {
+      margin-left: -$val;
+      margin-right: -$val;
+    }
   }
-  .nl1#{$sfx} {
-    margin-left: -$spacing-extra-small;
-  }
-  .nl2#{$sfx} {
-    margin-left: -$spacing-small;
-  }
-  .nl3#{$sfx} {
-    margin-left: -$spacing-medium;
-  }
-  .nl4#{$sfx} {
-    margin-left: -$spacing-large;
-  }
-  .nl5#{$sfx} {
-    margin-left: -$spacing-extra-large;
-  }
-  .nl6#{$sfx} {
-    margin-left: -$spacing-extra-extra-large;
-  }
-  .nl7#{$sfx} {
-    margin-left: -$spacing-extra-extra-extra-large;
-  }
-  .nr1#{$sfx} {
-    margin-right: -$spacing-extra-small;
-  }
-  .nr2#{$sfx} {
-    margin-right: -$spacing-small;
-  }
-  .nr3#{$sfx} {
-    margin-right: -$spacing-medium;
-  }
-  .nr4#{$sfx} {
-    margin-right: -$spacing-large;
-  }
-  .nr5#{$sfx} {
-    margin-right: -$spacing-extra-large;
-  }
-  .nr6#{$sfx} {
-    margin-right: -$spacing-extra-extra-large;
-  }
-  .nr7#{$sfx} {
-    margin-right: -$spacing-extra-extra-extra-large;
-  }
-  .nb1#{$sfx} {
-    margin-bottom: -$spacing-extra-small;
-  }
-  .nb2#{$sfx} {
-    margin-bottom: -$spacing-small;
-  }
-  .nb3#{$sfx} {
-    margin-bottom: -$spacing-medium;
-  }
-  .nb4#{$sfx} {
-    margin-bottom: -$spacing-large;
-  }
-  .nb5#{$sfx} {
-    margin-bottom: -$spacing-extra-large;
-  }
-  .nb6#{$sfx} {
-    margin-bottom: -$spacing-extra-extra-large;
-  }
-  .nb7#{$sfx} {
-    margin-bottom: -$spacing-extra-extra-extra-large;
-  }
-  .nt1#{$sfx} {
-    margin-top: -$spacing-extra-small;
-  }
-  .nt2#{$sfx} {
-    margin-top: -$spacing-small;
-  }
-  .nt3#{$sfx} {
-    margin-top: -$spacing-medium;
-  }
-  .nt4#{$sfx} {
-    margin-top: -$spacing-large;
-  }
-  .nt5#{$sfx} {
-    margin-top: -$spacing-extra-large;
-  }
-  .nt6#{$sfx} {
-    margin-top: -$spacing-extra-extra-large;
-  }
-  .nt7#{$sfx} {
-    margin-top: -$spacing-extra-extra-extra-large;
-  }
+
 }
