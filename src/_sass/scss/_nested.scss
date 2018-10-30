@@ -27,7 +27,7 @@
 .nested-headline-line-height h4,
 .nested-headline-line-height h5,
 .nested-headline-line-height h6 {
-  line-height: subcfg(line_height, headline);
+  line-height: cfg(headline, cfg(line_height));
 }
 
 .nested-list-reset ul,
@@ -38,9 +38,9 @@
 }
 
 .nested-copy-indent p+p {
-  text-indent: subcfg(letter_spacing, 1);
-  margin-top: subcfg(spacing, none);
-  margin-bottom: subcfg(spacing, none);
+  text-indent: cfg(1, cfg(letter_spacing));
+  margin-top: cfg(none, cfg(spacing));
+  margin-bottom: cfg(none, cfg(spacing));
 }
 
 .nested-copy-seperator p+p {
@@ -54,12 +54,12 @@
 }
 
 .nested-links a {
-  color: subcfg(nested_links, nested-links);
+  color: cfg(nested-links, cfg(nested_links));
   transition: color .15s ease-in;
 }
 
 .nested-links a:hover,
 .nested-links a:focus {
-  color: subcfg(nested_links, nested-links-hover-focus);
+  color: cfg(nested-links-hover-focus, cfg(nested_links));
   transition: color .15s ease-in;
 }

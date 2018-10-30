@@ -1,0 +1,73 @@
+@function cfg($key, $map: $cfg) {
+    @if map-has-key($map, $key) {
+        @return map-get($map, $key);
+    } @else {
+        @error "No map or key: `#{$map}` : `#{$key}`";
+    }
+}
+
+// return color from cfg(colors);
+// eg color: c(white);
+@function c($colorname, $map: $cfg) {
+    @return map-get(cfg(colors), $colorname);
+}
+
+// Generate Media Queried Classes
+// Eg
+// @include gen() {
+//   .switch#{$sfx} {
+//     color: blue;
+//   }
+//   .qbert#{$sfx} {
+//     background: red;
+//   }
+// }
+// Output
+// .switch {
+// 	color: blue;
+//   }
+//   .qbert {
+// 	background: red;
+//   }
+//   @media (min-width: 480px) {
+// 	.switch-xs {
+// 	  color: blue;
+// 	}
+// 	.qbert-xs {
+// 	  background: red;
+// 	}
+//   }
+//   @media (min-width: 620px) {
+// 	.switch-sm {
+// 	  color: blue;
+// 	}
+// 	.qbert-sm {
+// 	  background: red;
+// 	}
+//   }
+
+$sfx: '';
+@mixin gen($map: cfg(breakpoint)) {
+	$sfx: '' !global;
+	@content;
+	@each $name, $val in $map {
+		$sfx: '-'+$name !global;
+		@media #{$val} {
+			@content;
+		}
+	}
+}
+
+
+@mixin range($color, $rule, $pfx: '') {
+	@for $i from 1 through 9 {
+		.#{$pfx}#{$color}-#{$i*10} {
+			#{$rule}: rgba(c($color), $i/10);
+		}
+	}
+	@each $sfx, $val in ('05':.05, '025':.025, '0125':.0125 ) {
+		.#{$pfx}#{$color}-#{$sfx} {
+			#{$rule}: rgba(c($color), $val);
+		}
+	}
+}

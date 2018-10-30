@@ -2,76 +2,19 @@
 // Custom Media Query Variables
 /*
 
-   FONT FAMILY GROUPS
-   Docs: http://tachyons.io/docs/typography/font-family/
+    FONT FAMILY GROUPS
+    Docs: http://tachyons.io/docs/typography/font-family/
 
 */
 
-.sans-serif {
-  font-family: cfg(sans_serif);
+@each $key, $val in cfg(fonts) {
+  .#{$key} {
+    font-family: #{$val};
+  }
 }
 
-.serif {
-  font-family: cfg(serif);
-}
-
-.system-sans-serif {
-  font-family: sans-serif;
-}
-
-.system-serif {
-  font-family: serif;
-}
-
-/* Monospaced Typefaces (for code) */
-
-/* From http://cssfontstack.com */
-
-code,
-.code {
-  font-family: Consolas, monaco, monospace;
-}
-
-.courier {
-  font-family: 'Courier Next', courier, monospace;
-}
-
-/* Sans-Serif Typefaces */
-
-.helvetica {
-  font-family: 'helvetica neue', helvetica, sans-serif;
-}
-
-.avenir {
-  font-family: 'avenir next', avenir, sans-serif;
-}
-
-/* Serif Typefaces */
-
-.athelas {
-  font-family: athelas, georgia, serif;
-}
-
-.georgia {
-  font-family: georgia, serif;
-}
-
-.times {
-  font-family: times, serif;
-}
-
-.bodoni {
-  font-family: "Bodoni MT", serif;
-}
-
-.calisto {
-  font-family: "Calisto MT", serif;
-}
-
-.garamond {
-  font-family: garamond, serif;
-}
-
-.baskerville {
-  font-family: baskerville, serif;
+@if map-has-key(cfg(fonts), code) {
+  code {
+    font-family: cfg(code, cfg(fonts));
+  }
 }
