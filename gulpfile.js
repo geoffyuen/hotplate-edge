@@ -130,7 +130,7 @@ gulp.task("scripts", function() {
 
 // The meat of our Gulp loop
 function main_process() {
-  gulp.watch("src/_sass/*.scss", ["styles"]);
+  gulp.watch("src/_sass/**/*.scss", ["styles"]);
   gulp.watch("src/**/*.js", ["scripts"]);
   gulp.watch("src/img/**/*", ["img"]);
   gulp.watch("src/sprites/**/*.svg", ["svgstore"]);
