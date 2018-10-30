@@ -38,7 +38,7 @@
     max-width: 100%;
   }
   /* Max Width Scale */
-  @each $key, $val in cfg(height) {
+  @each $key, $val in cfg(width) {
     .mw#{$key}#{$sfx} {
       max-width: $val;
     }
