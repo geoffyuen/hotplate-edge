@@ -31,7 +31,7 @@
 //  Variables
 //  Importing here will allow you to override any variables in the modules
 
-@import 'scss/variables';
+// @import 'scss/variables';
 
 //  Debugging
 @import 'scss/debug-children';
@@ -41,7 +41,7 @@
 //  @import 'scss/debug';
 
 //  Modules
-@import 'box-sizing';
+// @import 'box-sizing';
 @import '_aspect-ratios.scss';
 @import 'scss/images';
 @import 'scss/background-size';

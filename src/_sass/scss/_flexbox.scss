@@ -2,158 +2,156 @@
 // Custom Media Query Variables
 /*
 
-  FLEXBOX
+FLEXBOX
 
-  Media Query Extensions:
-  -ns = not-small
-  -m  = medium
-  -l  = large
+Media Query Extensions:
+-ns = not-small
+-m  = medium
+-l  = large
 
 */
 
-@include gen {
-  .flex#{$sfx} {
-    display: flex;
-  }
-  .inline-flex#{$sfx} {
-    display: inline-flex;
-  }
-  /* 1. Fix for Chrome 44 bug.
- * https://code.google.com/p/chromium/issues/detail?id=506893 */
-  .flex-auto#{$sfx} {
-    flex: 1 1 auto;
-    min-width: 0;
-    /* 1 */
-    min-height: 0;
-    /* 1 */
-  }
-  .flex-none#{$sfx} {
-    flex: none;
-  }
-  .flex-column#{$sfx} {
-    flex-direction: column;
-  }
-  .flex-row#{$sfx} {
-    flex-direction: row;
-  }
-  .flex-wrap#{$sfx} {
-    flex-wrap: wrap;
-  }
-  .flex-nowrap#{$sfx} {
-    flex-wrap: nowrap;
-  }
-  .flex-wrap-reverse#{$sfx} {
-    flex-wrap: wrap-reverse;
-  }
-  .flex-column-reverse#{$sfx} {
-    flex-direction: column-reverse;
-  }
-  .flex-row-reverse#{$sfx} {
-    flex-direction: row-reverse;
-  }
-  .items-start#{$sfx} {
-    align-items: flex-start;
-  }
-  .items-end#{$sfx} {
-    align-items: flex-end;
-  }
-  .items-center#{$sfx} {
-    align-items: center;
-  }
-  .items-baseline#{$sfx} {
-    align-items: baseline;
-  }
-  .items-stretch#{$sfx} {
-    align-items: stretch;
-  }
-  .self-start#{$sfx} {
-    align-self: flex-start;
-  }
-  .self-end#{$sfx} {
-    align-self: flex-end;
-  }
-  .self-center#{$sfx} {
-    align-self: center;
-  }
-  .self-baseline#{$sfx} {
-    align-self: baseline;
-  }
-  .self-stretch#{$sfx} {
-    align-self: stretch;
-  }
-  .justify-start#{$sfx} {
-    justify-content: flex-start;
-  }
-  .justify-end#{$sfx} {
-    justify-content: flex-end;
-  }
-  .justify-center#{$sfx} {
-    justify-content: center;
-  }
-  .justify-between#{$sfx} {
-    justify-content: space-between;
-  }
-  .justify-around#{$sfx} {
-    justify-content: space-around;
-  }
-  .content-start#{$sfx} {
-    align-content: flex-start;
-  }
-  .content-end#{$sfx} {
-    align-content: flex-end;
-  }
-  .content-center#{$sfx} {
-    align-content: center;
-  }
-  .content-between#{$sfx} {
-    align-content: space-between;
-  }
-  .content-around#{$sfx} {
-    align-content: space-around;
-  }
-  .content-stretch#{$sfx} {
-    align-content: stretch;
-  }
-  .order-0#{$sfx} {
-    order: 0;
-  }
-  .order-1#{$sfx} {
-    order: 1;
-  }
-  .order-2#{$sfx} {
-    order: 2;
-  }
-  .order-3#{$sfx} {
-    order: 3;
-  }
-  .order-4#{$sfx} {
-    order: 4;
-  }
-  .order-5#{$sfx} {
-    order: 5;
-  }
-  .order-6#{$sfx} {
-    order: 6;
-  }
-  .order-7#{$sfx} {
-    order: 7;
-  }
-  .order-8#{$sfx} {
-    order: 8;
-  }
-  .order-last#{$sfx} {
-    order: 99999;
-  }
-  .flex-grow-0#{$sfx} {
-    flex-grow: 0;
-  }
-  .flex-grow-1#{$sfx} {
-    flex-grow: 1;
-  }
-  .flex-shrink-0#{$sfx} {
-    flex-shrink: 0;
-  }
-  .flex-shrink-1#{$sfx} {
-    flex-shrink: 1;
-  }
+.flex#{$sfx} {
+  display: flex;
+}
+.inline-flex#{$sfx} {
+  display: inline-flex;
+}
+/* 1. Fix for Chrome 44 bug.
+* https://code.google.com/p/chromium/issues/detail?id=506893 */
+.flex-auto#{$sfx} {
+  flex: 1 1 auto;
+  min-width: 0;
+  /* 1 */
+  min-height: 0;
+  /* 1 */
+}
+.flex-none#{$sfx} {
+  flex: none;
+}
+.flex-column#{$sfx} {
+  flex-direction: column;
+}
+.flex-row#{$sfx} {
+  flex-direction: row;
+}
+.flex-wrap#{$sfx} {
+  flex-wrap: wrap;
+}
+.flex-nowrap#{$sfx} {
+  flex-wrap: nowrap;
+}
+.flex-wrap-reverse#{$sfx} {
+  flex-wrap: wrap-reverse;
+}
+.flex-column-reverse#{$sfx} {
+  flex-direction: column-reverse;
+}
+.flex-row-reverse#{$sfx} {
+  flex-direction: row-reverse;
+}
+.items-start#{$sfx} {
+  align-items: flex-start;
+}
+.items-end#{$sfx} {
+  align-items: flex-end;
+}
+.items-center#{$sfx} {
+  align-items: center;
+}
+.items-baseline#{$sfx} {
+  align-items: baseline;
+}
+.items-stretch#{$sfx} {
+  align-items: stretch;
+}
+.self-start#{$sfx} {
+  align-self: flex-start;
+}
+.self-end#{$sfx} {
+  align-self: flex-end;
+}
+.self-center#{$sfx} {
+  align-self: center;
+}
+.self-baseline#{$sfx} {
+  align-self: baseline;
+}
+.self-stretch#{$sfx} {
+  align-self: stretch;
+}
+.justify-start#{$sfx} {
+  justify-content: flex-start;
+}
+.justify-end#{$sfx} {
+  justify-content: flex-end;
+}
+.justify-center#{$sfx} {
+  justify-content: center;
+}
+.justify-between#{$sfx} {
+  justify-content: space-between;
+}
+.justify-around#{$sfx} {
+  justify-content: space-around;
+}
+.content-start#{$sfx} {
+  align-content: flex-start;
+}
+.content-end#{$sfx} {
+  align-content: flex-end;
+}
+.content-center#{$sfx} {
+  align-content: center;
+}
+.content-between#{$sfx} {
+  align-content: space-between;
+}
+.content-around#{$sfx} {
+  align-content: space-around;
+}
+.content-stretch#{$sfx} {
+  align-content: stretch;
+}
+.order-0#{$sfx} {
+  order: 0;
+}
+.order-1#{$sfx} {
+  order: 1;
+}
+.order-2#{$sfx} {
+  order: 2;
+}
+.order-3#{$sfx} {
+  order: 3;
+}
+.order-4#{$sfx} {
+  order: 4;
+}
+.order-5#{$sfx} {
+  order: 5;
+}
+.order-6#{$sfx} {
+  order: 6;
+}
+.order-7#{$sfx} {
+  order: 7;
+}
+.order-8#{$sfx} {
+  order: 8;
+}
+.order-last#{$sfx} {
+  order: 99999;
+}
+.flex-grow-0#{$sfx} {
+  flex-grow: 0;
+}
+.flex-grow-1#{$sfx} {
+  flex-grow: 1;
+}
+.flex-shrink-0#{$sfx} {
+  flex-shrink: 0;
+}
+.flex-shrink-1#{$sfx} {
+  flex-shrink: 1;
 }

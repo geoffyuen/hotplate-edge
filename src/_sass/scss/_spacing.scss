@@ -37,96 +37,118 @@
 
 */
 
-@include gen {
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
 
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .pa#{$idx - 1}#{$sfx} {
-      padding: $val;
-    }
+  .pa#{$idx - 1}#{$sfx} {
+    padding: $val;
   }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .pl#{$idx - 1}#{$sfx} {
-      padding-left: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .pr#{$idx - 1}#{$sfx} {
-      padding-right: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .pb#{$idx - 1}#{$sfx} {
-      padding-bottom: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .pt#{$idx - 1}#{$sfx} {
-      padding-top: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .pv#{$idx - 1}#{$sfx} {
-      padding-top: $val;
-      padding-bottom: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .ph#{$idx - 1}#{$sfx} {
-      padding-left: $val;
-      padding-right: $val;
-    }
-  }
+}
 
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .ma#{$idx - 1}#{$sfx} {
-      margin: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .ml#{$idx - 1}#{$sfx} {
-      margin-left: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .mr#{$idx - 1}#{$sfx} {
-      margin-right: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .mb#{$idx - 1}#{$sfx} {
-      margin-bottom: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .mt#{$idx - 1}#{$sfx} {
-      margin-top: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .mv#{$idx - 1}#{$sfx} {
-      margin-top: $val;
-      margin-bottom: $val;
-    }
-  }
-  @for $idx from 1 through length(cfg(spacing)) {
-    $val: nth( nth(cfg(spacing), $idx), 2); // get the value only - not the pair
-    .mh#{$idx - 1}#{$sfx} {
-      margin-left: $val;
-      margin-right: $val;
-    }
-  }  
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
 
+  .pl#{$idx - 1}#{$sfx} {
+    padding-left: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .pr#{$idx - 1}#{$sfx} {
+    padding-right: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .pb#{$idx - 1}#{$sfx} {
+    padding-bottom: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .pt#{$idx - 1}#{$sfx} {
+    padding-top: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .pv#{$idx - 1}#{$sfx} {
+    padding-top: $val;
+    padding-bottom: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .ph#{$idx - 1}#{$sfx} {
+    padding-left: $val;
+    padding-right: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .ma#{$idx - 1}#{$sfx} {
+    margin: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .ml#{$idx - 1}#{$sfx} {
+    margin-left: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .mr#{$idx - 1}#{$sfx} {
+    margin-right: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .mb#{$idx - 1}#{$sfx} {
+    margin-bottom: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .mt#{$idx - 1}#{$sfx} {
+    margin-top: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .mv#{$idx - 1}#{$sfx} {
+    margin-top: $val;
+    margin-bottom: $val;
+  }
+}
+
+@for $idx from 1 through length(cfg(spacing)) {
+  $val: nth(nth(cfg(spacing), $idx), 2); // get the value only - not the pair
+
+  .mh#{$idx - 1}#{$sfx} {
+    margin-left: $val;
+    margin-right: $val;
+  }
 }

@@ -24,7 +24,7 @@
   *zoom: 1;
 }
 
-@include gen {
+
   .cl#{$sfx} {
     clear: left;
   }
@@ -37,4 +37,3 @@
   .cn#{$sfx} {
     clear: none;
   }
-}

@@ -2,26 +2,24 @@
 // Custom Media Query Variables
 /*
 
-  BACKGROUND SIZE
-  Docs: http://tachyons.io/docs/themes/background-size/
+BACKGROUND SIZE
+Docs: http://tachyons.io/docs/themes/background-size/
 
-  Media Query Extensions:
-    -ns = not-small
-    -m  = medium
-    -l  = large
+Media Query Extensions:
+  -ns = not-small
+  -m  = medium
+  -l  = large
 
 */
 
 /*
-  Often used in combination with background image set as an inline style
-  on an html element.
+Often used in combination with background image set as an inline style
+on an html element.
 */
 
-@include gen {
-  .cover#{$sfx} {
-    background-size: cover !important;
-  }
-  .contain#{$sfx} {
-    background-size: contain !important;
-  }
+.cover#{$sfx} {
+  background-size: cover !important;
+}
+.contain#{$sfx} {
+  background-size: contain !important;
 }

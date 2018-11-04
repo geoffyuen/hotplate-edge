@@ -2,50 +2,49 @@
 // Custom Media Query Variables
 /*
 
-    BORDERS
-    Docs: http://tachyons.io/docs/themes/borders/
+  BORDERS
+  Docs: http://tachyons.io/docs/themes/borders/
 
-    Base:
-      b = border
+  Base:
+    b = border
 
-    Modifiers:
-      a = all
-      t = top
-      r = right
-      b = bottom
-      l = left
-      n = none
+  Modifiers:
+    a = all
+    t = top
+    r = right
+    b = bottom
+    l = left
+    n = none
 
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
 
 */
 
-@include gen {
-  .ba#{$sfx} {
-    border-style: solid;
-    border-width: 1px;
-  }
-  .bt#{$sfx} {
-    border-top-style: solid;
-    border-top-width: 1px;
-  }
-  .br#{$sfx} {
-    border-right-style: solid;
-    border-right-width: 1px;
-  }
-  .bb#{$sfx} {
-    border-bottom-style: solid;
-    border-bottom-width: 1px;
-  }
-  .bl#{$sfx} {
-    border-left-style: solid;
-    border-left-width: 1px;
-  }
-  .bn#{$sfx} {
-    border-style: none;
-    border-width: 0;
-  }
+
+.ba#{$sfx} {
+  border-style: solid;
+  border-width: 1px;
+}
+.bt#{$sfx} {
+  border-top-style: solid;
+  border-top-width: 1px;
+}
+.br#{$sfx} {
+  border-right-style: solid;
+  border-right-width: 1px;
+}
+.bb#{$sfx} {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+}
+.bl#{$sfx} {
+  border-left-style: solid;
+  border-left-width: 1px;
+}
+.bn#{$sfx} {
+  border-style: none;
+  border-width: 0;
 }

@@ -21,17 +21,18 @@
 
 */
 
-@include gen {
-  .ttc#{$sfx} {
-    text-transform: capitalize;
-  }
-  .ttl#{$sfx} {
-    text-transform: lowercase;
-  }
-  .ttu#{$sfx} {
-    text-transform: uppercase;
-  }
-  .ttn#{$sfx} {
-    text-transform: none;
-  }
+.ttc#{$sfx} {
+  text-transform: capitalize;
+}
+
+.ttl#{$sfx} {
+  text-transform: lowercase;
+}
+
+.ttu#{$sfx} {
+  text-transform: uppercase;
+}
+
+.ttn#{$sfx} {
+  text-transform: none;
 }

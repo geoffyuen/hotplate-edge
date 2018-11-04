@@ -16,12 +16,10 @@
     Ref: http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
 */
 
-@include gen {
-  .clip#{$sfx} {
-    position: fixed !important;
-    _position: absolute !important;
-    clip: rect(1px 1px 1px 1px);
-    /* IE6, IE7 */
-    clip: rect(1px, 1px, 1px, 1px);
-  }
+.clip#{$sfx} {
+  position: fixed !important;
+  _position: absolute !important;
+  clip: rect(1px 1px 1px 1px);
+  /* IE6, IE7 */
+  clip: rect(1px, 1px, 1px, 1px);
 }

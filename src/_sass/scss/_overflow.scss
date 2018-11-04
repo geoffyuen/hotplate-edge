@@ -2,50 +2,48 @@
 // Custom Media Query Variables
 /*
 
-    OVERFLOW
+  OVERFLOW
 
-    Media Query Extensions:
-      -ns = not-small
-      -m  = medium
-      -l  = large
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
 
- */
+*/
 
-@include gen {
-  .overflow-visible#{$sfx} {
-    overflow: visible;
-  }
-  .overflow-hidden#{$sfx} {
-    overflow: hidden;
-  }
-  .overflow-scroll#{$sfx} {
-    overflow: scroll;
-  }
-  .overflow-auto#{$sfx} {
-    overflow: auto;
-  }
-  .overflow-x-visible#{$sfx} {
-    overflow-x: visible;
-  }
-  .overflow-x-hidden#{$sfx} {
-    overflow-x: hidden;
-  }
-  .overflow-x-scroll#{$sfx} {
-    overflow-x: scroll;
-  }
-  .overflow-x-auto#{$sfx} {
-    overflow-x: auto;
-  }
-  .overflow-y-visible#{$sfx} {
-    overflow-y: visible;
-  }
-  .overflow-y-hidden#{$sfx} {
-    overflow-y: hidden;
-  }
-  .overflow-y-scroll#{$sfx} {
-    overflow-y: scroll;
-  }
-  .overflow-y-auto#{$sfx} {
-    overflow-y: auto;
-  }
+.overflow-visible#{$sfx} {
+  overflow: visible;
+}
+.overflow-hidden#{$sfx} {
+  overflow: hidden;
+}
+.overflow-scroll#{$sfx} {
+  overflow: scroll;
+}
+.overflow-auto#{$sfx} {
+  overflow: auto;
+}
+.overflow-x-visible#{$sfx} {
+  overflow-x: visible;
+}
+.overflow-x-hidden#{$sfx} {
+  overflow-x: hidden;
+}
+.overflow-x-scroll#{$sfx} {
+  overflow-x: scroll;
+}
+.overflow-x-auto#{$sfx} {
+  overflow-x: auto;
+}
+.overflow-y-visible#{$sfx} {
+  overflow-y: visible;
+}
+.overflow-y-hidden#{$sfx} {
+  overflow-y: hidden;
+}
+.overflow-y-scroll#{$sfx} {
+  overflow-y: scroll;
+}
+.overflow-y-auto#{$sfx} {
+  overflow-y: auto;
 }

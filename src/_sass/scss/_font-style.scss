@@ -2,21 +2,19 @@
 // Custom Media Query Variables
 /*
 
-   FONT STYLE
-   Docs: http://tachyons.io/docs/typography/font-style/
+  FONT STYLE
+  Docs: http://tachyons.io/docs/typography/font-style/
 
-   Media Query Extensions:
-     -ns = not-small
-     -m  = medium
-     -l  = large
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
 
 */
 
-@include gen {
-  .i#{$sfx} {
-    font-style: italic;
-  }
-  .fs-normal#{$sfx} {
-    font-style: normal;
-  }
+.i#{$sfx} {
+  font-style: italic;
+}
+.fs-normal#{$sfx} {
+  font-style: normal;
 }

@@ -14,14 +14,14 @@
 
 */
 
-@include gen {
-  .word-normal#{$sfx} {
-    word-break: normal;
-  }
-  .word-wrap#{$sfx} {
-    word-break: break-all;
-  }
-  .word-nowrap#{$sfx} {
-    word-break: keep-all;
-  }
+.word-normal#{$sfx} {
+  word-break: normal;
+}
+
+.word-wrap#{$sfx} {
+  word-break: break-all;
+}
+
+.word-nowrap#{$sfx} {
+  word-break: keep-all;
 }

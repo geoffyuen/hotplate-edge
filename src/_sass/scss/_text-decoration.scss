@@ -13,14 +13,14 @@
 
 */
 
-@include gen {
-  .strike#{$sfx} {
-    text-decoration: line-through;
-  }
-  .underline#{$sfx} {
-    text-decoration: underline;
-  }
-  .no-underline#{$sfx} {
-    text-decoration: none;
-  }
+.strike#{$sfx} {
+  text-decoration: line-through;
+}
+
+.underline#{$sfx} {
+  text-decoration: underline;
+}
+
+.no-underline#{$sfx} {
+  text-decoration: none;
 }

@@ -2,38 +2,37 @@
 // Custom Media Query Variables
 /*
 
-	BORDER STYLES
-	Docs: http://tachyons.io/docs/themes/borders/
+BORDER STYLES
+Docs: http://tachyons.io/docs/themes/borders/
 
-	Depends on base border module in _borders.css
+Depends on base border module in _borders.css
 
-	Base:
-		b = border-style
+Base:
+	b = border-style
 
-	Modifiers:
-		--none   = none
-		--dotted = dotted
-		--dashed = dashed
-		--solid  = solid
+Modifiers:
+	--none   = none
+	--dotted = dotted
+	--dashed = dashed
+	--solid  = solid
 
-	Media Query Extensions:
-		-ns = not-small
-		-m  = medium
-		-l  = large
+Media Query Extensions:
+	-ns = not-small
+	-m  = medium
+	-l  = large
 
- */
+*/
 
-@include gen {
-	.b--dotted#{$sfx} {
-		border-style: dotted;
-	}
-	.b--dashed#{$sfx} {
-		border-style: dashed;
-	}
-	.b--solid#{$sfx} {
-		border-style: solid;
-	}
-	.b--none#{$sfx} {
-		border-style: none;
-	}
+
+.b--dotted#{$sfx} {
+	border-style: dotted;
+}
+.b--dashed#{$sfx} {
+	border-style: dashed;
+}
+.b--solid#{$sfx} {
+	border-style: solid;
+}
+.b--none#{$sfx} {
+	border-style: none;
 }

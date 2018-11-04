@@ -2,20 +2,18 @@
 // Custom Media Query Variables
 /*
 
-  LETTER SPACING
-  Docs: http://tachyons.io/docs/typography/tracking/
+LETTER SPACING
+Docs: http://tachyons.io/docs/typography/tracking/
 
-  Media Query Extensions:
-    -ns = not-small
-    -m  = medium
-    -l  = large
+Media Query Extensions:
+  -ns = not-small
+  -m  = medium
+  -l  = large
 
 */
 
-@include gen {
-  @each $key, $val in cfg(letter_spacing) {
-    .tracked-#{$key}#{$sfx} {
-      letter-spacing: $val;
-    }
+@each $key, $val in cfg(letter_spacing) {
+  .tracked-#{$key}#{$sfx} {
+    letter-spacing: $val;
   }
 }

@@ -2,27 +2,25 @@
 // Custom Media Query Variables
 /*
 
-  POSITIONING
-  Docs: http://tachyons.io/docs/layout/position/
+POSITIONING
+Docs: http://tachyons.io/docs/layout/position/
 
-  Media Query Extensions:
-    -ns = not-small
-    -m  = medium
-    -l  = large
+Media Query Extensions:
+  -ns = not-small
+  -m  = medium
+  -l  = large
 
 */
 
-@include gen {
-  .static#{$sfx} {
-    position: static;
-  }
-  .relative#{$sfx} {
-    position: relative;
-  }
-  .absolute#{$sfx} {
-    position: absolute;
-  }
-  .fixed#{$sfx} {
-    position: fixed;
-  }
+.static#{$sfx} {
+  position: static;
+}
+.relative#{$sfx} {
+  position: relative;
+}
+.absolute#{$sfx} {
+  position: absolute;
+}
+.fixed#{$sfx} {
+  position: fixed;
 }

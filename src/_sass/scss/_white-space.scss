@@ -11,14 +11,14 @@
 
 */
 
-@include gen {
-  .ws-normal#{$sfx} {
-    white-space: normal;
-  }
-  .nowrap#{$sfx} {
-    white-space: nowrap;
-  }
-  .pre#{$sfx} {
-    white-space: pre;
-  }
+.ws-normal#{$sfx} {
+  white-space: normal;
+}
+
+.nowrap#{$sfx} {
+  white-space: nowrap;
+}
+
+.pre#{$sfx} {
+  white-space: pre;
 }

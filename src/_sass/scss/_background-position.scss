@@ -2,44 +2,43 @@
 // Custom Media Query Variables
 /*
 
-    BACKGROUND POSITION
+  BACKGROUND POSITION
 
-    Base:
-    bg = background
+  Base:
+  bg = background
 
-    Modifiers:
-    -center = center center
-    -top = top center
-    -right = center right
-    -bottom = bottom center
-    -left = center left
+  Modifiers:
+  -center = center center
+  -top = top center
+  -right = center right
+  -bottom = bottom center
+  -left = center left
 
-    Media Query Extensions:
-      -ns = not-small
-      -m  = medium
-      -l  = large
+  Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
 
- */
+*/
 
-@include gen {
-  .bg-center#{$sfx} {
-    background-repeat: no-repeat;
-    background-position: center center;
-  }
-  .bg-top#{$sfx} {
-    background-repeat: no-repeat;
-    background-position: top center;
-  }
-  .bg-right#{$sfx} {
-    background-repeat: no-repeat;
-    background-position: center right;
-  }
-  .bg-bottom#{$sfx} {
-    background-repeat: no-repeat;
-    background-position: bottom center;
-  }
-  .bg-left#{$sfx} {
-    background-repeat: no-repeat;
-    background-position: center left;
-  }
+
+.bg-center#{$sfx} {
+  background-repeat: no-repeat;
+  background-position: center center;
+}
+.bg-top#{$sfx} {
+  background-repeat: no-repeat;
+  background-position: top center;
+}
+.bg-right#{$sfx} {
+  background-repeat: no-repeat;
+  background-position: center right;
+}
+.bg-bottom#{$sfx} {
+  background-repeat: no-repeat;
+  background-position: bottom center;
+}
+.bg-left#{$sfx} {
+  background-repeat: no-repeat;
+  background-position: center left;
 }

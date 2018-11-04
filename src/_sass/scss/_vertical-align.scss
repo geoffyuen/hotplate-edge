@@ -11,17 +11,18 @@
 
 */
 
-@include gen {
-  .v-base#{$sfx} {
-    vertical-align: baseline;
-  }
-  .v-mid#{$sfx} {
-    vertical-align: middle;
-  }
-  .v-top#{$sfx} {
-    vertical-align: top;
-  }
-  .v-btm#{$sfx} {
-    vertical-align: bottom;
-  }
+.v-base#{$sfx} {
+  vertical-align: baseline;
+}
+
+.v-mid#{$sfx} {
+  vertical-align: middle;
+}
+
+.v-top#{$sfx} {
+  vertical-align: top;
+}
+
+.v-btm#{$sfx} {
+  vertical-align: bottom;
 }

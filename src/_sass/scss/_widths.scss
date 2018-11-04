@@ -44,78 +44,77 @@
 
 /* Width Scale */
 
-@include gen {
+@each $key,
+$val in cfg(width) {
+  .w#{$key}#{$sfx} {
+    width: $val;
+  }
+}
 
-  @each $key, $val in cfg(width) {
-    .w#{$key}#{$sfx} {
-      width: $val;
-    }
-  }
+.w-10#{$sfx} {
+  width: 10%;
+}
 
-  // .w1#{$sfx} {
-  //   width: $width-1;
-  // }
-  // .w2#{$sfx} {
-  //   width: $width-2;
-  // }
-  // .w3#{$sfx} {
-  //   width: $width-3;
-  // }
-  // .w4#{$sfx} {
-  //   width: $width-4;
-  // }
-  // .w5#{$sfx} {
-  //   width: $width-5;
-  // }
-  .w-10#{$sfx} {
-    width: 10%;
-  }
-  .w-20#{$sfx} {
-    width: 20%;
-  }
-  .w-25#{$sfx} {
-    width: 25%;
-  }
-  .w-30#{$sfx} {
-    width: 30%;
-  }
-  .w-33#{$sfx} {
-    width: 33%;
-  }
-  .w-34#{$sfx} {
-    width: 34%;
-  }
-  .w-40#{$sfx} {
-    width: 40%;
-  }
-  .w-50#{$sfx} {
-    width: 50%;
-  }
-  .w-60#{$sfx} {
-    width: 60%;
-  }
-  .w-70#{$sfx} {
-    width: 70%;
-  }
-  .w-75#{$sfx} {
-    width: 75%;
-  }
-  .w-80#{$sfx} {
-    width: 80%;
-  }
-  .w-90#{$sfx} {
-    width: 90%;
-  }
-  .w-100#{$sfx} {
-    width: 100%;
-  }
-  .w-third#{$sfx} {
-    width: (100% / 3);
-  }
-  .w-two-thirds#{$sfx} {
-    width: (100% / 1.5);
-  }
-  .w-auto#{$sfx} {
-    width: auto;
-  }
+.w-20#{$sfx} {
+  width: 20%;
+}
+
+.w-25#{$sfx} {
+  width: 25%;
+}
+
+.w-30#{$sfx} {
+  width: 30%;
+}
+
+.w-33#{$sfx} {
+  width: 33%;
+}
+
+.w-34#{$sfx} {
+  width: 34%;
+}
+
+.w-40#{$sfx} {
+  width: 40%;
+}
+
+.w-50#{$sfx} {
+  width: 50%;
+}
+
+.w-60#{$sfx} {
+  width: 60%;
+}
+
+.w-70#{$sfx} {
+  width: 70%;
+}
+
+.w-75#{$sfx} {
+  width: 75%;
+}
+
+.w-80#{$sfx} {
+  width: 80%;
+}
+
+.w-90#{$sfx} {
+  width: 90%;
+}
+
+.w-100#{$sfx} {
+  width: 100%;
+}
+
+.w-third#{$sfx} {
+  width: (100% / 3);
+}
+
+.w-two-thirds#{$sfx} {
+  width: (100% / 1.5);
+}
+
+.w-auto#{$sfx} {
+  width: auto;
 }

@@ -20,17 +20,18 @@
 
 */
 
-@include gen {
-  .tl#{$sfx} {
-    text-align: left;
-  }
-  .tr#{$sfx} {
-    text-align: right;
-  }
-  .tc#{$sfx} {
-    text-align: center;
-  }
-  .tj#{$sfx} {
-    text-align: justify;
-  }
+.tl#{$sfx} {
+  text-align: left;
+}
+
+.tr#{$sfx} {
+  text-align: right;
+}
+
+.tc#{$sfx} {
+  text-align: center;
+}
+
+.tj#{$sfx} {
+  text-align: justify;
 }

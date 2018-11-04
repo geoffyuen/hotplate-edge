@@ -2,70 +2,68 @@
 // Custom Media Query Variables
 /*
 
-  DISPLAY
-  Docs: http://tachyons.io/docs/layout/display
+DISPLAY
+Docs: http://tachyons.io/docs/layout/display
 
-  Base:
-  d = display
+Base:
+d = display
 
-  Modifiers:
-  n     = none
-  b     = block
-  ib    = inline-block
-  it    = inline-table
-  t     = table
-  tc    = table-cell
-  tr    = table-row
-  tcol  = table-column
-  tcolg = table-column-group
+Modifiers:
+n     = none
+b     = block
+ib    = inline-block
+it    = inline-table
+t     = table
+tc    = table-cell
+tr    = table-row
+tcol  = table-column
+tcolg = table-column-group
 
-  Media Query Extensions:
-    -ns = not-small
-    -m  = medium
-    -l  = large
+Media Query Extensions:
+  -ns = not-small
+  -m  = medium
+  -l  = large
 
 */
 
-@include gen {
-  .dn#{$sfx} {
-    display: none;
-  }
-  .di#{$sfx} {
-    display: inline;
-  }
-  .db#{$sfx} {
-    display: block;
-  }
-  .dib#{$sfx} {
-    display: inline-block;
-  }
-  .dit#{$sfx} {
-    display: inline-table;
-  }
-  .dt#{$sfx} {
-    display: table;
-  }
-  .dtc#{$sfx} {
-    display: table-cell;
-  }
-  .dt-row#{$sfx} {
-    display: table-row;
-  }
-  .dt-row-group#{$sfx} {
-    display: table-row-group;
-  }
-  .dt-column#{$sfx} {
-    display: table-column;
-  }
-  .dt-column-group#{$sfx} {
-    display: table-column-group;
-  }
-  /*
-  This will set table to full width and then
-  all cells will be equal width
+.dn#{$sfx} {
+  display: none;
+}
+.di#{$sfx} {
+  display: inline;
+}
+.db#{$sfx} {
+  display: block;
+}
+.dib#{$sfx} {
+  display: inline-block;
+}
+.dit#{$sfx} {
+  display: inline-table;
+}
+.dt#{$sfx} {
+  display: table;
+}
+.dtc#{$sfx} {
+  display: table-cell;
+}
+.dt-row#{$sfx} {
+  display: table-row;
+}
+.dt-row-group#{$sfx} {
+  display: table-row-group;
+}
+.dt-column#{$sfx} {
+  display: table-column;
+}
+.dt-column-group#{$sfx} {
+  display: table-column-group;
+}
+/*
+This will set table to full width and then
+all cells will be equal width
 */
-  .dt--fixed#{$sfx} {
-    table-layout: fixed;
-    width: 100%;
-  }
+.dt--fixed#{$sfx} {
+  table-layout: fixed;
+  width: 100%;
 }

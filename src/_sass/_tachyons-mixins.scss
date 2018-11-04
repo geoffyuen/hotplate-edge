@@ -46,17 +46,17 @@
 // 	}
 //   }
 
-$sfx: '';
-@mixin gen($map: cfg(breakpoint)) {
-	$sfx: '' !global;
-	@content;
-	@each $name, $val in $map {
-		$sfx: '-'+$name !global;
-		@media #{$val} {
-			@content;
-		}
-	}
-}
+// $sfx: '';
+// @mixin gen()) {
+// 	$sfx: '' !global;
+// 	@content;
+// 	@each $name, $val in $map {
+// 		$sfx: '-'+$name !global;
+// 		@media #{$val} {
+// 			@content;
+// 		}
+// 	}
+// }
 
 
 @mixin range($color, $rule, $pfx: '') {

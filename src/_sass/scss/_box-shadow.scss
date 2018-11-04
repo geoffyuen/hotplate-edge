@@ -2,20 +2,19 @@
 // Custom Media Query Variables
 /*
 
-  BOX-SHADOW
-  Docs: http://tachyons.io/docs/themes/box-shadow/
+BOX-SHADOW
+Docs: http://tachyons.io/docs/themes/box-shadow/
 
-  Media Query Extensions:
-  -ns = not-small
-  -m  = medium
-  -l  = large
+Media Query Extensions:
+-ns = not-small
+-m  = medium
+-l  = large
 
- */
+*/
 
-@include gen {
-  @each $key, $val in cfg(box_shadow) {
-    .shadow-#{$key}#{$sfx} {
-      box-shadow: $val;
-    }    
+
+@each $key, $val in cfg(box_shadow) {
+  .shadow-#{$key}#{$sfx} {
+    box-shadow: $val;
   }
 }

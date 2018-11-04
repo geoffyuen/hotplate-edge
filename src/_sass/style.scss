@@ -27,7 +27,19 @@
 
 // TRUMPS: utilities and helper classes with ability to override everything above
 'helper',
-'tachyons-mixins',
-'tachyons', // scss folder contains all the tachyons partials
 
-'z-index';
+'scss/variables',
+'tachyons-mixins';
+// 'tachyons', // scss folder contains all the tachyons partials
+
+$sfx: '';
+@import 'tachyons';
+
+@each $name, $val in cfg(breakpoint) {
+    $sfx: '-'+$name !global;
+    @media #{$val} {
+        @import 'tachyons-mediaqueried';
+    }
+}
+
+@import 'z-index';

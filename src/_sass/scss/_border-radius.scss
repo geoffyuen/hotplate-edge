@@ -2,50 +2,48 @@
 // Custom Media Query Variables
 /*
 
-    BORDER RADIUS
-    Docs: http://tachyons.io/docs/themes/border-radius/
+BORDER RADIUS
+Docs: http://tachyons.io/docs/themes/border-radius/
 
-    Base:
-        br   = border-radius
+Base:
+    br   = border-radius
 
-    Modifiers:
-        0    = 0/none
-        1    = 1st step in scale
-        2    = 2nd step in scale
-        3    = 3rd step in scale
-        4    = 4th step in scale
+Modifiers:
+    0    = 0/none
+    1    = 1st step in scale
+    2    = 2nd step in scale
+    3    = 3rd step in scale
+    4    = 4th step in scale
 
-    Literal values:
-        -100 = 100%
-        -pill = 9999px
+Literal values:
+    -100 = 100%
+    -pill = 9999px
 
-    Media Query Extensions:
-        -ns = not-small
-        -m  = medium
-        -l  = large
+Media Query Extensions:
+    -ns = not-small
+    -m  = medium
+    -l  = large
 
 */
 
-@include gen {
-    @each $key, $val in cfg(border_radius) {
-        .br#{$key}#{$sfx} {
-            border-radius: $val;
-        }    
+@each $key, $val in cfg(border_radius) {
+    .br#{$key}#{$sfx} {
+        border-radius: $val;
     }
-    .br--bottom#{$sfx} {
-        border-top-left-radius: 0;
-        border-top-right-radius: 0;
-    }
-    .br--top#{$sfx} {
-        border-bottom-left-radius: 0;
-        border-bottom-right-radius: 0;
-    }
-    .br--right#{$sfx} {
-        border-top-left-radius: 0;
-        border-bottom-left-radius: 0;
-    }
-    .br--left#{$sfx} {
-        border-top-right-radius: 0;
-        border-bottom-right-radius: 0;
-    }
+}
+.br--bottom#{$sfx} {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+.br--top#{$sfx} {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+.br--right#{$sfx} {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.br--left#{$sfx} {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
 }

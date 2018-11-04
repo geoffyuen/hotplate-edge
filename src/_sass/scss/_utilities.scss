@@ -17,15 +17,16 @@
   overflow-y: scroll;
 }
 
-@include gen {
-  .center#{$sfx} {
-    margin-right: auto;
-    margin-left: auto;
-  }
-  .mr-auto#{$sfx} {
-    margin-right: auto;
-  }
-  .ml-auto#{$sfx} {
-    margin-left: auto;
-  }
+
+.center#{$sfx} {
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.mr-auto#{$sfx} {
+  margin-right: auto;
+}
+
+.ml-auto#{$sfx} {
+  margin-left: auto;
 }

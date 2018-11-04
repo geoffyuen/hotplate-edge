@@ -2,23 +2,21 @@
 // Custom Media Query Variables
 /*
 
-  OUTLINES
+OUTLINES
 
-  Media Query Extensions:
-    -ns = not-small
-    -m  = medium
-    -l  = large
+Media Query Extensions:
+  -ns = not-small
+  -m  = medium
+  -l  = large
 
 */
 
-@include gen {
-  .outline#{$sfx} {
-    outline: 1px solid;
-  }
-  .outline-transparent#{$sfx} {
-    outline: 1px solid transparent;
-  }
-  .outline-0#{$sfx} {
-    outline: 0;
-  }
+.outline#{$sfx} {
+  outline: 1px solid;
+}
+.outline-transparent#{$sfx} {
+  outline: 1px solid transparent;
+}
+.outline-0#{$sfx} {
+  outline: 0;
 }

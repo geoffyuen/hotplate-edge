@@ -14,26 +14,28 @@
 
 /* Measure is limited to ~66 characters */
 
-@include gen {
-  @each $key, $val in cfg(measure) {
-    .#{$key}#{$sfx} {
-      max-width: $val;
-    }  
-  }
 
-  /* Book paragraph style - paragraphs are indented with no vertical spacing. */
-  .indent#{$sfx} {
-    text-indent: 1em;
-    margin-top: 0;
-    margin-bottom: 0;
+@each $key,
+$val in cfg(measure) {
+  .#{$key}#{$sfx} {
+    max-width: $val;
   }
-  .small-caps#{$sfx} {
-    font-variant: small-caps;
-  }
-  /* Combine this class with a width to truncate text (or just leave as is to truncate at width of containing element. */
-  .truncate#{$sfx} {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
+}
+
+/* Book paragraph style - paragraphs are indented with no vertical spacing. */
+.indent#{$sfx} {
+  text-indent: 1em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.small-caps#{$sfx} {
+  font-variant: small-caps;
+}
+
+/* Combine this class with a width to truncate text (or just leave as is to truncate at width of containing element. */
+.truncate#{$sfx} {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

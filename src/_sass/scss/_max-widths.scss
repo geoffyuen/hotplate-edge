@@ -2,76 +2,74 @@
 // Custom Media Query Variables
 /*
 
-  MAX WIDTHS
-  Docs: http://tachyons.io/docs/layout/max-widths/
+MAX WIDTHS
+Docs: http://tachyons.io/docs/layout/max-widths/
 
-  Base:
-    mw = max-width
+Base:
+  mw = max-width
 
-  Modifiers
-    1 = 1st step in width scale
-    2 = 2nd step in width scale
-    3 = 3rd step in width scale
-    4 = 4th step in width scale
-    5 = 5th step in width scale
-    6 = 6st step in width scale
-    7 = 7nd step in width scale
-    8 = 8rd step in width scale
-    9 = 9th step in width scale
+Modifiers
+  1 = 1st step in width scale
+  2 = 2nd step in width scale
+  3 = 3rd step in width scale
+  4 = 4th step in width scale
+  5 = 5th step in width scale
+  6 = 6st step in width scale
+  7 = 7nd step in width scale
+  8 = 8rd step in width scale
+  9 = 9th step in width scale
 
-    -100 = literal value 100%
+  -100 = literal value 100%
 
-    -none  = string value none
+  -none  = string value none
 
 
-  Media Query Extensions:
-    -ns = not-small
-    -m  = medium
-    -l  = large
+Media Query Extensions:
+  -ns = not-small
+  -m  = medium
+  -l  = large
 
 */
 
 /* Max Width Percentages */
 
-@include gen {
-  .mw-100#{$sfx} {
-    max-width: 100%;
+.mw-100#{$sfx} {
+  max-width: 100%;
+}
+/* Max Width Scale */
+@each $key, $val in cfg(width) {
+  .mw#{$key}#{$sfx} {
+    max-width: $val;
   }
-  /* Max Width Scale */
-  @each $key, $val in cfg(width) {
-    .mw#{$key}#{$sfx} {
-      max-width: $val;
-    }
-  }
-  // .mw1#{$sfx} {
-  //   max-width: $max-width-1;
-  // }
-  // .mw2#{$sfx} {
-  //   max-width: $max-width-2;
-  // }
-  // .mw3#{$sfx} {
-  //   max-width: $max-width-3;
-  // }
-  // .mw4#{$sfx} {
-  //   max-width: $max-width-4;
-  // }
-  // .mw5#{$sfx} {
-  //   max-width: $max-width-5;
-  // }
-  // .mw6#{$sfx} {
-  //   max-width: $max-width-6;
-  // }
-  // .mw7#{$sfx} {
-  //   max-width: $max-width-7;
-  // }
-  // .mw8#{$sfx} {
-  //   max-width: $max-width-8;
-  // }
-  // .mw9#{$sfx} {
-  //   max-width: $max-width-9;
-  // }
-  /* Max Width String Properties */
-  .mw-none#{$sfx} {
-    max-width: none;
-  }
+}
+// .mw1#{$sfx} {
+//   max-width: $max-width-1;
+// }
+// .mw2#{$sfx} {
+//   max-width: $max-width-2;
+// }
+// .mw3#{$sfx} {
+//   max-width: $max-width-3;
+// }
+// .mw4#{$sfx} {
+//   max-width: $max-width-4;
+// }
+// .mw5#{$sfx} {
+//   max-width: $max-width-5;
+// }
+// .mw6#{$sfx} {
+//   max-width: $max-width-6;
+// }
+// .mw7#{$sfx} {
+//   max-width: $max-width-7;
+// }
+// .mw8#{$sfx} {
+//   max-width: $max-width-8;
+// }
+// .mw9#{$sfx} {
+//   max-width: $max-width-9;
+// }
+/* Max Width String Properties */
+.mw-none#{$sfx} {
+  max-width: none;
 }
