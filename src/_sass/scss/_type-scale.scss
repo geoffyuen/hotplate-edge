@@ -41,9 +41,9 @@
   /* Type Scale */
   @for $index from 1 through length( cfg(font_sizes) ) {
     $value: nth( cfg(font_sizes), $index );
-    .f#{$index} {
+    .f#{$index}#{$sfx} {
       font-size: $value;
-    }  
+    }
   }
 //   .f1#{$sfx} {
 //     font-size: $font-size-1;
